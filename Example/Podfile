@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JPSuspensionEntrance_Example' do
+  pod 'JPSuspensionEntrance', :path => '../'
+
+  target 'JPSuspensionEntrance_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
