@@ -26,17 +26,17 @@
         3.更多的控制器整合的浮窗；
         4.更多的参数设定；
       
-![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/221529073066_.pic_hd.jpeg)
-![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/231529073069_.pic_hd.jpeg)
+![滑动选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/221529073066_.pic.jpeg)
+![删除选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/231529073069_.pic.jpeg)
 
 ### 无导航栏的情况
-![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174626-HD.gif)
+![无导航栏的情况](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174626-HD.gif)
 
 ### 有导航栏的情况
-![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174820-HD.gif)
+![有导航栏的情况](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174820-HD.gif)
 
 ### 已有浮窗的进入与返回
-![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-175232-HD.gif)
+![已有浮窗的进入与返回](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-175232-HD.gif)
 
 ## 如何使用
 
