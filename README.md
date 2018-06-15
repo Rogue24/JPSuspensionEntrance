@@ -7,7 +7,7 @@
 
 ## 简介
 
-高仿微信悬浮窗口的小框架
+高仿微信悬浮小窗口的小框架
 
     目前功能：
         1.滑动返回时可选择该控制器是否缩小成浮窗；
@@ -35,7 +35,7 @@
 ### 有导航栏的情况
 ![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174820-HD.gif)
 
-### 已有窗口的进入与返回
+### 已有浮窗的进入与返回
 ![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-175232-HD.gif)
 
 ## 如何使用
@@ -61,19 +61,26 @@ JPSEInstance.navCtr = self.navigationController;
 #pragma mark - JPSuspensionEntranceProtocol 代理方法
 
 // 1.是否隐藏导航栏（必须实现）
-- (BOOL)jp_isHideNavigationBar {
-    return self.isHideNavBar;
-}
+- (BOOL)jp_isHideNavigationBar;
 
 // 2.缓存信息（可选）
-- (NSString *)jp_suspensionCacheMsg {
-    return self.title;
-}
+- (NSString *)jp_suspensionCacheMsg;
 
 // 3.浮窗logo图标（可选）
-- (UIImage *)jp_suspensionLogoImage {
-    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.title ofType:@"jpg"]];
-}
+- (UIImage *)jp_suspensionLogoImage;
+```
+
+#### 打开、创建浮窗
+```
+/**
+* 打开当前浮窗
+*/
+- (void)pushViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
+
+/**
+* 合上并创建\替换浮窗
+*/
+- (void)popViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 ```
 
 #### 配置缓存方案
@@ -81,40 +88,44 @@ JPSEInstance.navCtr = self.navigationController;
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
 
-    // 1.自定义缓存方案
+    // 自定义缓存方案
     // 当需要缓存时则实现这两个block，会在适当的时机进行回调，缓存可自行另处清除
 
-    // 1.1 缓存关键信息（例如URL）
+    // 1.关键信息的缓存（例如URL），当浮窗被新建、替换时会调用
     JPSEInstance.cacheMsgBlock = ^(NSString *cacheMsg) {
-        // 这里就简单使用NSUserDefaults进行处理
-        [[NSUserDefaults standardUserDefaults] setObject:cacheMsg forKey:JPSuspensionCacheMsgKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        // 缓存操作，可参考Demo
     };
 
-    // 1.2 缓存浮窗最新的位置
+    // 2.浮窗最新的位置的缓存，当浮窗位置发生改变时会调用
     JPSEInstance.cacheSuspensionFrameBlock = ^(CGRect suspensionFrame) {
-        // 缓存x、y值即可，宽高使用默认值
-        [[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.x forKey:JPSuspensionDefaultXKey];
-        [[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.y forKey:JPSuspensionDefaultYKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        // 缓存操作，可参考Demo
     };
 
-    // 2.初始化缓存的窗口（有缓存的情况下才创建）
+});
+```
+
+#### 初始化配置缓存浮窗
+```
+static dispatch_once_t onceToken;
+dispatch_once(&onceToken, ^{
+    // 初始化缓存浮窗
+    // 获取缓存信息，有缓存关键信息的情况下才创建
     NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
     if (cachaMsg) {
-        // 创建并配置窗口的控制器
+        // 1.创建浮窗的控制器
         ViewController *vc = [[ViewController alloc] init];
         vc.title = cachaMsg;
         vc.isHideNavBar = YES;
-
+        
+        // 2.获取缓存的浮窗位置或使用默认值
         CGFloat wh = [JPSuspensionEntrance sharedInstance].suspensionViewWH;
+        // Demo中使用了NSUserDefaults缓存x、y值
         CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
         CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
 
-        // 创建窗口
+        // 创建浮窗
         [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionFrame:CGRectMake(x, y, wh, wh)];
     }
-
 });
 ```
 

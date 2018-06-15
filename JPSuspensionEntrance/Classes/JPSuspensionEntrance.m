@@ -347,15 +347,15 @@ static JPSuspensionEntrance *_sharedInstance;
         if (!self.popInteraction.interaction) {
             // 不是通过手势滑动
             if (self.popNewSuspensionView) {
-                // 1.创建新的悬浮窗口
+                // 1.创建新的浮窗
                 self.suspensionTransition = [JPSuspensionTransition shrinkTransitionWithSuspensionView:self.popNewSuspensionView];
             } else if (self.suspensionView && self.suspensionView.targetVC == fromVC) {
-                // 2.闭合已经打开的悬浮窗口
+                // 2.闭合已经打开的浮窗
                 self.suspensionTransition = [JPSuspensionTransition shrinkTransitionWithSuspensionView:self.suspensionView];
             }
             // 3.都不是以上两种情况，返回nil
         } else {
-            // 判断之前是否从悬浮的窗口进入的控制器
+            // 判断之前是否从浮窗进入的控制器
             self.isFromSpreadSuspensionView = fromVC == self.suspensionView.targetVC;
             self.suspensionTransition = [JPSuspensionTransition basicPopTransitionWithIsInteraction:self.popInteraction.interaction];
         }

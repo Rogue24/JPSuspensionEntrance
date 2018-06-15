@@ -129,9 +129,9 @@
             [suspensionView removeFromSuperview];
             [transitionContext completeTransition:NO];
         } else {
-            // 浮窗的缩小动画跟这里的动画有所不同
+            // 1.浮窗的缩小动画跟这里的动画有所不同
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                // 因此进行延迟处理 判断是否添加到窗口上 不是就移除
+                // 2.因此进行延迟处理 判断是否添加到窗口上 不是就移除
                 if (suspensionView != JPSEInstance.suspensionView) [suspensionView removeFromSuperview];
             });
             [transitionContext completeTransition:YES];

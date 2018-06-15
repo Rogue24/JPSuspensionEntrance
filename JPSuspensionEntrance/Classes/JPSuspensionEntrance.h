@@ -36,11 +36,11 @@
 - (void)pushViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
 /**
- * 合上、创建、替换浮窗
+ * 合上并创建\替换浮窗
  */
 - (void)popViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
-/** 主窗口（可自定义 默认为[UIApplication sharedApplication].keyWindow） */
+/** 主窗口，浮窗的载体（可自定义 默认为[UIApplication sharedApplication].keyWindow） */
 @property (nonatomic, strong) UIWindow *window;
 
 /** 绑定的NavigationController 成为其及interactivePopGestureRecognizer的代理 */
@@ -58,7 +58,7 @@
 @property (nonatomic, assign, readonly) CGFloat suspensionLogoMargin;
 /** 浮窗在窗口的内边距 */
 @property (nonatomic, assign, readonly) UIEdgeInsets suspensionScreenEdgeInsets;
-/** 浮窗位置 */
+/** 浮窗位置（默认在窗口的左上方，当前浮窗位置发生改变时该值也会随之改变并回调缓存位置的block） */
 @property (nonatomic, assign, readonly) CGRect suspensionFrame;
 
 /** 是否创建浮窗的图标（可自定义 path路径） */
