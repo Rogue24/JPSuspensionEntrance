@@ -23,6 +23,9 @@
 @end
 
 @implementation JPSuspensionEntrance
+{
+    CGFloat _suspensionScreenEdgeBottomInset;
+}
 
 #pragma mark - const
 
@@ -72,6 +75,7 @@ static JPSuspensionEntrance *_sharedInstance;
     _suspensionViewWH = 64.0 * scale;
     _suspensionLogoMargin = 8.0 * scale;
     _suspensionScreenEdgeInsets = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height, 15.0, isIphoneX ? 34.0 : 0, 15.0);
+    _suspensionScreenEdgeBottomInset = _suspensionScreenEdgeInsets.bottom;
     
     CGFloat x;
     CGFloat y;
@@ -156,9 +160,8 @@ static JPSuspensionEntrance *_sharedInstance;
 
 - (void)setupNotificationCenter {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientation) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
-
-
 
 #pragma mark - getter
 
@@ -204,6 +207,8 @@ static JPSuspensionEntrance *_sharedInstance;
         self.popNewSuspensionView = nil;
     }
     
+    _suspensionView.tapGR.delegate = nil;
+    _suspensionView.panGR.delegate = nil;
     _suspensionView.panBegan = nil;
     _suspensionView.panChanged = nil;
     _suspensionView.panEnded = nil;
@@ -217,6 +222,9 @@ static JPSuspensionEntrance *_sharedInstance;
         CGRect frame = [suspensionView convertRect:suspensionView.bounds toView:self.window];
         suspensionView.frame = frame;
         [self.window addSubview:suspensionView];
+        
+        suspensionView.tapGR.delegate = self;
+        suspensionView.panGR.delegate = self;
         
         __weak typeof(self) weakSelf = self;
         
@@ -267,6 +275,14 @@ static JPSuspensionEntrance *_sharedInstance;
 #pragma mark - notification method
 
 - (void)didChangeStatusBarOrientation {
+    [self fixSuspensionFrame];
+    [self.suspensionView updateSuspensionFrame:self.suspensionFrame animated:YES];
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    NSDictionary *userInfo = notification.userInfo;
+    CGFloat keyboardY = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
+    _suspensionScreenEdgeInsets.bottom = _suspensionScreenEdgeBottomInset + ([UIScreen mainScreen].bounds.size.height - keyboardY);
     [self fixSuspensionFrame];
     [self.suspensionView updateSuspensionFrame:self.suspensionFrame animated:YES];
 }
@@ -359,13 +375,25 @@ static JPSuspensionEntrance *_sharedInstance;
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    if (self.navCtr.viewControllers.count <= 1) {
-        return NO;
+    if (gestureRecognizer == self.navCtr.interactivePopGestureRecognizer ||
+        gestureRecognizer == self.popInteraction.edgeLeftPanGR) {
+        if (self.navCtr.viewControllers.count <= 1) {
+            return NO;
+        }
+        BOOL conformsToProtocol = [self.navCtr.viewControllers.lastObject conformsToProtocol:@protocol(JPSuspensionEntranceProtocol)];
+        if (gestureRecognizer == self.navCtr.interactivePopGestureRecognizer && conformsToProtocol) {
+            return NO;
+        }
+        if (gestureRecognizer == self.popInteraction.edgeLeftPanGR) {
+            if (!conformsToProtocol || (self.suspensionView.panGR.state == UIGestureRecognizerStateBegan || self.suspensionView.panGR.state == UIGestureRecognizerStateChanged) ) {
+                return NO;
+            }
+        }
     }
-    BOOL conformsToProtocol = [self.navCtr.viewControllers.lastObject conformsToProtocol:@protocol(JPSuspensionEntranceProtocol)];
-    if ((gestureRecognizer == self.navCtr.interactivePopGestureRecognizer && conformsToProtocol) ||
-        (gestureRecognizer == self.popInteraction.edgeLeftPanGR && !conformsToProtocol)) {
-        return NO;
+    if (gestureRecognizer == self.suspensionView.panGR) {
+        if (self.popInteraction.edgeLeftPanGR.state == UIGestureRecognizerStateBegan || self.popInteraction.edgeLeftPanGR.state == UIGestureRecognizerStateChanged) {
+            return NO;
+        }
     }
     return YES;
 }

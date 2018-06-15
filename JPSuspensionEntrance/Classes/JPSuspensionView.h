@@ -29,6 +29,9 @@ typedef BOOL (^JPSuspensionViewPanEnded)(JPSuspensionView *targetSuspensionView,
 /** 保存的控制器 */
 @property (nonatomic, strong) UIViewController<JPSuspensionEntranceProtocol> *targetVC;
 
+@property (nonatomic, weak) UITapGestureRecognizer *tapGR;
+@property (nonatomic, weak) UIPanGestureRecognizer *panGR;
+
 /** 浮窗状态下的手势回调 */
 @property (nonatomic, copy) JPSuspensionViewPanBegan panBegan;
 @property (nonatomic, copy) JPSuspensionViewPanChanged panChanged;

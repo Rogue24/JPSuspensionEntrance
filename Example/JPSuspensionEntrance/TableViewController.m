@@ -84,7 +84,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
             vc.title = cachaMsg;
             vc.isHideNavBar = YES;
             
-            CGFloat wh = [JPSuspensionEntrance sharedInstance].suspensionViewWH;
+            CGFloat wh = JPSEInstance.suspensionViewWH;
             CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
             CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
             

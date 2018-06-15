@@ -94,10 +94,10 @@
 
 - (void)suspension {
     if (self.rightBtnTitle) {
-        [JPSuspensionEntrance sharedInstance].suspensionView = nil;
+        JPSEInstance.suspensionView = nil;
         self.rightBtnTitle = nil;
     } else {
-        [[JPSuspensionEntrance sharedInstance] popViewController:self];
+        [JPSEInstance popViewController:self];
     }
 }
 

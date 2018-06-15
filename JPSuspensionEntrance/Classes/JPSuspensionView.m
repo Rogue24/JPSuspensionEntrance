@@ -47,8 +47,13 @@
         self.targetVC = targetVC;
         self.userInteractionEnabled = isSuspensionState;
         
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushTargetVC)]];
-        [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandle:)]];
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushTargetVC)];
+        [self addGestureRecognizer:tapGR];
+        self.tapGR = tapGR;
+        
+        UIPanGestureRecognizer *panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandle:)];
+        [self addGestureRecognizer:panGR];
+        self.panGR = panGR;
         
         self.frame = isSuspensionState ? JPSEInstance.suspensionFrame : targetVC.view.bounds;
         
@@ -166,7 +171,7 @@
 #pragma mark - 手势控制
 
 - (void)pushTargetVC {
-    [[JPSuspensionEntrance sharedInstance] pushViewController:self.targetVC];
+    [JPSEInstance pushViewController:self.targetVC];
 }
 
 - (void)panHandle:(UIPanGestureRecognizer *)panGR {

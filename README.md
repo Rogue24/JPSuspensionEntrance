@@ -33,7 +33,7 @@
 ### 有导航栏的情况
 ![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174820-HD.gif)
 
-### 已有窗口时的进入与返回
+### 已有窗口的进入与返回
 ![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-175232-HD.gif)
 
 ## 如何使用
