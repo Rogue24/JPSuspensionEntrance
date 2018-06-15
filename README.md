@@ -48,7 +48,7 @@
 // 也可以使用单例宏获取
 // JPSEInstance
 ```
-#### 绑定navigationController
+#### 绑定 NavigationController
 ```
 // 绑定了则其delegate及interactivePopGestureRecognizer.delegate都为JPSuspensionEntrance代理
 // 切换navigationController需要重新绑定最新的navigationController
@@ -56,9 +56,8 @@ JPSEInstance.navCtr = self.navigationController;
 ```
 #### 配置可成为浮窗的控制器
 ```
-// 控制器需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
-
-#pragma mark - JPSuspensionEntranceProtocol 代理方法
+// push的控制器 需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
+// SuspensionEntranceProtocol的代理方法：
 
 // 1.是否隐藏导航栏（必须实现）
 - (BOOL)jp_isHideNavigationBar;
