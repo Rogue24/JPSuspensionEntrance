@@ -99,7 +99,7 @@ dispatch_once(&onceToken, ^{
         [[NSUserDefaults standardUserDefaults] synchronize];
     };
 
-    // 2.创建缓存的窗口（有缓存的情况下才创建）
+    // 2.初始化缓存的窗口（有缓存的情况下才创建）
     NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
     if (cachaMsg) {
         // 创建并配置窗口的控制器
@@ -116,7 +116,6 @@ dispatch_once(&onceToken, ^{
     }
 
 });
-
 ```
 
 ## 安装
