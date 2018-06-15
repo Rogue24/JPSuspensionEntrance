@@ -90,10 +90,10 @@ static JPSuspensionEntrance *_sharedInstance;
     y = _suspensionScreenEdgeInsets.top;
     _suspensionFrame = CGRectMake(x, y, self.suspensionViewWH, self.suspensionViewWH);
     
-    NSInteger imageScale = (NSInteger)[UIScreen mainScreen].scale;
+    CGFloat imageScale = [UIScreen mainScreen].scale;
     if (imageScale < 2) imageScale = 2;
     if (imageScale > 3) imageScale = 3;
-    NSString *imageScaleStr = [NSString stringWithFormat:@"%zd", imageScale];
+    NSString *imageScaleStr = [NSString stringWithFormat:@"%.0lf", imageScale];
     
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(self.class)];
