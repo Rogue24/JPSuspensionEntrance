@@ -27,6 +27,7 @@
         4.更多的参数设定；
       
 ![滑动选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/221529073066_.pic.jpeg)
+
 ![删除选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/231529073069_.pic.jpeg)
 
 ### 无导航栏的情况
