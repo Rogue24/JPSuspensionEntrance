@@ -25,7 +25,9 @@
         2.适配自定义的转场动画
         3.更多的控制器整合的浮窗；
         4.更多的参数设定；
-        
+      
+![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/221529073066_.pic_hd.jpeg)
+![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/231529073069_.pic_hd.jpeg)
 
 ### 无导航栏的情况
 ![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174626-HD.gif)
