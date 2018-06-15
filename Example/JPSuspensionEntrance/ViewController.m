@@ -103,12 +103,12 @@
 
 #pragma mark - JPSuspensionEntranceProtocol
 
-- (NSString *)jp_suspensionCacheMsg {
-    return self.title;
-}
-
 - (BOOL)jp_isHideNavigationBar {
     return self.isHideNavBar;
+}
+
+- (NSString *)jp_suspensionCacheMsg {
+    return self.title;
 }
 
 - (UIImage *)jp_suspensionLogoImage {
