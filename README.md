@@ -9,22 +9,22 @@
 
 高仿微信悬浮窗口的小框架
 
-目前功能：
-1.滑动返回时可选择该控制器是否缩小成浮窗；
-2.浮窗可自由拖动，拖动结束后可自动贴边；
-3.一键创建、替换、取消浮窗；
-4.自适应横竖屏；
-5.自定义缓存（控制器信息、默认位置）方案；
-6.可作用于有导航栏的情况
+    目前功能：
+        1.滑动返回时可选择该控制器是否缩小成浮窗；
+        2.浮窗可自由拖动，拖动结束后可自动贴边；
+        3.一键创建、替换、取消浮窗；
+        4.自适应横竖屏；
+        5.自定义缓存（控制器信息、默认位置）方案；
+        6.可作用于有导航栏的情况
 
-注意：
-1.目前仅作用于NavigationController
+    注意：
+        1.目前仅作用于NavigationController
 
-之后的更新内容：
-1.Swift版本；
-2.适配自定义的转场动画
-3.更多的控制器整合的浮窗；
-4.更多的参数设定；
+    之后的更新内容：
+        1.Swift版本；
+        2.适配自定义的转场动画
+        3.更多的控制器整合的浮窗；
+        4.更多的参数设定；
 
 ## 如何使用
 
@@ -50,17 +50,17 @@ JPSEInstance.navCtr = self.navigationController;
 
 // 1.是否隐藏导航栏（必须实现）
 - (BOOL)jp_isHideNavigationBar {
-return self.isHideNavBar;
+    return self.isHideNavBar;
 }
 
 // 2.缓存信息（可选）
 - (NSString *)jp_suspensionCacheMsg {
-return self.title;
+    return self.title;
 }
 
 // 3.浮窗logo图标（可选）
 - (UIImage *)jp_suspensionLogoImage {
-return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.title ofType:@"jpg"]];
+    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.title ofType:@"jpg"]];
 }
 ```
 
@@ -69,39 +69,39 @@ return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:s
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
 
-// 1.自定义缓存方案
-// 当需要缓存时则实现这两个block，会在适当的时机进行回调，缓存可自行另处清除
+    // 1.自定义缓存方案
+    // 当需要缓存时则实现这两个block，会在适当的时机进行回调，缓存可自行另处清除
 
-// 1.1 缓存关键信息（例如URL）
-JPSEInstance.cacheMsgBlock = ^(NSString *cacheMsg) {
-// 这里就简单使用NSUserDefaults进行处理
-[[NSUserDefaults standardUserDefaults] setObject:cacheMsg forKey:JPSuspensionCacheMsgKey];
-[[NSUserDefaults standardUserDefaults] synchronize];
-};
+    // 1.1 缓存关键信息（例如URL）
+    JPSEInstance.cacheMsgBlock = ^(NSString *cacheMsg) {
+        // 这里就简单使用NSUserDefaults进行处理
+        [[NSUserDefaults standardUserDefaults] setObject:cacheMsg forKey:JPSuspensionCacheMsgKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    };
 
-// 1.2 缓存浮窗最新的位置
-JPSEInstance.cacheSuspensionFrameBlock = ^(CGRect suspensionFrame) {
-// 缓存x、y值即可，宽高使用默认值
-[[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.x forKey:JPSuspensionDefaultXKey];
-[[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.y forKey:JPSuspensionDefaultYKey];
-[[NSUserDefaults standardUserDefaults] synchronize];
-};
+    // 1.2 缓存浮窗最新的位置
+    JPSEInstance.cacheSuspensionFrameBlock = ^(CGRect suspensionFrame) {
+        // 缓存x、y值即可，宽高使用默认值
+        [[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.x forKey:JPSuspensionDefaultXKey];
+        [[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.y forKey:JPSuspensionDefaultYKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    };
 
-// 2.创建缓存的窗口（有缓存的情况下才创建）
-NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
-if (cachaMsg) {
-// 创建并配置窗口的控制器
-ViewController *vc = [[ViewController alloc] init];
-vc.title = cachaMsg;
-vc.isHideNavBar = YES;
+    // 2.创建缓存的窗口（有缓存的情况下才创建）
+    NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
+    if (cachaMsg) {
+        // 创建并配置窗口的控制器
+        ViewController *vc = [[ViewController alloc] init];
+        vc.title = cachaMsg;
+        vc.isHideNavBar = YES;
 
-CGFloat wh = [JPSuspensionEntrance sharedInstance].suspensionViewWH;
-CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
-CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
+        CGFloat wh = [JPSuspensionEntrance sharedInstance].suspensionViewWH;
+        CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
+        CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
 
-// 创建窗口
-[JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionFrame:CGRectMake(x, y, wh, wh)];
-}
+        // 创建窗口
+        [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionFrame:CGRectMake(x, y, wh, wh)];
+    }
 
 });
 
