@@ -1,0 +1,6 @@
+framework module Pods_JPSuspensionEntrance_Tests {
+  umbrella header "Pods-JPSuspensionEntrance_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,886 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09F9A61EBC8079A0CF21738B3A324FB9 /* JPPopInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 66C0E88B41097A2254E79C527A83B423 /* JPPopInteraction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1126A774E85B7217C892E5441704BBA6 /* JPSuspensionTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F94E4096C49AA4BB9916D6A6C1430722 /* JPSuspensionTransition.m */; };
+		32C26F2237A88A026BF31951482875D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		3359DA3BAAEE04C66A6999C3C9C444B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		336741FDC22004D30B89114AD6B209E6 /* JPSuspensionDecideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4590B74FB8F209BC631B0EB5D2751191 /* JPSuspensionDecideView.m */; };
+		35C210F99DE846B946162781837EC277 /* JPSuspensionEntrance.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51730E969B07F51AF0C135F5A4DBAB21 /* JPSuspensionEntrance.bundle */; };
+		4F8421220084625FA41BEA0833DA3FA0 /* circle_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577718BF46B97A8E59A8A0A8AFE77190 /* circle_delete@3x.png */; };
+		5440B787FEA8B727036B5F2EEB5132AE /* JPPopInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA37B822350D1F0D8567F107E9187E0 /* JPPopInteraction.m */; };
+		56C96351DBDF76E2997D33940EF43AD1 /* Pods-JPSuspensionEntrance_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C30F69F8F9D20508ED2B1B172E5BBC18 /* Pods-JPSuspensionEntrance_Tests-dummy.m */; };
+		58B8DFBDD073DA2AC4AFFF2B10758329 /* circle_little@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09229C2D4DECE3EE96A32160681EF868 /* circle_little@3x.png */; };
+		66F6B3FB1E96FC1F126220EC5D0B80CA /* circle_big@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFA99F116B0587D4E4966418808ED3F3 /* circle_big@3x.png */; };
+		6786FA14DD338A1812431CBCBC940C4B /* circle_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E0828CE60479F54023C655F3473CE1 /* circle_big@2x.png */; };
+		7DA20C09801F1CC11B3DBA37AE4B5C96 /* JPSuspensionView.h in Headers */ = {isa = PBXBuildFile; fileRef = F79CEA055C2D8F3C1D63C369BB9CB967 /* JPSuspensionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C3984DDF550C6668E76937A10474A /* Pods-JPSuspensionEntrance_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB543815E516F9FF316767B532ED6B6 /* Pods-JPSuspensionEntrance_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		875341DE80B9874FBF7C979D5F00436E /* Pods-JPSuspensionEntrance_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F5840B24EAD4AAB91085F90425DF1D /* Pods-JPSuspensionEntrance_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		881352B8B4DCF8F29943D913046DE734 /* JPSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8550C8D1D463BBC27187087139815DAD /* JPSuspensionView.m */; };
+		8A4C19CD7F4DCB2E89BF0DE2413660F0 /* JPSuspensionEntrance-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AB22D306C1D6C8E2CEC25485F87237 /* JPSuspensionEntrance-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92532D807F9D0049CF33AE31E6E62DC0 /* circle_little@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6278B8AD0F44FDD5DAA6EB91307B3FD /* circle_little@2x.png */; };
+		9852E843C5FDA236E0D5882FEA7C086B /* JPSuspensionTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = BC1C17B90294FC9674AD31C814A1BDCD /* JPSuspensionTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98EF1F6F91709B1FAD1DD1C5BB483F05 /* JPSuspensionEntrance.h in Headers */ = {isa = PBXBuildFile; fileRef = C4476A0E7EA4B79A6EEE7EEAD8D1DB7D /* JPSuspensionEntrance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C997DA610F0C98FC4147E29AD78E0485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D46E44206B18CE053A8F87107BA3A798 /* Pods-JPSuspensionEntrance_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E73D748CF8C66F865E86BD55C83F926A /* Pods-JPSuspensionEntrance_Example-dummy.m */; };
+		E08D739166870E566846E296FB40BFE1 /* JPSuspensionEntrance.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2D92929CA6C2C36FD294FFAEF3424 /* JPSuspensionEntrance.m */; };
+		E25CB1055EE695BD9B96BCF902FEA36D /* JPSuspensionEntrance-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF74F1CEF1F97DC3112711001F1D956 /* JPSuspensionEntrance-dummy.m */; };
+		E4C6293E09F392FD915CC4AEAA115405 /* JPSuspensionDecideView.h in Headers */ = {isa = PBXBuildFile; fileRef = E834A7351F29EF14C939FD37110EADFF /* JPSuspensionDecideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6D79FCBFFCA8E55F8F7953EC101EEC5 /* circle_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FCDD35D4E62AF446797F1ECB5A126E /* circle_delete@2x.png */; };
+		FCC6F07AF049ABC7D9DC606E94B41586 /* JPSuspensionEntranceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 21FBA27A6F8A448CD5157691404A5526 /* JPSuspensionEntranceProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5ADF7B62FB8E0603237BB8D0D4531E48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B597D8E4BBB51381066B093CD79DFF88;
+			remoteInfo = "JPSuspensionEntrance-JPSuspensionEntrance";
+		};
+		DEE3B37E7A857AB290060FA4B797827C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FD4406453B0333F4D3B04F132A7D6FD;
+			remoteInfo = JPSuspensionEntrance;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09229C2D4DECE3EE96A32160681EF868 /* circle_little@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "circle_little@3x.png"; path = "JPSuspensionEntrance/Assets/circle_little@3x.png"; sourceTree = "<group>"; };
+		0E651333D874174B78DDDEC0C61F1A3C /* Pods-JPSuspensionEntrance_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JPSuspensionEntrance_Example.release.xcconfig"; sourceTree = "<group>"; };
+		1C83518C9C82D2263C7105F7379B2B99 /* Pods-JPSuspensionEntrance_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JPSuspensionEntrance_Example-resources.sh"; sourceTree = "<group>"; };
+		21FBA27A6F8A448CD5157691404A5526 /* JPSuspensionEntranceProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JPSuspensionEntranceProtocol.h; path = JPSuspensionEntrance/Classes/JPSuspensionEntranceProtocol.h; sourceTree = "<group>"; };
+		22A2D92929CA6C2C36FD294FFAEF3424 /* JPSuspensionEntrance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionEntrance.m; path = JPSuspensionEntrance/Classes/JPSuspensionEntrance.m; sourceTree = "<group>"; };
+		22C9B760C99AEA1BB5D082BA6900CB84 /* JPSuspensionEntrance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JPSuspensionEntrance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B8B2B60779BA5A126437A9833AEC812 /* Pods_JPSuspensionEntrance_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JPSuspensionEntrance_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		355D0CFCE38EA8D33ADB7591AC458176 /* Pods-JPSuspensionEntrance_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JPSuspensionEntrance_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		37BACF1856E142E0B8BE728AA6C86F6B /* Pods_JPSuspensionEntrance_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JPSuspensionEntrance_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4590B74FB8F209BC631B0EB5D2751191 /* JPSuspensionDecideView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionDecideView.m; path = JPSuspensionEntrance/Classes/JPSuspensionDecideView.m; sourceTree = "<group>"; };
+		4D5C1A5190C292EFF9FE88F31F6FA0B3 /* Pods-JPSuspensionEntrance_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JPSuspensionEntrance_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		51730E969B07F51AF0C135F5A4DBAB21 /* JPSuspensionEntrance.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPSuspensionEntrance.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		560DBDB8E950ACC20057E52FDD27DA20 /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JPSuspensionEntrance_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		577718BF46B97A8E59A8A0A8AFE77190 /* circle_delete@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "circle_delete@3x.png"; path = "JPSuspensionEntrance/Assets/circle_delete@3x.png"; sourceTree = "<group>"; };
+		59E0828CE60479F54023C655F3473CE1 /* circle_big@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "circle_big@2x.png"; path = "JPSuspensionEntrance/Assets/circle_big@2x.png"; sourceTree = "<group>"; };
+		5BF74F1CEF1F97DC3112711001F1D956 /* JPSuspensionEntrance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JPSuspensionEntrance-dummy.m"; sourceTree = "<group>"; };
+		5EA37B822350D1F0D8567F107E9187E0 /* JPPopInteraction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JPPopInteraction.m; path = JPSuspensionEntrance/Classes/JPPopInteraction.m; sourceTree = "<group>"; };
+		60F75CB182F5651B1E00B11BAE3CE04F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		66C0E88B41097A2254E79C527A83B423 /* JPPopInteraction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JPPopInteraction.h; path = JPSuspensionEntrance/Classes/JPPopInteraction.h; sourceTree = "<group>"; };
+		69F55A411CC55AE7C98C75A3225C5564 /* Pods-JPSuspensionEntrance_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JPSuspensionEntrance_Example-frameworks.sh"; sourceTree = "<group>"; };
+		6E393568A772E464F90DECDCF5EFE2A2 /* Pods-JPSuspensionEntrance_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JPSuspensionEntrance_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		6EEEC8006867FB7A0790A05F89327B2E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		811CDF73C40BBEC023275BBF001D863A /* JPSuspensionEntrance.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JPSuspensionEntrance.xcconfig; sourceTree = "<group>"; };
+		8550C8D1D463BBC27187087139815DAD /* JPSuspensionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionView.m; path = JPSuspensionEntrance/Classes/JPSuspensionView.m; sourceTree = "<group>"; };
+		8B9EADE862C5E3B6834D20AE4467649F /* JPSuspensionEntrance-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JPSuspensionEntrance-prefix.pch"; sourceTree = "<group>"; };
+		8FB543815E516F9FF316767B532ED6B6 /* Pods-JPSuspensionEntrance_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JPSuspensionEntrance_Tests-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97FCDD35D4E62AF446797F1ECB5A126E /* circle_delete@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "circle_delete@2x.png"; path = "JPSuspensionEntrance/Assets/circle_delete@2x.png"; sourceTree = "<group>"; };
+		993B7D4CA85D525944AD3A9A7D79EF62 /* Pods-JPSuspensionEntrance_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JPSuspensionEntrance_Tests-resources.sh"; sourceTree = "<group>"; };
+		9D09914638D2DFCBE44FD297D1B05E1B /* Pods-JPSuspensionEntrance_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JPSuspensionEntrance_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A8D5F9000BAEF4995C04AAF5F7956681 /* JPSuspensionEntrance.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JPSuspensionEntrance.modulemap; sourceTree = "<group>"; };
+		AFA99F116B0587D4E4966418808ED3F3 /* circle_big@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "circle_big@3x.png"; path = "JPSuspensionEntrance/Assets/circle_big@3x.png"; sourceTree = "<group>"; };
+		B4AB22D306C1D6C8E2CEC25485F87237 /* JPSuspensionEntrance-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JPSuspensionEntrance-umbrella.h"; sourceTree = "<group>"; };
+		B6278B8AD0F44FDD5DAA6EB91307B3FD /* circle_little@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "circle_little@2x.png"; path = "JPSuspensionEntrance/Assets/circle_little@2x.png"; sourceTree = "<group>"; };
+		B699F1677C0E75157A81AE0E4E59BB9C /* Pods-JPSuspensionEntrance_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JPSuspensionEntrance_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		B8F5840B24EAD4AAB91085F90425DF1D /* Pods-JPSuspensionEntrance_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JPSuspensionEntrance_Example-umbrella.h"; sourceTree = "<group>"; };
+		BB763402E9133799E98F220C00CE3B5D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC1C17B90294FC9674AD31C814A1BDCD /* JPSuspensionTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JPSuspensionTransition.h; path = JPSuspensionEntrance/Classes/JPSuspensionTransition.h; sourceTree = "<group>"; };
+		BF2F8FE6B4EC55CFA82E58232FFA51B6 /* Pods-JPSuspensionEntrance_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JPSuspensionEntrance_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C30F69F8F9D20508ED2B1B172E5BBC18 /* Pods-JPSuspensionEntrance_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JPSuspensionEntrance_Tests-dummy.m"; sourceTree = "<group>"; };
+		C4476A0E7EA4B79A6EEE7EEAD8D1DB7D /* JPSuspensionEntrance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JPSuspensionEntrance.h; path = JPSuspensionEntrance/Classes/JPSuspensionEntrance.h; sourceTree = "<group>"; };
+		D657B3A70BA5C900319A12584313044E /* ResourceBundle-JPSuspensionEntrance-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-JPSuspensionEntrance-Info.plist"; sourceTree = "<group>"; };
+		DF4EC3B867BFAEAF98C3A57033E1E085 /* Pods-JPSuspensionEntrance_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JPSuspensionEntrance_Example.modulemap"; sourceTree = "<group>"; };
+		E73D748CF8C66F865E86BD55C83F926A /* Pods-JPSuspensionEntrance_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JPSuspensionEntrance_Example-dummy.m"; sourceTree = "<group>"; };
+		E834A7351F29EF14C939FD37110EADFF /* JPSuspensionDecideView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JPSuspensionDecideView.h; path = JPSuspensionEntrance/Classes/JPSuspensionDecideView.h; sourceTree = "<group>"; };
+		EAFDECC84B2ABA42CA41DC8EE7FA475D /* Pods-JPSuspensionEntrance_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JPSuspensionEntrance_Tests.modulemap"; sourceTree = "<group>"; };
+		F65DDFDF1B66D28F9F6CD11D2D9F9E8F /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JPSuspensionEntrance_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F79CEA055C2D8F3C1D63C369BB9CB967 /* JPSuspensionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JPSuspensionView.h; path = JPSuspensionEntrance/Classes/JPSuspensionView.h; sourceTree = "<group>"; };
+		F94E4096C49AA4BB9916D6A6C1430722 /* JPSuspensionTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionTransition.m; path = JPSuspensionEntrance/Classes/JPSuspensionTransition.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68B7DFACECBDB479E26DE16B964EDAC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32C26F2237A88A026BF31951482875D3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C5BDA08AAB255D0A828E86F7EF56959 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3359DA3BAAEE04C66A6999C3C9C444B4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E075F06EB653B881A3684E014099D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4915F029F8F9022EA160931DEDC6600 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C997DA610F0C98FC4147E29AD78E0485 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33A96A1E30D544E13A56EE6D5C643C25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59E0828CE60479F54023C655F3473CE1 /* circle_big@2x.png */,
+				AFA99F116B0587D4E4966418808ED3F3 /* circle_big@3x.png */,
+				97FCDD35D4E62AF446797F1ECB5A126E /* circle_delete@2x.png */,
+				577718BF46B97A8E59A8A0A8AFE77190 /* circle_delete@3x.png */,
+				B6278B8AD0F44FDD5DAA6EB91307B3FD /* circle_little@2x.png */,
+				09229C2D4DECE3EE96A32160681EF868 /* circle_little@3x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		635109D5938E4E37AC2D748581BC0DC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51730E969B07F51AF0C135F5A4DBAB21 /* JPSuspensionEntrance.bundle */,
+				22C9B760C99AEA1BB5D082BA6900CB84 /* JPSuspensionEntrance.framework */,
+				2B8B2B60779BA5A126437A9833AEC812 /* Pods_JPSuspensionEntrance_Example.framework */,
+				37BACF1856E142E0B8BE728AA6C86F6B /* Pods_JPSuspensionEntrance_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				9D8EBBAB0A25E4D57EEA4268B4FF5585 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				635109D5938E4E37AC2D748581BC0DC6 /* Products */,
+				830DD2C8ADB0587EEE9B9311625CCEDD /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		830DD2C8ADB0587EEE9B9311625CCEDD /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5B605D9273FDC811E822E03A20E1C4A /* Pods-JPSuspensionEntrance_Example */,
+				9681C64108A26E796BD94C2C837CBD84 /* Pods-JPSuspensionEntrance_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8E2F019B06DD2E768BEF3DFBD1DEA7F6 /* JPSuspensionEntrance */ = {
+			isa = PBXGroup;
+			children = (
+				C4476A0E7EA4B79A6EEE7EEAD8D1DB7D /* JPSuspensionEntrance.h */,
+				22A2D92929CA6C2C36FD294FFAEF3424 /* JPSuspensionEntrance.m */,
+				F79CEA055C2D8F3C1D63C369BB9CB967 /* JPSuspensionView.h */,
+				8550C8D1D463BBC27187087139815DAD /* JPSuspensionView.m */,
+				E834A7351F29EF14C939FD37110EADFF /* JPSuspensionDecideView.h */,
+				4590B74FB8F209BC631B0EB5D2751191 /* JPSuspensionDecideView.m */,
+				BC1C17B90294FC9674AD31C814A1BDCD /* JPSuspensionTransition.h */,
+				F94E4096C49AA4BB9916D6A6C1430722 /* JPSuspensionTransition.m */,
+				66C0E88B41097A2254E79C527A83B423 /* JPPopInteraction.h */,
+				5EA37B822350D1F0D8567F107E9187E0 /* JPPopInteraction.m */,
+				21FBA27A6F8A448CD5157691404A5526 /* JPSuspensionEntranceProtocol.h */,
+				33A96A1E30D544E13A56EE6D5C643C25 /* Resources */,
+				BBF586FB704B82C56ACD5BEDD45DE5B5 /* Support Files */,
+			);
+			name = JPSuspensionEntrance;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		9681C64108A26E796BD94C2C837CBD84 /* Pods-JPSuspensionEntrance_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BB763402E9133799E98F220C00CE3B5D /* Info.plist */,
+				EAFDECC84B2ABA42CA41DC8EE7FA475D /* Pods-JPSuspensionEntrance_Tests.modulemap */,
+				355D0CFCE38EA8D33ADB7591AC458176 /* Pods-JPSuspensionEntrance_Tests-acknowledgements.markdown */,
+				9D09914638D2DFCBE44FD297D1B05E1B /* Pods-JPSuspensionEntrance_Tests-acknowledgements.plist */,
+				C30F69F8F9D20508ED2B1B172E5BBC18 /* Pods-JPSuspensionEntrance_Tests-dummy.m */,
+				B699F1677C0E75157A81AE0E4E59BB9C /* Pods-JPSuspensionEntrance_Tests-frameworks.sh */,
+				993B7D4CA85D525944AD3A9A7D79EF62 /* Pods-JPSuspensionEntrance_Tests-resources.sh */,
+				8FB543815E516F9FF316767B532ED6B6 /* Pods-JPSuspensionEntrance_Tests-umbrella.h */,
+				560DBDB8E950ACC20057E52FDD27DA20 /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */,
+				6E393568A772E464F90DECDCF5EFE2A2 /* Pods-JPSuspensionEntrance_Tests.release.xcconfig */,
+			);
+			name = "Pods-JPSuspensionEntrance_Tests";
+			path = "Target Support Files/Pods-JPSuspensionEntrance_Tests";
+			sourceTree = "<group>";
+		};
+		9D8EBBAB0A25E4D57EEA4268B4FF5585 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E2F019B06DD2E768BEF3DFBD1DEA7F6 /* JPSuspensionEntrance */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BBF586FB704B82C56ACD5BEDD45DE5B5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				60F75CB182F5651B1E00B11BAE3CE04F /* Info.plist */,
+				A8D5F9000BAEF4995C04AAF5F7956681 /* JPSuspensionEntrance.modulemap */,
+				811CDF73C40BBEC023275BBF001D863A /* JPSuspensionEntrance.xcconfig */,
+				5BF74F1CEF1F97DC3112711001F1D956 /* JPSuspensionEntrance-dummy.m */,
+				8B9EADE862C5E3B6834D20AE4467649F /* JPSuspensionEntrance-prefix.pch */,
+				B4AB22D306C1D6C8E2CEC25485F87237 /* JPSuspensionEntrance-umbrella.h */,
+				D657B3A70BA5C900319A12584313044E /* ResourceBundle-JPSuspensionEntrance-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/JPSuspensionEntrance";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F5B605D9273FDC811E822E03A20E1C4A /* Pods-JPSuspensionEntrance_Example */ = {
+			isa = PBXGroup;
+			children = (
+				6EEEC8006867FB7A0790A05F89327B2E /* Info.plist */,
+				DF4EC3B867BFAEAF98C3A57033E1E085 /* Pods-JPSuspensionEntrance_Example.modulemap */,
+				4D5C1A5190C292EFF9FE88F31F6FA0B3 /* Pods-JPSuspensionEntrance_Example-acknowledgements.markdown */,
+				BF2F8FE6B4EC55CFA82E58232FFA51B6 /* Pods-JPSuspensionEntrance_Example-acknowledgements.plist */,
+				E73D748CF8C66F865E86BD55C83F926A /* Pods-JPSuspensionEntrance_Example-dummy.m */,
+				69F55A411CC55AE7C98C75A3225C5564 /* Pods-JPSuspensionEntrance_Example-frameworks.sh */,
+				1C83518C9C82D2263C7105F7379B2B99 /* Pods-JPSuspensionEntrance_Example-resources.sh */,
+				B8F5840B24EAD4AAB91085F90425DF1D /* Pods-JPSuspensionEntrance_Example-umbrella.h */,
+				F65DDFDF1B66D28F9F6CD11D2D9F9E8F /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */,
+				0E651333D874174B78DDDEC0C61F1A3C /* Pods-JPSuspensionEntrance_Example.release.xcconfig */,
+			);
+			name = "Pods-JPSuspensionEntrance_Example";
+			path = "Target Support Files/Pods-JPSuspensionEntrance_Example";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0ACAC2F5770E9748367F1E576FFC6F49 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				875341DE80B9874FBF7C979D5F00436E /* Pods-JPSuspensionEntrance_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9288E283687D428AEF44C83CBC53D58B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F4C3984DDF550C6668E76937A10474A /* Pods-JPSuspensionEntrance_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1ED0A82FA1DA7A31D4C57728B11443C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09F9A61EBC8079A0CF21738B3A324FB9 /* JPPopInteraction.h in Headers */,
+				E4C6293E09F392FD915CC4AEAA115405 /* JPSuspensionDecideView.h in Headers */,
+				8A4C19CD7F4DCB2E89BF0DE2413660F0 /* JPSuspensionEntrance-umbrella.h in Headers */,
+				98EF1F6F91709B1FAD1DD1C5BB483F05 /* JPSuspensionEntrance.h in Headers */,
+				FCC6F07AF049ABC7D9DC606E94B41586 /* JPSuspensionEntranceProtocol.h in Headers */,
+				9852E843C5FDA236E0D5882FEA7C086B /* JPSuspensionTransition.h in Headers */,
+				7DA20C09801F1CC11B3DBA37AE4B5C96 /* JPSuspensionView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0089D973CB6E37FC402BECC893B16368 /* Pods-JPSuspensionEntrance_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F65D9C7AB85F4FB943E40121DA8BA9AB /* Build configuration list for PBXNativeTarget "Pods-JPSuspensionEntrance_Tests" */;
+			buildPhases = (
+				0E51696201CC9D04104A39E50B764FB3 /* Sources */,
+				68B7DFACECBDB479E26DE16B964EDAC2 /* Frameworks */,
+				9288E283687D428AEF44C83CBC53D58B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-JPSuspensionEntrance_Tests";
+			productName = "Pods-JPSuspensionEntrance_Tests";
+			productReference = 37BACF1856E142E0B8BE728AA6C86F6B /* Pods_JPSuspensionEntrance_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0FD4406453B0333F4D3B04F132A7D6FD /* JPSuspensionEntrance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DA715D3706EA33BB83E055AAA83FC9D /* Build configuration list for PBXNativeTarget "JPSuspensionEntrance" */;
+			buildPhases = (
+				F5E97EF791F3EFB8415A71D397C2259B /* Sources */,
+				8C5BDA08AAB255D0A828E86F7EF56959 /* Frameworks */,
+				B9C65E7EA7337F5B2F02741EC49834CA /* Resources */,
+				E1ED0A82FA1DA7A31D4C57728B11443C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4167B069A14279692A8B977B15F23E57 /* PBXTargetDependency */,
+			);
+			name = JPSuspensionEntrance;
+			productName = JPSuspensionEntrance;
+			productReference = 22C9B760C99AEA1BB5D082BA6900CB84 /* JPSuspensionEntrance.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA26F780539391C4709FB19128F75B7E /* Pods-JPSuspensionEntrance_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D006823093CDBA09653781833247DAA4 /* Build configuration list for PBXNativeTarget "Pods-JPSuspensionEntrance_Example" */;
+			buildPhases = (
+				FB23013D8F66AA338B11871D9A519322 /* Sources */,
+				E4915F029F8F9022EA160931DEDC6600 /* Frameworks */,
+				0ACAC2F5770E9748367F1E576FFC6F49 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F9E105A46639937EE9BDA5C4DBEB6D5 /* PBXTargetDependency */,
+			);
+			name = "Pods-JPSuspensionEntrance_Example";
+			productName = "Pods-JPSuspensionEntrance_Example";
+			productReference = 2B8B2B60779BA5A126437A9833AEC812 /* Pods_JPSuspensionEntrance_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B597D8E4BBB51381066B093CD79DFF88 /* JPSuspensionEntrance-JPSuspensionEntrance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 901EB42C3610ED3815CB3DBA7F0B2843 /* Build configuration list for PBXNativeTarget "JPSuspensionEntrance-JPSuspensionEntrance" */;
+			buildPhases = (
+				0895F10CB7915F69B99A8A76FA451DE9 /* Sources */,
+				B2E075F06EB653B881A3684E014099D2 /* Frameworks */,
+				17B93809520FD45C615073DB2CF43C51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JPSuspensionEntrance-JPSuspensionEntrance";
+			productName = "JPSuspensionEntrance-JPSuspensionEntrance";
+			productReference = 51730E969B07F51AF0C135F5A4DBAB21 /* JPSuspensionEntrance.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 635109D5938E4E37AC2D748581BC0DC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0FD4406453B0333F4D3B04F132A7D6FD /* JPSuspensionEntrance */,
+				B597D8E4BBB51381066B093CD79DFF88 /* JPSuspensionEntrance-JPSuspensionEntrance */,
+				AA26F780539391C4709FB19128F75B7E /* Pods-JPSuspensionEntrance_Example */,
+				0089D973CB6E37FC402BECC893B16368 /* Pods-JPSuspensionEntrance_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17B93809520FD45C615073DB2CF43C51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6786FA14DD338A1812431CBCBC940C4B /* circle_big@2x.png in Resources */,
+				66F6B3FB1E96FC1F126220EC5D0B80CA /* circle_big@3x.png in Resources */,
+				E6D79FCBFFCA8E55F8F7953EC101EEC5 /* circle_delete@2x.png in Resources */,
+				4F8421220084625FA41BEA0833DA3FA0 /* circle_delete@3x.png in Resources */,
+				92532D807F9D0049CF33AE31E6E62DC0 /* circle_little@2x.png in Resources */,
+				58B8DFBDD073DA2AC4AFFF2B10758329 /* circle_little@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9C65E7EA7337F5B2F02741EC49834CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35C210F99DE846B946162781837EC277 /* JPSuspensionEntrance.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0895F10CB7915F69B99A8A76FA451DE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E51696201CC9D04104A39E50B764FB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56C96351DBDF76E2997D33940EF43AD1 /* Pods-JPSuspensionEntrance_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E97EF791F3EFB8415A71D397C2259B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5440B787FEA8B727036B5F2EEB5132AE /* JPPopInteraction.m in Sources */,
+				336741FDC22004D30B89114AD6B209E6 /* JPSuspensionDecideView.m in Sources */,
+				E25CB1055EE695BD9B96BCF902FEA36D /* JPSuspensionEntrance-dummy.m in Sources */,
+				E08D739166870E566846E296FB40BFE1 /* JPSuspensionEntrance.m in Sources */,
+				1126A774E85B7217C892E5441704BBA6 /* JPSuspensionTransition.m in Sources */,
+				881352B8B4DCF8F29943D913046DE734 /* JPSuspensionView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB23013D8F66AA338B11871D9A519322 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46E44206B18CE053A8F87107BA3A798 /* Pods-JPSuspensionEntrance_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F9E105A46639937EE9BDA5C4DBEB6D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JPSuspensionEntrance;
+			target = 0FD4406453B0333F4D3B04F132A7D6FD /* JPSuspensionEntrance */;
+			targetProxy = DEE3B37E7A857AB290060FA4B797827C /* PBXContainerItemProxy */;
+		};
+		4167B069A14279692A8B977B15F23E57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JPSuspensionEntrance-JPSuspensionEntrance";
+			target = B597D8E4BBB51381066B093CD79DFF88 /* JPSuspensionEntrance-JPSuspensionEntrance */;
+			targetProxy = 5ADF7B62FB8E0603237BB8D0D4531E48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		30DB2D440D8675C48F2DFE485D630D14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 811CDF73C40BBEC023275BBF001D863A /* JPSuspensionEntrance.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JPSuspensionEntrance/JPSuspensionEntrance-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JPSuspensionEntrance/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JPSuspensionEntrance/JPSuspensionEntrance.modulemap";
+				PRODUCT_NAME = JPSuspensionEntrance;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		33528314DA80179D7B0CD58B1B4A6B21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F65DDFDF1B66D28F9F6CD11D2D9F9E8F /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JPSuspensionEntrance_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		373D12650837DC24E40E4D0379761E85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E393568A772E464F90DECDCF5EFE2A2 /* Pods-JPSuspensionEntrance_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JPSuspensionEntrance_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		43DF193DDF1A46869345E55C5C3B8667 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 811CDF73C40BBEC023275BBF001D863A /* JPSuspensionEntrance.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/JPSuspensionEntrance";
+				INFOPLIST_FILE = "Target Support Files/JPSuspensionEntrance/ResourceBundle-JPSuspensionEntrance-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = JPSuspensionEntrance;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		88F8D7C48B5FE2E22CC288A7884A4A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 811CDF73C40BBEC023275BBF001D863A /* JPSuspensionEntrance.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/JPSuspensionEntrance";
+				INFOPLIST_FILE = "Target Support Files/JPSuspensionEntrance/ResourceBundle-JPSuspensionEntrance-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = JPSuspensionEntrance;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		9440E98B9557CF9FB4B415A02C817DFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 560DBDB8E950ACC20057E52FDD27DA20 /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JPSuspensionEntrance_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B4CBE19FF24ABD10115F80FB21DBA7CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E651333D874174B78DDDEC0C61F1A3C /* Pods-JPSuspensionEntrance_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JPSuspensionEntrance_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C595E1EB605BC9FDB8428FF705E588F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 811CDF73C40BBEC023275BBF001D863A /* JPSuspensionEntrance.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JPSuspensionEntrance/JPSuspensionEntrance-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JPSuspensionEntrance/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JPSuspensionEntrance/JPSuspensionEntrance.modulemap";
+				PRODUCT_NAME = JPSuspensionEntrance;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DA715D3706EA33BB83E055AAA83FC9D /* Build configuration list for PBXNativeTarget "JPSuspensionEntrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C595E1EB605BC9FDB8428FF705E588F9 /* Debug */,
+				30DB2D440D8675C48F2DFE485D630D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		901EB42C3610ED3815CB3DBA7F0B2843 /* Build configuration list for PBXNativeTarget "JPSuspensionEntrance-JPSuspensionEntrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43DF193DDF1A46869345E55C5C3B8667 /* Debug */,
+				88F8D7C48B5FE2E22CC288A7884A4A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D006823093CDBA09653781833247DAA4 /* Build configuration list for PBXNativeTarget "Pods-JPSuspensionEntrance_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33528314DA80179D7B0CD58B1B4A6B21 /* Debug */,
+				B4CBE19FF24ABD10115F80FB21DBA7CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F65D9C7AB85F4FB943E40121DA8BA9AB /* Build configuration list for PBXNativeTarget "Pods-JPSuspensionEntrance_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9440E98B9557CF9FB4B415A02C817DFF /* Debug */,
+				373D12650837DC24E40E4D0379761E85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A41806820D36D2800C4118D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806320D36D2800C4118D /* ViewController.m */; };
+		1A41806920D36D2800C4118D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806620D36D2800C4118D /* TableViewController.m */; };
+		1A41806A20D36D2800C4118D /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806720D36D2800C4118D /* ViewController2.m */; };
+		1A41807520D36E2900C4118D /* pic_09.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806C20D36E2900C4118D /* pic_09.jpg */; };
+		1A41807620D36E2900C4118D /* pic_08.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806D20D36E2900C4118D /* pic_08.jpg */; };
+		1A41807720D36E2900C4118D /* pic_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806E20D36E2900C4118D /* pic_01.jpg */; };
+		1A41807820D36E2900C4118D /* pic_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806F20D36E2900C4118D /* pic_03.jpg */; };
+		1A41807920D36E2900C4118D /* pic_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807020D36E2900C4118D /* pic_02.jpg */; };
+		1A41807A20D36E2900C4118D /* pic_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807120D36E2900C4118D /* pic_06.jpg */; };
+		1A41807B20D36E2900C4118D /* pic_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807220D36E2900C4118D /* pic_07.jpg */; };
+		1A41807C20D36E2900C4118D /* pic_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807320D36E2900C4118D /* pic_05.jpg */; };
+		1A41807D20D36E2900C4118D /* pic_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807420D36E2900C4118D /* pic_04.jpg */; };
+		1AD28F6120D37CE6003E21E7 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD28F6020D37CE6003E21E7 /* NavigationController.m */; };
 		296CB828634FF4E3A2AA6784 /* Pods_JPSuspensionEntrance_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79575EB3D1894B7D84A1AAEC /* Pods_JPSuspensionEntrance_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -14,7 +27,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* JPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* JPAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* JPViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -37,8 +49,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B1C0C594B7EB5C45CF1CFCD /* JPSuspensionEntrance.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = JPSuspensionEntrance.podspec; path = ../JPSuspensionEntrance.podspec; sourceTree = "<group>"; };
-		5C6DE1C23C42C08779D48447 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		1A41806220D36D2800C4118D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		1A41806320D36D2800C4118D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1A41806420D36D2800C4118D /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		1A41806520D36D2800C4118D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1A41806620D36D2800C4118D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		1A41806720D36D2800C4118D /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		1A41806C20D36E2900C4118D /* pic_09.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_09.jpg; sourceTree = "<group>"; };
+		1A41806D20D36E2900C4118D /* pic_08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_08.jpg; sourceTree = "<group>"; };
+		1A41806E20D36E2900C4118D /* pic_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_01.jpg; sourceTree = "<group>"; };
+		1A41806F20D36E2900C4118D /* pic_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_03.jpg; sourceTree = "<group>"; };
+		1A41807020D36E2900C4118D /* pic_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_02.jpg; sourceTree = "<group>"; };
+		1A41807120D36E2900C4118D /* pic_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_06.jpg; sourceTree = "<group>"; };
+		1A41807220D36E2900C4118D /* pic_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_07.jpg; sourceTree = "<group>"; };
+		1A41807320D36E2900C4118D /* pic_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_05.jpg; sourceTree = "<group>"; };
+		1A41807420D36E2900C4118D /* pic_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_04.jpg; sourceTree = "<group>"; };
+		1AD28F5F20D37CE6003E21E7 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		1AD28F6020D37CE6003E21E7 /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		5B1C0C594B7EB5C45CF1CFCD /* JPSuspensionEntrance.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JPSuspensionEntrance.podspec; path = ../JPSuspensionEntrance.podspec; sourceTree = "<group>"; };
+		5C6DE1C23C42C08779D48447 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JPSuspensionEntrance_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPSuspensionEntrance_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -49,8 +78,6 @@
 		6003F59B195388D20070C39A /* JPSuspensionEntrance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JPSuspensionEntrance-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* JPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* JPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* JPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* JPSuspensionEntrance_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPSuspensionEntrance_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -64,7 +91,7 @@
 		79575EB3D1894B7D84A1AAEC /* Pods_JPSuspensionEntrance_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JPSuspensionEntrance_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		849775569D5A713884503B82 /* Pods-JPSuspensionEntrance_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9541E35988FC3CEA07DB0813 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9541E35988FC3CEA07DB0813 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B5479898F63CFC1985EA9137 /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F0779B4B709D66B1ABCEA3DE /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +133,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1A41806B20D36E2900C4118D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A41806C20D36E2900C4118D /* pic_09.jpg */,
+				1A41806D20D36E2900C4118D /* pic_08.jpg */,
+				1A41806E20D36E2900C4118D /* pic_01.jpg */,
+				1A41806F20D36E2900C4118D /* pic_03.jpg */,
+				1A41807020D36E2900C4118D /* pic_02.jpg */,
+				1A41807120D36E2900C4118D /* pic_06.jpg */,
+				1A41807220D36E2900C4118D /* pic_07.jpg */,
+				1A41807320D36E2900C4118D /* pic_05.jpg */,
+				1A41807420D36E2900C4118D /* pic_04.jpg */,
+			);
+			name = Resources;
+			path = ../../../JPSuspensionEntrance2/JPSuspensionEntrance2/Resources;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -143,11 +187,18 @@
 		6003F593195388D20070C39A /* Example for JPSuspensionEntrance */ = {
 			isa = PBXGroup;
 			children = (
+				1A41806B20D36E2900C4118D /* Resources */,
 				6003F59C195388D20070C39A /* JPAppDelegate.h */,
 				6003F59D195388D20070C39A /* JPAppDelegate.m */,
+				1AD28F5F20D37CE6003E21E7 /* NavigationController.h */,
+				1AD28F6020D37CE6003E21E7 /* NavigationController.m */,
+				1A41806220D36D2800C4118D /* TableViewController.h */,
+				1A41806620D36D2800C4118D /* TableViewController.m */,
+				1A41806520D36D2800C4118D /* ViewController.h */,
+				1A41806320D36D2800C4118D /* ViewController.m */,
+				1A41806420D36D2800C4118D /* ViewController2.h */,
+				1A41806720D36D2800C4118D /* ViewController2.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* JPViewController.h */,
-				6003F5A6195388D20070C39A /* JPViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -250,6 +301,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Rogue24;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = FH4WHYK8ZQ;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -279,10 +333,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A41807A20D36E2900C4118D /* pic_06.jpg in Resources */,
+				1A41807C20D36E2900C4118D /* pic_05.jpg in Resources */,
+				1A41807520D36E2900C4118D /* pic_09.jpg in Resources */,
+				1A41807920D36E2900C4118D /* pic_02.jpg in Resources */,
+				1A41807720D36E2900C4118D /* pic_01.jpg in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				1A41807B20D36E2900C4118D /* pic_07.jpg in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				1A41807D20D36E2900C4118D /* pic_04.jpg in Resources */,
+				1A41807620D36E2900C4118D /* pic_08.jpg in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				1A41807820D36E2900C4118D /* pic_03.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,9 +466,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A41806820D36D2800C4118D /* ViewController.m in Sources */,
 				6003F59E195388D20070C39A /* JPAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* JPViewController.m in Sources */,
+				1A41806A20D36D2800C4118D /* ViewController2.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				1A41806920D36D2800C4118D /* TableViewController.m in Sources */,
+				1AD28F6120D37CE6003E21E7 /* NavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,12 +599,15 @@
 			baseConfigurationReference = B5479898F63CFC1985EA9137 /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FH4WHYK8ZQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPSuspensionEntrance/JPSuspensionEntrance-Prefix.pch";
 				INFOPLIST_FILE = "JPSuspensionEntrance/JPSuspensionEntrance-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -548,12 +617,15 @@
 			baseConfigurationReference = 849775569D5A713884503B82 /* Pods-JPSuspensionEntrance_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FH4WHYK8ZQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPSuspensionEntrance/JPSuspensionEntrance-Prefix.pch";
 				INFOPLIST_FILE = "JPSuspensionEntrance/JPSuspensionEntrance-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

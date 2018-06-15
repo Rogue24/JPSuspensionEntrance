@@ -1,0 +1,27 @@
+{
+  "name": "JPSuspensionEntrance",
+  "version": "0.1.0",
+  "summary": "A short description of JPSuspensionEntrance.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Rogue24/JPSuspensionEntrance",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rogue24": "zhoujianping24@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Rogue24/JPSuspensionEntrance.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "JPSuspensionEntrance/Classes/**/*",
+  "resource_bundles": {
+    "JPSuspensionEntrance": [
+      "JPSuspensionEntrance/Assets/*"
+    ]
+  }
+}

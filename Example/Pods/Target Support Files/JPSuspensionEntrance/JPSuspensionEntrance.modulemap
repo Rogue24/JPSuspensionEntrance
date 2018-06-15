@@ -1,0 +1,6 @@
+framework module JPSuspensionEntrance {
+  umbrella header "JPSuspensionEntrance-umbrella.h"
+
+  export *
+  module * { export * }
+}
