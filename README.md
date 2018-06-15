@@ -26,7 +26,15 @@
         3.更多的控制器整合的浮窗；
         4.更多的参数设定；
         
+
+### 无导航栏的情况
 ![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174626-HD.gif)
+
+### 有导航栏的情况
+![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174820-HD.gif)
+
+### 已有窗口时的进入与返回
+![image](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-175232-HD.gif)
 
 ## 如何使用
 
