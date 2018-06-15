@@ -93,13 +93,14 @@ static JPSuspensionEntrance *_sharedInstance;
     NSInteger imageScale = (NSInteger)[UIScreen mainScreen].scale;
     if (imageScale < 2) imageScale = 2;
     if (imageScale > 3) imageScale = 3;
+    NSString *imageScaleStr = [NSString stringWithFormat:@"%zd", imageScale];
     
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(self.class)];
     NSString *type = @"png";
-    self.suspensiconIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_little@%zdx", imageScale] ofType:type inDirectory:bundleName];
-    self.confimSuspensionIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_big@%zdx", imageScale] ofType:type inDirectory:bundleName];
-    self.removeSuspensionIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_delete@%zdx", imageScale] ofType:type inDirectory:bundleName];
+    self.suspensiconIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_little@%@x", imageScaleStr] ofType:type inDirectory:bundleName];
+    self.confimSuspensionIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_big@%@x", imageScaleStr] ofType:type inDirectory:bundleName];
+    self.removeSuspensionIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_delete@%@x", imageScaleStr] ofType:type inDirectory:bundleName];
 }
 
 - (void)setupPopInteraction {
