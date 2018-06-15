@@ -146,8 +146,7 @@
 				1A41807320D36E2900C4118D /* pic_05.jpg */,
 				1A41807420D36E2900C4118D /* pic_04.jpg */,
 			);
-			name = Resources;
-			path = ../../../JPSuspensionEntrance2/JPSuspensionEntrance2/Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
