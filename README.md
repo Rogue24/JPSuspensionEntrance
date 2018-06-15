@@ -26,10 +26,9 @@
         3.更多的控制器整合的浮窗；
         4.更多的参数设定；
       
-      
-![滑动选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/221529073066_.pic.jpeg)
+![滑动选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/221529073066_.pic.jpg)
 
-![删除选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/231529073069_.pic.jpeg)
+![删除选定](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/231529073069_.pic.jpg)
 
 ### 无导航栏的情况
 ![无导航栏的情况](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174626-HD.gif)
@@ -51,13 +50,13 @@
 // JPSEInstance
 ```
 #### 绑定 NavigationController
-```
+```ruby
 // 绑定了则其delegate及interactivePopGestureRecognizer.delegate都为JPSuspensionEntrance代理
 // 切换navigationController需要重新绑定最新的navigationController
 JPSEInstance.navCtr = self.navigationController;
 ```
 #### 配置可成为浮窗的控制器
-```
+```ruby
 // push的控制器 需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
 // SuspensionEntranceProtocol的代理方法：
 
@@ -72,20 +71,20 @@ JPSEInstance.navCtr = self.navigationController;
 ```
 
 #### 打开、创建浮窗
-```
+```ruby
 /**
-* 打开当前浮窗
-*/
+ * 打开当前浮窗
+ */
 - (void)pushViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
 /**
-* 合上并创建\替换浮窗
-*/
+ * 合上并创建\替换浮窗
+ */
 - (void)popViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 ```
 
 #### 配置缓存方案
-```
+```ruby
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
 
@@ -106,7 +105,7 @@ dispatch_once(&onceToken, ^{
 ```
 
 #### 初始化配置缓存浮窗
-```
+```ruby
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
     // 初始化缓存浮窗
