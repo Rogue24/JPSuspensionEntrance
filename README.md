@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/JPSuspensionEntrance.svg?style=flat)](https://cocoapods.org/pods/JPSuspensionEntrance)
 [![Platform](https://img.shields.io/cocoapods/p/JPSuspensionEntrance.svg?style=flat)](https://cocoapods.org/pods/JPSuspensionEntrance)
 
+##### 博客讲解：https://www.jianshu.com/p/6834b95eeb6d
+
 ## 简介
 
 高仿微信悬浮小窗口的小框架
