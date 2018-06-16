@@ -23,7 +23,7 @@
     if (self = [super init]) {
         self.edgeLeftPanGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeLeftPanHandle:)];
         self.edgeLeftPanGR.edges = UIRectEdgeLeft;
-        _linkValue = 1.0 / 30.0;
+        _linkValue = 1.0 / 24.0;
     }
     return self;
 }
@@ -60,7 +60,7 @@
         
         if (isFast) {
             [self finishInteractiveTransition];
-            !self.panEnded ? : self.panEnded(YES, self.edgeLeftPanGR);
+            !self.panEnded ? : self.panEnded(_isToFinish, self.edgeLeftPanGR);
         } else {
             [self addLink];
         }

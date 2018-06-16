@@ -314,12 +314,16 @@ static JPSuspensionEntrance *_sharedInstance;
 }
 
 - (void)insertTransitionView:(UIView *)transitionView {
-    if (_decideView) {
-        [self.window insertSubview:transitionView belowSubview:_decideView];
-    } else if (_suspensionView) {
-        [self.window insertSubview:transitionView belowSubview:_suspensionView];
-    } else {
+    if (_suspensionView && transitionView == _suspensionView) {
         [self.window addSubview:transitionView];
+    } else {
+        if (_decideView) {
+            [self.window insertSubview:transitionView belowSubview:_decideView];
+        } else if (_suspensionView) {
+            [self.window insertSubview:transitionView belowSubview:_suspensionView];
+        } else {
+            [self.window addSubview:transitionView];
+        }
     }
 }
 

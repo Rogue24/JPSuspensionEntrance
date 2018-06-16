@@ -58,6 +58,7 @@
     [super viewWillAppear:animated];
     if (self.isHideNavBar) {
         [self.navigationController setNavigationBarHidden:YES animated:YES];
+        
         self.leftBtn.hidden = NO;
         self.rightBtn.hidden = NO;
     } else {

@@ -30,6 +30,9 @@
 @property (nonatomic, assign) NSInteger navBarIndex;
 
 @property (nonatomic, assign) BOOL isTransitionCompletion;
+
+@property (nonatomic, assign) BOOL fromViewOriginEnabled;
+@property (nonatomic, assign) BOOL toViewOriginEnabled;
 @end
 
 @implementation JPSuspensionTransition
@@ -86,6 +89,11 @@
     self.fromVC = (UIViewController<JPSuspensionEntranceProtocol> *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     self.toVC = (UIViewController<JPSuspensionEntranceProtocol> *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
+    self.fromViewOriginEnabled = self.fromVC.view.userInteractionEnabled;
+    self.toViewOriginEnabled = self.toVC.view.userInteractionEnabled;
+    self.fromVC.view.userInteractionEnabled = NO;
+    self.toVC.view.userInteractionEnabled = NO;
+    
     UITabBar *tabBar;
     if (self.toVC.tabBarController) {
         tabBar = self.toVC.tabBarController.tabBar;
@@ -135,6 +143,7 @@
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
     JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:self.fromVC];
+    [suspensionView addSubview:self.fromVC.view];
     
     CGRect toVCFrame = self.toVC.view.frame;
     toVCFrame.origin.x = -JPSEInstance.window.bounds.size.width * 0.3;
@@ -157,7 +166,7 @@
     // 当使用【手势交互并且没有返回成功】时（就是还没划过一半），导航栏总是交替出现异常（正常然后不正常再正常如此类推）
     // 不正常的情况就是导航栏消失了
     // 所以在这里自定义导航栏的动画
-    // 而另外两种动画没有手势交互，不需要另加处理
+    // 下面两种没有手势交互的动画也有一定几率发生该异常，所以都作统一处理
     CGRect navBarFrame = CGRectZero;
     if (self.navBar) {
         [self.navBar.layer removeAllAnimations];
@@ -174,7 +183,6 @@
     [self.containerView addSubview:self.navBar];
     [self.containerView addSubview:suspensionView];
     self.suspensionView = suspensionView;
-    self.fromVC.view.hidden = YES;
     
     UIViewAnimationOptions options = self.isInteraction ? UIViewAnimationOptionCurveLinear : UIViewAnimationOptionCurveEaseOut;
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
@@ -211,10 +219,22 @@
         tabBarFrame.origin.x = self.fromVC.view.bounds.size.width;
     }
     
+    CGRect navBarFrame = CGRectZero;
+    if (self.navBar) {
+        [self.navBar.layer removeAllAnimations];
+        navBarFrame = self.navBar.frame;
+        navBarFrame.origin.x = 0;
+        self.navBar.frame = navBarFrame;
+        navBarFrame.origin.x = self.fromVC.view.bounds.size.width;
+        // 导航栏removeAllAnimations之后就会置顶显示，为了盖住导航栏，需要将上层子视图的zPosition增加
+        bgView.layer.zPosition = 1;
+        self.toVC.view.layer.zPosition = 1;
+    }
+    
     [self.containerView addSubview:self.fromVC.view];
     [self.containerView addSubview:self.tabBar];
-    [self.containerView addSubview:bgView];
     [self.containerView addSubview:self.navBar];
+    [self.containerView addSubview:bgView];
     [self.containerView addSubview:self.toVC.view];
     self.bgView = bgView;
     
@@ -233,6 +253,7 @@
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         if (self.tabBar) self.tabBar.frame = tabBarFrame;
+        if (self.navBar) self.navBar.frame = navBarFrame;
         bgView.alpha = 1;
     } completion:^(BOOL finished) {
         [self transitionCompletion];
@@ -252,14 +273,23 @@
         self.tabBar.frame = tabBarFrame;
     }
     
+    CGRect navBarFrame = CGRectZero;
+    if (self.navBar) {
+        [self.navBar.layer removeAllAnimations];
+        navBarFrame = self.navBar.frame;
+        navBarFrame.origin.x = 0;
+        self.navBar.frame = navBarFrame;
+        // 导航栏removeAllAnimations之后就会置顶显示，为了盖住导航栏，需要将上层子视图的zPosition增加
+        bgView.layer.zPosition = 1;
+    }
+    
     [self.containerView addSubview:self.toVC.view];
     [self.containerView addSubview:self.tabBar];
-    [self.containerView addSubview:bgView];
     [self.containerView addSubview:self.navBar];
+    [self.containerView addSubview:bgView];
     self.bgView = bgView;
     
-    JPSuspensionView *currSuspensionView = JPSEInstance.suspensionView;
-    if (currSuspensionView == self.suspensionView) {
+    if (JPSEInstance.suspensionView == self.suspensionView) {
         CGRect suspensionFrame = self.suspensionView.frame;
         
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -268,7 +298,12 @@
         [self.fromVC.view.layer addSublayer:maskLayer];
         self.fromVC.view.layer.mask = maskLayer;
         
+        // 导航栏removeAllAnimations之后就会置顶显示，为了盖住导航栏，需要将上层子视图的zPosition增加
+        if (self.navBar) self.fromVC.view.layer.zPosition = 1;
         [self.containerView addSubview:self.fromVC.view];
+        
+        // 播放展开提示音
+        [JPSEInstance playSoundForSpread:NO delay:duration * 0.5];
         
         UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:self.fromVC.view.bounds cornerRadius:suspensionFrame.size.width * 0.5];
         UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:suspensionFrame cornerRadius:suspensionFrame.size.width * 0.5];
@@ -280,16 +315,13 @@
         kfAnim.fillMode = kCAFillModeForwards;
         kfAnim.removedOnCompletion = NO;
         [maskLayer addAnimation:kfAnim forKey:@"path"];
-        
-        [JPSEInstance playSoundForSpread:NO delay:duration * 0.5];
-        
     } else {
-        [self.containerView addSubview:self.suspensionView];
         [self.suspensionView shrinkSuspensionViewAnimation];
     }
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         if (self.tabBar) self.tabBar.frame = tabBarFrame;
+        if (self.navBar) self.navBar.frame = navBarFrame;
         bgView.alpha = 0;
     } completion:^(BOOL finished) {
         [self transitionCompletion];
@@ -307,6 +339,9 @@
     [self.tabBar.layer removeAllAnimations];
     [self.navBarSuperView insertSubview:self.navBar atIndex:self.navBarIndex];
     [self.tabBarSuperView insertSubview:self.tabBar atIndex:self.tabBarIndex];
+    
+    self.fromVC.view.userInteractionEnabled = self.fromViewOriginEnabled;
+    self.toVC.view.userInteractionEnabled = self.toViewOriginEnabled;
     
     switch (self.transitionType) {
         case JPBasicPopTransitionType:
@@ -328,8 +363,8 @@
 }
 
 - (void)basicPopTransitionCompletion {
-    self.fromVC.view.hidden = NO;
     if ([self.transitionContext transitionWasCancelled]) {
+        [self.containerView addSubview:self.fromVC.view];
         [self.suspensionView removeFromSuperview];
         [self.transitionContext completeTransition:NO];
     } else {
@@ -339,23 +374,24 @@
 }
 
 - (void)spreadSuspensionViewTransitionCompletion {
+    [self.bgView removeFromSuperview];
     [self.containerView addSubview:self.toVC.view];
     self.toVC.view.layer.mask = nil;
-    self.suspensionView = nil;
-    [self.bgView removeFromSuperview];
+    self.toVC.view.layer.zPosition = 0;
     [self.transitionContext completeTransition:YES];
 }
 
 - (void)shrinkSuspensionViewTransitionCompletion {
+    if (JPSEInstance.suspensionView == self.suspensionView) [JPSEInstance insertTransitionView:self.fromVC.view];
     [UIView animateWithDuration:0.15 animations:^{
         self.suspensionView.alpha = 1;
         self.fromVC.view.alpha = 0;
     } completion:^(BOOL finished) {
-        self.suspensionView.alpha = 1;
+        [self.bgView removeFromSuperview];
+        [self.fromVC.view removeFromSuperview];
         self.fromVC.view.alpha = 1;
         self.fromVC.view.layer.mask = nil;
-        [self.fromVC.view removeFromSuperview];
-        [self.bgView removeFromSuperview];
+        self.fromVC.view.layer.zPosition = 0;
         [self.transitionContext completeTransition:YES];
     }];
 }

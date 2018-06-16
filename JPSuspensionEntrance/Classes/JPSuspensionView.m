@@ -11,7 +11,6 @@
 
 @interface JPSuspensionView ()
 @property (nonatomic, weak) UIVisualEffectView *effectView;
-@property (nonatomic, weak) UIView *snapshotView;
 @property (nonatomic, weak) UIImageView *logoView;
 @property (nonatomic, weak) CAShapeLayer *maskLayer;
 - (CGFloat)suspensionViewWH;
@@ -71,14 +70,10 @@
             self.layer.masksToBounds = YES;
             [self createEffectView];
         } else {
-            UIView *snapshotView = [targetVC.view snapshotViewAfterScreenUpdates:NO];
-            snapshotView.layer.shadowPath = [UIBezierPath bezierPathWithRect:snapshotView.bounds].CGPath;
-            snapshotView.layer.shadowOpacity = 1.0;
-            snapshotView.layer.shadowRadius = 10.0;
-            snapshotView.layer.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.35].CGColor;
-            [self addSubview:snapshotView];
-            self.snapshotView = snapshotView;
-            
+            self.layer.shadowPath = [UIBezierPath bezierPathWithRect:targetVC.view.bounds].CGPath;
+            self.layer.shadowOpacity = 1.0;
+            self.layer.shadowRadius = 10.0;
+            self.layer.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.35].CGColor;
             self.logoView.layer.opacity = 0;
         }
     }
@@ -112,13 +107,12 @@
     
     self.userInteractionEnabled = NO;
     
-    BOOL isHideNavigationBar = [self.targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [self.targetVC jp_isHideNavigationBar];
-    
     CGRect frame = self.layer.presentationLayer ? self.layer.presentationLayer.frame : self.layer.frame;
     [self.layer removeAllAnimations];
     self.layer.transform = CATransform3DIdentity;
     self.layer.zPosition = 0;
     
+    BOOL isHideNavigationBar = [self.targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [self.targetVC jp_isHideNavigationBar];
     if (isHideNavigationBar) {
         self.frame = [JPSEInstance.window convertRect:frame fromView:JPSEInstance.window];
         [JPSEInstance insertTransitionView:self];
@@ -127,11 +121,12 @@
         [JPSEInstance.navCtr.view insertSubview:self belowSubview:JPSEInstance.navCtr.navigationBar];
     }
     
+    [self addSubview:self.targetVC.view];
     [self createEffectView];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.fillColor = [UIColor blackColor].CGColor;
-    maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:self.snapshotView.bounds cornerRadius:0.1].CGPath;
+    maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:0.1].CGPath;
     [self.layer addSublayer:maskLayer];
     self.maskLayer = maskLayer;
     self.layer.mask = self.maskLayer;
@@ -159,14 +154,15 @@
     
     [UIView animateWithDuration:duration delay:0 options:kNilOptions animations:^{
         JPSEInstance.suspensionView.alpha = 0;
-        self.snapshotView.layer.opacity = 0;
+        self.targetVC.view.layer.opacity = 0;
         self.logoView.layer.opacity = 1;
         self.layer.transform = transform;
     } completion:^(BOOL finished) {
         JPSEInstance.suspensionView = self;
         
-        [self.snapshotView removeFromSuperview];
         [self.maskLayer removeFromSuperlayer];
+        [self.targetVC.view removeFromSuperview];
+        self.targetVC.view.layer.opacity = 1;
         
         self.layer.transform = CATransform3DIdentity;
         self.layer.cornerRadius = self.suspensionViewWH * 0.5;
