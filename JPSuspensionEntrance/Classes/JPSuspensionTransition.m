@@ -12,6 +12,24 @@
 
 @interface JPSuspensionTransition () <CAAnimationDelegate>
 @property (nonatomic, assign) BOOL isInteraction;
+
+@property (nonatomic, assign) id <UIViewControllerContextTransitioning> transitionContext;
+@property (nonatomic, weak) UIView *containerView;
+
+@property (nonatomic, weak) UIViewController<JPSuspensionEntranceProtocol> *fromVC;
+@property (nonatomic, weak) UIViewController<JPSuspensionEntranceProtocol> *toVC;
+
+@property (nonatomic, weak) UIView *bgView;
+
+@property (nonatomic, weak) UITabBar *tabBar;
+@property (nonatomic, weak) UIView *tabBarSuperView;
+@property (nonatomic, assign) NSInteger tabBarIndex;
+
+@property (nonatomic, weak) UINavigationBar *navBar;
+@property (nonatomic, weak) UIView *navBarSuperView;
+@property (nonatomic, assign) NSInteger navBarIndex;
+
+@property (nonatomic, assign) BOOL isTransitionCompletion;
 @end
 
 @implementation JPSuspensionTransition
@@ -52,7 +70,7 @@
         case JPSpreadSuspensionViewTransitionType:
         case JPShrinkSuspensionViewTransitionType:
         {
-            return 0.37;
+            return 0.35;
         }
     }
 }
@@ -62,28 +80,48 @@
  */
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     
-    UIView *containerView = [transitionContext containerView];
+    self.transitionContext = transitionContext;
+    self.containerView = [transitionContext containerView];
     
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    self.fromVC = (UIViewController<JPSuspensionEntranceProtocol> *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    self.toVC = (UIViewController<JPSuspensionEntranceProtocol> *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UITabBar *tabBar;
+    if (self.toVC.tabBarController) {
+        tabBar = self.toVC.tabBarController.tabBar;
+    } else if (self.fromVC.tabBarController) {
+        tabBar = self.fromVC.tabBarController.tabBar;
+    }
+    if (tabBar && tabBar.superview) {
+        self.tabBar = tabBar;
+        self.tabBarSuperView = self.tabBar.superview;
+        self.tabBarIndex = [self.tabBarSuperView.subviews indexOfObject:self.tabBar];
+    }
     
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+    UIViewController<JPSuspensionEntranceProtocol> *targetVC = self.transitionType == JPSpreadSuspensionViewTransitionType ? self.toVC : self.fromVC;
+    if ([targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [targetVC jp_isHideNavigationBar]) {
+        UINavigationBar *navBar = targetVC.navigationController.navigationBar;
+        if (navBar && navBar.superview) {
+            self.navBar = navBar;
+            self.navBarSuperView = navBar.superview;
+            self.navBarIndex = [navBar.superview.subviews indexOfObject:navBar];
+        }
+    }
     
     switch (_transitionType) {
         case JPBasicPopTransitionType:
         {
-            [self basicPopAnimationWithContainerView:containerView fromVC:(UIViewController<JPSuspensionEntranceProtocol> *)fromVC toVC:toVC duration:duration transitionContext:transitionContext];
+            [self basicPopAnimation];
             break;
         }
         case JPSpreadSuspensionViewTransitionType:
         {
-            [self spreadSuspensionViewAnimationWithContainerView:containerView fromVC:fromVC toVC:(UIViewController<JPSuspensionEntranceProtocol> *)toVC duration:duration transitionContext:transitionContext];
+            [self spreadSuspensionViewAnimation];
             break;
         }
         case JPShrinkSuspensionViewTransitionType:
         {
-            [self shrinkSuspensionViewAnimationWithContainerView:containerView fromVC:(UIViewController<JPSuspensionEntranceProtocol> *)fromVC toVC:toVC duration:duration transitionContext:transitionContext];
+            [self shrinkSuspensionViewAnimation];
             break;
         }
     }
@@ -91,58 +129,40 @@
 
 #pragma mark - push & pop 动画
 
-- (void)basicPopAnimationWithContainerView:(UIView *)containerView fromVC:(UIViewController<JPSuspensionEntranceProtocol> *)fromVC toVC:(UIViewController *)toVC duration:(NSTimeInterval)duration transitionContext:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)basicPopAnimation {
+    NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
-    toVC.view.layer.transform = CATransform3DMakeTranslation(-[UIScreen mainScreen].bounds.size.width * 0.3, 0, 0);
-    [containerView addSubview:toVC.view];
+    self.toVC.view.layer.transform = CATransform3DMakeTranslation(-JPSEInstance.window.bounds.size.width * 0.3, 0, 0);
     
-    UITabBar *tabBar;
-    if (toVC.tabBarController) tabBar = toVC.tabBarController.tabBar;
-    [tabBar.layer removeAllAnimations];
-    CGRect tabBarFrame = tabBar.frame;
-    tabBarFrame.origin.x = toVC.view.frame.origin.x;
-    tabBar.frame = tabBarFrame;
-    tabBarFrame.origin.x = 0;
-    UIView *tabBarSuperView = tabBar.superview;
-    NSInteger tabBarIndex = 0;
-    if (tabBarSuperView) tabBarIndex = [tabBarSuperView.subviews indexOfObject:tabBar];
-    [containerView addSubview:tabBar];
-    
-    JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:fromVC];
-    if ([fromVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [fromVC jp_isHideNavigationBar]) {
-        [JPSEInstance insertTransitionView:suspensionView];
-    } else {
-        [containerView addSubview:suspensionView];
+    CGRect tabBarFrame = CGRectZero;
+    if (self.tabBar) {
+        [self.tabBar.layer removeAllAnimations];
+        tabBarFrame = self.tabBar.frame;
+        tabBarFrame.origin.x = self.toVC.view.frame.origin.x;
+        self.tabBar.frame = tabBarFrame;
+        tabBarFrame.origin.x = 0;
     }
+    
+    JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:self.fromVC];
+    
+    [self.containerView addSubview:self.toVC.view];
+    [self.containerView addSubview:self.tabBar];
+    [self.containerView addSubview:self.navBar];
+    [self.containerView addSubview:suspensionView];
     self.suspensionView = suspensionView;
     
     UIViewAnimationOptions options = self.isInteraction ? UIViewAnimationOptionCurveLinear : UIViewAnimationOptionCurveEaseOut;
-    
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
-        tabBar.frame = tabBarFrame;
-        toVC.view.layer.transform = CATransform3DIdentity;
-        suspensionView.layer.transform = CATransform3DMakeTranslation([UIScreen mainScreen].bounds.size.width, 0, 0);
+        if (self.tabBar) self.tabBar.frame = tabBarFrame;
+        self.toVC.view.layer.transform = CATransform3DIdentity;
+        suspensionView.layer.transform = CATransform3DMakeTranslation(JPSEInstance.window.bounds.size.width, 0, 0);
     } completion:^(BOOL finished) {
-        [tabBarSuperView insertSubview:tabBar atIndex:tabBarIndex];
-        toVC.view.layer.transform = CATransform3DIdentity;
-        if ([transitionContext transitionWasCancelled]) {
-            [suspensionView removeFromSuperview];
-            [transitionContext completeTransition:NO];
-        } else {
-            // 1.浮窗的缩小动画跟这里的动画有所不同
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                // 2.因此进行延迟处理 判断是否添加到窗口上 不是就移除
-                if (suspensionView != JPSEInstance.suspensionView) [suspensionView removeFromSuperview];
-            });
-            [transitionContext completeTransition:YES];
-        }
+        [self transitionCompletion];
     }];
-    
 }
 
-- (void)spreadSuspensionViewAnimationWithContainerView:(UIView *)containerView fromVC:(UIViewController *)fromVC toVC:(UIViewController<JPSuspensionEntranceProtocol> *)toVC duration:(NSTimeInterval)duration transitionContext:(id <UIViewControllerContextTransitioning>)transitionContext {
-    
-    [containerView addSubview:fromVC.view];
+- (void)spreadSuspensionViewAnimation {
+    NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
     CGRect suspensionFrame = self.suspensionView.frame;
     self.suspensionView.alpha = 0;
@@ -150,34 +170,33 @@
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.fillColor = [UIColor blackColor].CGColor;
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:suspensionFrame cornerRadius:suspensionFrame.size.width * 0.5].CGPath;
-    [toVC.view.layer addSublayer:maskLayer];
-    toVC.view.layer.mask = maskLayer;
+    [self.toVC.view.layer addSublayer:maskLayer];
+    self.toVC.view.layer.mask = maskLayer;
     
     UIView *bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
     bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0;
-    [containerView addSubview:bgView];
     
-    UITabBar *tabBar;
-    if (fromVC.tabBarController) tabBar = fromVC.tabBarController.tabBar;
-    [tabBar.layer removeAllAnimations];
-    CGRect tabBarFrame = tabBar.frame;
-    tabBarFrame.origin.x = 0;
-    tabBar.frame = tabBarFrame;
-    tabBarFrame.origin.x = fromVC.view.bounds.size.width;
-    UIView *tabBarSuperView = tabBar.superview;
-    NSInteger tabBarIndex = 0;
-    if (tabBarSuperView) tabBarIndex = [tabBarSuperView.subviews indexOfObject:tabBar];
-    [containerView addSubview:tabBar];
-    
-    if ([toVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [toVC jp_isHideNavigationBar]) {
-        [JPSEInstance insertTransitionView:toVC.view];
-    } else {
-        [containerView addSubview:toVC.view];
+    CGRect tabBarFrame = CGRectZero;
+    if (self.tabBar) {
+        [self.tabBar.layer removeAllAnimations];
+        tabBarFrame = self.tabBar.frame;
+        tabBarFrame.origin.x = 0;
+        self.tabBar.frame = tabBarFrame;
+        tabBarFrame.origin.x = self.fromVC.view.bounds.size.width;
     }
     
-    UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, toVC.view.bounds.size.width, toVC.view.bounds.size.height) cornerRadius:suspensionFrame.size.width * 0.5];
-    UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, toVC.view.bounds.size.width, toVC.view.bounds.size.height) cornerRadius:0.1];
+    [self.containerView addSubview:self.fromVC.view];
+    [self.containerView addSubview:self.tabBar];
+    [self.containerView addSubview:bgView];
+    [self.containerView addSubview:self.navBar];
+    [self.containerView addSubview:self.toVC.view];
+    self.bgView = bgView;
+    
+    [JPSEInstance playSoundForSpread:YES delay:duration * 0.5];
+    
+    UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.toVC.view.bounds.size.width, self.toVC.view.bounds.size.height) cornerRadius:suspensionFrame.size.width * 0.5];
+    UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.toVC.view.bounds.size.width, self.toVC.view.bounds.size.height) cornerRadius:0.1];
     CAKeyframeAnimation *kfAnim = [CAKeyframeAnimation animationWithKeyPath:@"path"];
     kfAnim.values = @[(id)maskLayer.path, (id)toPath1.CGPath, (id)toPath2.CGPath];
     kfAnim.keyTimes = @[@0, @(4.0 / 5.0), @(1)];
@@ -188,36 +207,32 @@
     [maskLayer addAnimation:kfAnim forKey:@"path"];
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        tabBar.frame = tabBarFrame;
+        if (self.tabBar) self.tabBar.frame = tabBarFrame;
         bgView.alpha = 1;
     } completion:^(BOOL finished) {
-        [tabBarSuperView insertSubview:tabBar atIndex:tabBarIndex];
-        [containerView addSubview:toVC.view];
-        toVC.view.layer.mask = nil;
-        self.suspensionView = nil;
-        [bgView removeFromSuperview];
-        [transitionContext completeTransition:YES];
+        [self transitionCompletion];
     }];
 }
 
-- (void)shrinkSuspensionViewAnimationWithContainerView:(UIView *)containerView fromVC:(UIViewController<JPSuspensionEntranceProtocol> *)fromVC toVC:(UIViewController *)toVC duration:(NSTimeInterval)duration transitionContext:(id <UIViewControllerContextTransitioning>)transitionContext {
-    
-    [containerView addSubview:toVC.view];
+- (void)shrinkSuspensionViewAnimation {
+    NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
     UIView *bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
     bgView.backgroundColor = [UIColor blackColor];
-    [containerView addSubview:bgView];
     
-    UITabBar *tabBar;
-    if (toVC.tabBarController) tabBar = toVC.tabBarController.tabBar;
-    [tabBar.layer removeAllAnimations];
-    CGRect tabBarFrame = tabBar.frame;
-    tabBarFrame.origin.x = 0;
-    tabBar.frame = tabBarFrame;
-    UIView *tabBarSuperView = tabBar.superview;
-    NSInteger tabBarIndex = 0;
-    if (tabBarSuperView) tabBarIndex = [tabBarSuperView.subviews indexOfObject:tabBar];
-    [containerView addSubview:tabBar];
+    CGRect tabBarFrame = CGRectZero;
+    if (self.tabBar) {
+        [self.tabBar.layer removeAllAnimations];
+        tabBarFrame = self.tabBar.frame;
+        tabBarFrame.origin.x = 0;
+        self.tabBar.frame = tabBarFrame;
+    }
+    
+    [self.containerView addSubview:self.toVC.view];
+    [self.containerView addSubview:self.tabBar];
+    [self.containerView addSubview:bgView];
+    [self.containerView addSubview:self.navBar];
+    self.bgView = bgView;
     
     JPSuspensionView *currSuspensionView = JPSEInstance.suspensionView;
     if (currSuspensionView == self.suspensionView) {
@@ -225,46 +240,96 @@
         
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
         maskLayer.fillColor = [UIColor blackColor].CGColor;
-        maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:fromVC.view.bounds cornerRadius:0.1].CGPath;
-        [fromVC.view.layer addSublayer:maskLayer];
-        fromVC.view.layer.mask = maskLayer;
+        maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:self.fromVC.view.bounds cornerRadius:0.1].CGPath;
+        [self.fromVC.view.layer addSublayer:maskLayer];
+        self.fromVC.view.layer.mask = maskLayer;
         
-        if ([fromVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [fromVC jp_isHideNavigationBar]) {
-            [JPSEInstance insertTransitionView:fromVC.view];
-        } else {
-            [containerView addSubview:fromVC.view];
-        }
+        [self.containerView addSubview:self.fromVC.view];
         
-        UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:fromVC.view.bounds cornerRadius:suspensionFrame.size.width * 0.5];
+        UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:self.fromVC.view.bounds cornerRadius:suspensionFrame.size.width * 0.5];
         UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:suspensionFrame cornerRadius:suspensionFrame.size.width * 0.5];
         CAKeyframeAnimation *kfAnim = [CAKeyframeAnimation animationWithKeyPath:@"path"];
         kfAnim.values = @[(id)maskLayer.path, (id)toPath1.CGPath, (id)toPath2.CGPath];
         kfAnim.keyTimes = @[@0, @(1.0 / 5.0), @(1)];
         kfAnim.duration = duration;
-        kfAnim.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+        kfAnim.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
         kfAnim.fillMode = kCAFillModeForwards;
         kfAnim.removedOnCompletion = NO;
         [maskLayer addAnimation:kfAnim forKey:@"path"];
         
+        [JPSEInstance playSoundForSpread:NO delay:duration * 0.5];
+        
     } else {
-        if ([fromVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [fromVC jp_isHideNavigationBar]) {
-            [JPSEInstance insertTransitionView:self.suspensionView];
-        } else {
-            [containerView addSubview:self.suspensionView];
-        }
+        [self.containerView addSubview:self.suspensionView];
         [self.suspensionView shrinkSuspensionViewAnimation];
     }
     
-    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        tabBar.frame = tabBarFrame;
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        if (self.tabBar) self.tabBar.frame = tabBarFrame;
         bgView.alpha = 0;
     } completion:^(BOOL finished) {
-        [tabBarSuperView insertSubview:tabBar atIndex:tabBarIndex];
+        [self transitionCompletion];
+    }];
+}
+
+#pragma mark - 转场结束
+
+- (void)transitionCompletion {
+    if (self.isTransitionCompletion) return;
+    self.isTransitionCompletion = YES;
+    
+    [self.navBarSuperView insertSubview:self.navBar atIndex:self.navBarIndex];
+    [self.tabBarSuperView insertSubview:self.tabBar atIndex:self.tabBarIndex];
+    
+    switch (self.transitionType) {
+        case JPBasicPopTransitionType:
+        {
+            [self basicPopTransitionCompletion];
+            break;
+        }
+        case JPSpreadSuspensionViewTransitionType:
+        {
+            [self spreadSuspensionViewTransitionCompletion];
+            break;
+        }
+        case JPShrinkSuspensionViewTransitionType:
+        {
+            [self shrinkSuspensionViewTransitionCompletion];
+            break;
+        }
+    }
+}
+
+- (void)basicPopTransitionCompletion {
+    self.toVC.view.layer.transform = CATransform3DIdentity;
+    if ([self.transitionContext transitionWasCancelled]) {
+        [self.suspensionView removeFromSuperview];
+        [self.transitionContext completeTransition:NO];
+    } else {
+        if (!self.suspensionView.isSuspensionState) [self.suspensionView removeFromSuperview];
+        [self.transitionContext completeTransition:YES];
+    }
+}
+
+- (void)spreadSuspensionViewTransitionCompletion {
+    [self.containerView addSubview:self.toVC.view];
+    self.toVC.view.layer.mask = nil;
+    self.suspensionView = nil;
+    [self.bgView removeFromSuperview];
+    [self.transitionContext completeTransition:YES];
+}
+
+- (void)shrinkSuspensionViewTransitionCompletion {
+    [UIView animateWithDuration:0.2 animations:^{
         self.suspensionView.alpha = 1;
-        fromVC.view.layer.mask = nil;
-        [fromVC.view removeFromSuperview];
-        [bgView removeFromSuperview];
-        [transitionContext completeTransition:YES];
+        self.fromVC.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.suspensionView.alpha = 1;
+        self.fromVC.view.alpha = 1;
+        self.fromVC.view.layer.mask = nil;
+        [self.fromVC.view removeFromSuperview];
+        [self.bgView removeFromSuperview];
+        [self.transitionContext completeTransition:YES];
     }];
 }
 

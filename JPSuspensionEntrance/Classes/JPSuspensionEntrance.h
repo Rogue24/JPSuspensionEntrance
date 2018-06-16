@@ -31,12 +31,17 @@
 - (void)insertTransitionView:(UIView *)transitionView;
 
 /**
- * 打开当前浮窗
+ * 播放浮窗提示音
+ */
+- (void)playSoundForSpread:(BOOL)isSpread delay:(NSTimeInterval)delay;
+
+/**
+ * 展开当前浮窗
  */
 - (void)pushViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
 /**
- * 合上并创建\替换浮窗
+ * 创建/闭合浮窗
  */
 - (void)popViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
@@ -68,13 +73,24 @@
 /** 是否删除浮窗的图标（可自定义 path路径） */
 @property (nonatomic, copy) NSString *removeSuspensionIconPath;
 
-/**
- * 浮窗展开前调用的block（可在此block里对控制器做相应配置）
- */
-@property (nonatomic, copy) void (^willSpreadSuspensionViewController)(UIViewController<JPSuspensionEntranceProtocol> *targetVC);
+/** 展开/闭合/创建浮窗时是否有提示音，默认为NO */
+@property (nonatomic, assign) BOOL canPlaySound;
 
 /**
- * 需要缓存信息时调用的block（创建、替换浮窗时调用）
+ * 自定义浮窗提示音的block
+    - 默认展开为系统id为1397的提示音（低版本没有该铃声）
+    - 默认闭合为系统id为1396的提示音（低版本没有该铃声）
+ */
+@property (nonatomic, copy) void (^playSpreadSoundBlock)(void); // 展开浮窗
+@property (nonatomic, copy) void (^playShrinkSoundBlock)(void); // 创建/闭合浮窗
+
+/**
+ * 浮窗即将展开时调用的block（可在此block里对push的控制器做相应配置）
+ */
+@property (nonatomic, copy) void (^willSpreadSuspensionViewControllerBlock)(UIViewController<JPSuspensionEntranceProtocol> *targetVC);
+
+/**
+ * 需要缓存信息时调用的block（创建/替换浮窗时调用）
  */
 @property (nonatomic, copy) void (^cacheMsgBlock)(NSString *cacheMsg);
 

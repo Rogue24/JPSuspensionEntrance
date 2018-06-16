@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 #import "ViewController.h"
 #import "ViewController2.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface TableViewController ()
 @property (nonatomic, strong) NSMutableArray *imgNames;
@@ -27,6 +28,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     [super viewDidLoad];
     [self setupBase];
     [self setupTableView];
+    [self setupJPSEInstance];
     [self setupSuspensionView];
 }
 
@@ -36,7 +38,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     JPSEInstance.navCtr = self.navigationController;
     
     __weak typeof(self) weakSelf = self;
-    JPSEInstance.willSpreadSuspensionViewController = ^(UIViewController<JPSuspensionEntranceProtocol> *targetVC) {
+    JPSEInstance.willSpreadSuspensionViewControllerBlock = ^(UIViewController<JPSuspensionEntranceProtocol> *targetVC) {
         [(ViewController *)targetVC setIsHideNavBar:weakSelf.isHideNavBar];
         [(ViewController *)targetVC setRightBtnTitle:@"取消浮窗"];
     };
@@ -49,8 +51,8 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     self.title = self.isHideNavBar ? @"Example-没导航栏" : @"Example-有导航栏";
     
     self.imgNames = [NSMutableArray array];
-    for (NSInteger i = 0; i < 7; i++) {
-        [self.imgNames addObject:[NSString stringWithFormat:@"pic_0%zd", i + 1]];
+    for (int i = 0; i < 7; i++) {
+        [self.imgNames addObject:[NSString stringWithFormat:@"pic_0%d", i + 1]];
     }
     [self.imgNames addObject:@"没有浮窗操作的控制器"];
 }
@@ -63,9 +65,22 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
 }
 
-- (void)setupSuspensionView {
+- (void)setupJPSEInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+        // 是否可以播放提示音
+        JPSEInstance.canPlaySound = YES;
+        
+//        // 配置展开时的提示音
+//        JPSEInstance.playSpreadSoundBlock = ^{
+//            
+//        };
+//        
+//        // 配置闭合时的提示音
+//        JPSEInstance.playShrinkSoundBlock = ^{
+//            
+//        };
         
         JPSEInstance.cacheMsgBlock = ^(NSString *cacheMsg) {
             [[NSUserDefaults standardUserDefaults] setObject:cacheMsg forKey:JPSuspensionCacheMsgKey];
@@ -77,7 +92,14 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
             [[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.y forKey:JPSuspensionDefaultYKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         };
-    
+        
+    });
+}
+
+- (void)setupSuspensionView {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
         NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
         if (cachaMsg) {
             ViewController *vc = [[ViewController alloc] init];

@@ -9,6 +9,7 @@
 #import "JPSuspensionEntrance.h"
 #import "JPPopInteraction.h"
 #import "JPSuspensionTransition.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface JPSuspensionEntrance () <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
@@ -150,6 +151,7 @@ static JPSuspensionEntrance *_sharedInstance;
     self.popInteraction.panEnded = ^(BOOL isFinish, UIScreenEdgePanGestureRecognizer *edgeLeftPanGR) {
         if (!weakSelf) return;
         __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf.suspensionTransition transitionCompletion];
         if (strongSelf.isFromSpreadSuspensionView) {
             strongSelf.suspensionView.alpha = isFinish ? 1 : 0;
             strongSelf.isFromSpreadSuspensionView = NO;
@@ -220,7 +222,7 @@ static JPSuspensionEntrance *_sharedInstance;
     
     NSString *cacheMsg = nil;
     if (suspensionView) {
-        CGRect frame = [suspensionView convertRect:suspensionView.bounds toView:self.window];
+        CGRect frame = [self.window convertRect:suspensionView.frame fromView:self.window];
         suspensionView.frame = frame;
         [self.window addSubview:suspensionView];
         
@@ -321,9 +323,28 @@ static JPSuspensionEntrance *_sharedInstance;
     }
 }
 
+- (void)playSoundForSpread:(BOOL)isSpread delay:(NSTimeInterval)delay {
+    if (!self.canPlaySound) return;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (isSpread) {
+            if (self.playSpreadSoundBlock) {
+                self.playSpreadSoundBlock();
+            } else {
+                AudioServicesPlaySystemSound(1397);
+            }
+        } else {
+            if (self.playShrinkSoundBlock) {
+                self.playShrinkSoundBlock();
+            } else {
+                AudioServicesPlaySystemSound(1396);
+            }
+        }
+    });
+}
+
 - (void)pushViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC {
     if (!targetVC) return;
-    !self.willSpreadSuspensionViewController ? : self.willSpreadSuspensionViewController(targetVC);
+    !self.willSpreadSuspensionViewControllerBlock ? : self.willSpreadSuspensionViewControllerBlock(targetVC);
     [self.navCtr pushViewController:targetVC animated:YES];
 }
 
@@ -351,7 +372,7 @@ static JPSuspensionEntrance *_sharedInstance;
                 // 1.创建新的浮窗
                 self.suspensionTransition = [JPSuspensionTransition shrinkTransitionWithSuspensionView:self.popNewSuspensionView];
             } else if (self.suspensionView && self.suspensionView.targetVC == fromVC) {
-                // 2.闭合已经打开的浮窗
+                // 2.闭合已经展开的浮窗
                 self.suspensionTransition = [JPSuspensionTransition shrinkTransitionWithSuspensionView:self.suspensionView];
             }
             // 3.都不是以上两种情况，返回nil
@@ -365,7 +386,7 @@ static JPSuspensionEntrance *_sharedInstance;
 }
 
 /**
- * @jp 注意一点，如果方法1返回是nil，方法2是不会调用的，也就是说，只有我们自定义的动画才可以与控制器交互
+ * 如果上面方法返回是nil，改方法是不会调用的，也就是说，只有自定义的动画才可以与控制器交互
  */
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     if ([animationController isKindOfClass:JPSuspensionTransition.class] &&

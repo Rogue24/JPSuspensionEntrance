@@ -14,10 +14,11 @@
     目前功能：
         1.滑动返回时可选择该控制器是否缩小成浮窗；
         2.浮窗可自由拖动，拖动结束后可自动贴边；
-        3.一键创建、替换、取消浮窗；
-        4.自适应横竖屏；
-        5.自定义缓存（控制器信息、默认位置）方案；
-        6.可作用于有导航栏的情况
+        3.一键创建、替换、关闭浮窗；
+        4.自适应横竖屏、键盘弹出；
+        5.可自定义缓存（控制器信息、默认位置）方案；
+        6.可自定义展开/闭合的提示音
+        7.可作用于有或无导航栏的情况
 
     注意：
         1.目前仅作用于NavigationController
@@ -31,10 +32,10 @@
 ### 预览
 ![预览](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-233849.gif)
 
-### 无导航栏的情况
+### 无导航栏的样式
 ![无导航栏的情况](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174626-HD.gif)
 
-### 有导航栏的情况
+### 有导航栏的样式
 ![有导航栏的情况](https://github.com/Rogue24/JPSuspensionEntrance/raw/master/Cover/QQ20180615-174820-HD.gif)
 
 ### 已有浮窗的进入与返回
@@ -71,17 +72,35 @@ JPSEInstance.navCtr = self.navigationController;
 - (UIImage *)jp_suspensionLogoImage;
 ```
 
-#### 打开、创建浮窗
+#### 展开、闭合浮窗
 ```ruby
 /**
- * 打开当前浮窗
+ * 展开当前浮窗
  */
 - (void)pushViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
 /**
- * 合上并创建\替换浮窗
+ * 闭合/创建/替换浮窗
  */
 - (void)popViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
+```
+
+#### 设置浮窗提示音
+```ruby
+// 是否可以播放提示音 默认为no
+JPSEInstance.canPlaySound = YES;
+
+// 可在该block中配置展开时的提示音
+// 默认为系统的id为1397提示音
+JPSEInstance.playSpreadSoundBlock = ^{
+
+};
+
+// 可在该block中配置闭合时的提示音
+// 默认为系统的id为1396提示音
+JPSEInstance.playShrinkSoundBlock = ^{
+
+};
 ```
 
 #### 配置缓存方案

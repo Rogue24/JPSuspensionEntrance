@@ -44,6 +44,7 @@
 
 - (instancetype)initWithTargetVC:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC isSuspensionState:(BOOL)isSuspensionState {
     if (self = [super init]) {
+        _isSuspensionState = isSuspensionState;
         self.targetVC = targetVC;
         self.userInteractionEnabled = isSuspensionState;
         
@@ -106,12 +107,22 @@
 }
 
 - (void)shrinkSuspensionViewAnimation {
+    if (_isSuspensionState) return;
+    _isSuspensionState = YES;
     self.userInteractionEnabled = NO;
+    
+    BOOL isHideNavigationBar = [self.targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [self.targetVC jp_isHideNavigationBar];
     
     CGRect frame = self.layer.presentationLayer ? self.layer.presentationLayer.frame : self.layer.frame;
     [self.layer removeAllAnimations];
     self.layer.transform = CATransform3DIdentity;
-    self.frame = frame;
+    if (isHideNavigationBar) {
+        self.frame = [JPSEInstance.window convertRect:frame fromView:JPSEInstance.window];
+        [JPSEInstance insertTransitionView:self];
+    } else {
+        self.frame = [JPSEInstance.navCtr.view convertRect:frame fromView:JPSEInstance.navCtr.view];
+        [JPSEInstance.navCtr.view insertSubview:self belowSubview:JPSEInstance.navCtr.navigationBar];
+    }
     
     [self createEffectView];
     
@@ -122,7 +133,9 @@
     self.maskLayer = maskLayer;
     self.layer.mask = self.maskLayer;
     
-    NSTimeInterval duration = 0.4;
+    NSTimeInterval duration = 0.375;
+    
+    [JPSEInstance playSoundForSpread:NO delay:duration * 0.5];
     
     UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, frame.size.width, frame.size.height) cornerRadius:frame.size.width * 0.5];
     UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, (frame.size.height - frame.size.width) * 0.5, frame.size.width, frame.size.width) cornerRadius:frame.size.width * 0.5];

@@ -26,6 +26,9 @@ typedef BOOL (^JPSuspensionViewPanEnded)(JPSuspensionView *targetSuspensionView,
  */
 + (JPSuspensionView *)suspensionViewWithViewController:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC;
 
+/** 是否已经为浮窗状态 */
+@property (nonatomic, assign, readonly) BOOL isSuspensionState;
+
 /** 保存的控制器 */
 @property (nonatomic, strong) UIViewController<JPSuspensionEntranceProtocol> *targetVC;
 

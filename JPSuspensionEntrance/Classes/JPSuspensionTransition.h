@@ -10,9 +10,9 @@
 @class JPSuspensionView;
 
 typedef NS_ENUM(NSUInteger, JPSuspensionTransitionType) {
-    JPBasicPopTransitionType,               // 高仿的系统pop动画
-    JPSpreadSuspensionViewTransitionType,   // 打开浮窗
-    JPShrinkSuspensionViewTransitionType    // 合上浮窗
+    JPBasicPopTransitionType,               // 高仿的系统pop
+    JPSpreadSuspensionViewTransitionType,   // 展开浮窗
+    JPShrinkSuspensionViewTransitionType    // 闭合浮窗
 };
 
 @interface JPSuspensionTransition : NSObject <UIViewControllerAnimatedTransitioning>
@@ -21,13 +21,15 @@ typedef NS_ENUM(NSUInteger, JPSuspensionTransitionType) {
 
 @property (nonatomic, weak) JPSuspensionView *suspensionView;
 
+- (void)transitionCompletion;
+
 // 高仿的系统pop动画 isInteraction：是否手势操控
 + (JPSuspensionTransition *)basicPopTransitionWithIsInteraction:(BOOL)isInteraction;
 
-// 打开浮窗的动画
+// 展开浮窗的动画
 + (JPSuspensionTransition *)spreadTransitionWithSuspensionView:(JPSuspensionView *)suspensionView;
 
-// 合上浮窗的动画
+// 闭合浮窗的动画
 + (JPSuspensionTransition *)shrinkTransitionWithSuspensionView:(JPSuspensionView *)suspensionView;
 
 - (instancetype)initWithTransitionType:(JPSuspensionTransitionType)transitionType;
