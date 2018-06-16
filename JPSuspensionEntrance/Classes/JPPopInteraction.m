@@ -23,7 +23,7 @@
     if (self = [super init]) {
         self.edgeLeftPanGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeLeftPanHandle:)];
         self.edgeLeftPanGR.edges = UIRectEdgeLeft;
-        _linkValue = 1.0 / 20.0;
+        _linkValue = 1.0 / 30.0;
     }
     return self;
 }
@@ -53,11 +53,17 @@
                edgeLeftPanGR.state == UIGestureRecognizerStateFailed) {
         
         self.interaction = NO;
+        BOOL isFast = velocity.x > 500;
         
-        _isToFinish = velocity.x > 500 || _persent > 0.5;
+        _isToFinish = isFast || _persent > 0.5;
         !self.panWillEnded ? : self.panWillEnded(_isToFinish, edgeLeftPanGR);
         
-        [self addLink];
+        if (isFast) {
+            [self finishInteractiveTransition];
+            !self.panEnded ? : self.panEnded(YES, self.edgeLeftPanGR);
+        } else {
+            [self addLink];
+        }
     }
     
 }

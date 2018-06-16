@@ -109,6 +109,7 @@
 - (void)shrinkSuspensionViewAnimation {
     if (_isSuspensionState) return;
     _isSuspensionState = YES;
+    
     self.userInteractionEnabled = NO;
     
     BOOL isHideNavigationBar = [self.targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [self.targetVC jp_isHideNavigationBar];
@@ -116,6 +117,8 @@
     CGRect frame = self.layer.presentationLayer ? self.layer.presentationLayer.frame : self.layer.frame;
     [self.layer removeAllAnimations];
     self.layer.transform = CATransform3DIdentity;
+    self.layer.zPosition = 0;
+    
     if (isHideNavigationBar) {
         self.frame = [JPSEInstance.window convertRect:frame fromView:JPSEInstance.window];
         [JPSEInstance insertTransitionView:self];
@@ -143,20 +146,22 @@
     kfAnim.values = @[(id)self.maskLayer.path, (id)toPath1.CGPath, (id)toPath2.CGPath];
     kfAnim.keyTimes = @[@0, @0.5, @(1)];
     kfAnim.duration = duration;
+    kfAnim.beginTime = CACurrentMediaTime();
     kfAnim.fillMode = kCAFillModeForwards;
     kfAnim.removedOnCompletion = NO;
     [self.maskLayer addAnimation:kfAnim forKey:@"path"];
     
     CGFloat toScale = self.suspensionViewWH / frame.size.width;
     CGPoint toPos = CGPointMake(CGRectGetMidX(JPSEInstance.suspensionFrame), CGRectGetMidY(JPSEInstance.suspensionFrame));
+    CATransform3D transform = self.layer.transform;
+    transform = CATransform3DMakeTranslation(toPos.x - self.layer.position.x, toPos.y - self.layer.position.y, 0);
+    transform = CATransform3DScale(transform, toScale, toScale, 1);
     
-    JPSuspensionView *currentSuspensionView = JPSEInstance.suspensionView;
-    [UIView animateWithDuration:duration animations:^{
-        currentSuspensionView.alpha = 0;
+    [UIView animateWithDuration:duration delay:0 options:kNilOptions animations:^{
+        JPSEInstance.suspensionView.alpha = 0;
         self.snapshotView.layer.opacity = 0;
         self.logoView.layer.opacity = 1;
-        self.layer.transform = CATransform3DMakeScale(toScale, toScale, 1);
-        self.layer.position = toPos;
+        self.layer.transform = transform;
     } completion:^(BOOL finished) {
         JPSEInstance.suspensionView = self;
         

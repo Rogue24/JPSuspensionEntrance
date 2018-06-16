@@ -93,6 +93,7 @@
         tabBar = self.fromVC.tabBarController.tabBar;
     }
     if (tabBar && tabBar.superview) {
+        [tabBar.layer removeAllAnimations];
         self.tabBar = tabBar;
         self.tabBarSuperView = self.tabBar.superview;
         self.tabBarIndex = [self.tabBarSuperView.subviews indexOfObject:self.tabBar];
@@ -100,6 +101,7 @@
     
     UIViewController<JPSuspensionEntranceProtocol> *targetVC = self.transitionType == JPSpreadSuspensionViewTransitionType ? self.toVC : self.fromVC;
     if ([targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [targetVC jp_isHideNavigationBar]) {
+        // 如果要盖住导航栏就必须得添加到containerView中
         UINavigationBar *navBar = targetVC.navigationController.navigationBar;
         if (navBar && navBar.superview) {
             self.navBar = navBar;
@@ -132,30 +134,54 @@
 - (void)basicPopAnimation {
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
-    self.toVC.view.layer.transform = CATransform3DMakeTranslation(-JPSEInstance.window.bounds.size.width * 0.3, 0, 0);
+    JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:self.fromVC];
+    
+    CGRect toVCFrame = self.toVC.view.frame;
+    toVCFrame.origin.x = -JPSEInstance.window.bounds.size.width * 0.3;
+    self.toVC.view.frame = toVCFrame;
+    toVCFrame.origin.x = 0;
+    
+    CGRect fromVCFrame = self.fromVC.view.frame;
+    fromVCFrame.origin.x = 0;
+    suspensionView.frame = fromVCFrame;
+    fromVCFrame.origin.x = JPSEInstance.window.bounds.size.width;
     
     CGRect tabBarFrame = CGRectZero;
     if (self.tabBar) {
-        [self.tabBar.layer removeAllAnimations];
         tabBarFrame = self.tabBar.frame;
         tabBarFrame.origin.x = self.toVC.view.frame.origin.x;
         self.tabBar.frame = tabBarFrame;
         tabBarFrame.origin.x = 0;
     }
     
-    JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:self.fromVC];
+    // 当使用【手势交互并且没有返回成功】时（就是还没划过一半），导航栏总是交替出现异常（正常然后不正常再正常如此类推）
+    // 不正常的情况就是导航栏消失了
+    // 所以在这里自定义导航栏的动画
+    // 而另外两种动画没有手势交互，不需要另加处理
+    CGRect navBarFrame = CGRectZero;
+    if (self.navBar) {
+        [self.navBar.layer removeAllAnimations];
+        navBarFrame = self.navBar.frame;
+        navBarFrame.origin.x = self.toVC.view.frame.origin.x;
+        self.navBar.frame = navBarFrame;
+        navBarFrame.origin.x = 0;
+        // 导航栏removeAllAnimations之后就会置顶显示，为了盖住导航栏，需要将浮窗的zPosition增加
+        suspensionView.layer.zPosition = 1;
+    }
     
     [self.containerView addSubview:self.toVC.view];
     [self.containerView addSubview:self.tabBar];
     [self.containerView addSubview:self.navBar];
     [self.containerView addSubview:suspensionView];
     self.suspensionView = suspensionView;
+    self.fromVC.view.hidden = YES;
     
     UIViewAnimationOptions options = self.isInteraction ? UIViewAnimationOptionCurveLinear : UIViewAnimationOptionCurveEaseOut;
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
         if (self.tabBar) self.tabBar.frame = tabBarFrame;
-        self.toVC.view.layer.transform = CATransform3DIdentity;
-        suspensionView.layer.transform = CATransform3DMakeTranslation(JPSEInstance.window.bounds.size.width, 0, 0);
+        if (self.navBar) self.navBar.frame = navBarFrame;
+        self.toVC.view.frame = toVCFrame;
+        suspensionView.frame = fromVCFrame;
     } completion:^(BOOL finished) {
         [self transitionCompletion];
     }];
@@ -179,7 +205,6 @@
     
     CGRect tabBarFrame = CGRectZero;
     if (self.tabBar) {
-        [self.tabBar.layer removeAllAnimations];
         tabBarFrame = self.tabBar.frame;
         tabBarFrame.origin.x = 0;
         self.tabBar.frame = tabBarFrame;
@@ -193,7 +218,7 @@
     [self.containerView addSubview:self.toVC.view];
     self.bgView = bgView;
     
-    [JPSEInstance playSoundForSpread:YES delay:duration * 0.5];
+    [JPSEInstance playSoundForSpread:YES delay:duration * 0.25];
     
     UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.toVC.view.bounds.size.width, self.toVC.view.bounds.size.height) cornerRadius:suspensionFrame.size.width * 0.5];
     UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.toVC.view.bounds.size.width, self.toVC.view.bounds.size.height) cornerRadius:0.1];
@@ -222,7 +247,6 @@
     
     CGRect tabBarFrame = CGRectZero;
     if (self.tabBar) {
-        [self.tabBar.layer removeAllAnimations];
         tabBarFrame = self.tabBar.frame;
         tabBarFrame.origin.x = 0;
         self.tabBar.frame = tabBarFrame;
@@ -278,6 +302,9 @@
     if (self.isTransitionCompletion) return;
     self.isTransitionCompletion = YES;
     
+    // 转场结束后 导航栏又会多一个系统加上去的动画 会造成瞬间偏移 移除该动画
+    [self.navBar.layer removeAllAnimations];
+    [self.tabBar.layer removeAllAnimations];
     [self.navBarSuperView insertSubview:self.navBar atIndex:self.navBarIndex];
     [self.tabBarSuperView insertSubview:self.tabBar atIndex:self.tabBarIndex];
     
@@ -301,7 +328,7 @@
 }
 
 - (void)basicPopTransitionCompletion {
-    self.toVC.view.layer.transform = CATransform3DIdentity;
+    self.fromVC.view.hidden = NO;
     if ([self.transitionContext transitionWasCancelled]) {
         [self.suspensionView removeFromSuperview];
         [self.transitionContext completeTransition:NO];
@@ -320,7 +347,7 @@
 }
 
 - (void)shrinkSuspensionViewTransitionCompletion {
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.15 animations:^{
         self.suspensionView.alpha = 1;
         self.fromVC.view.alpha = 0;
     } completion:^(BOOL finished) {
