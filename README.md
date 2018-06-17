@@ -60,7 +60,7 @@ JPSEInstance.navCtr = self.navigationController;
 #### 配置可成为浮窗的控制器
 ```ruby
 // push的控制器 需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
-// SuspensionEntranceProtocol的代理方法：
+// JPSuspensionEntranceProtocol的代理方法：
 
 // 1.是否隐藏导航栏（必须实现）
 - (BOOL)jp_isHideNavigationBar;
