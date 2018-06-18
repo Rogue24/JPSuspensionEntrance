@@ -204,7 +204,9 @@ static JPSuspensionEntrance *_sharedInstance;
 
 - (void)setIsHideNavBar:(BOOL)isHideNavBar {
     _isHideNavBar = isHideNavBar;
-    if (self.navCtr.viewControllers.count == 1) [self.navCtr setNavigationBarHidden:isHideNavBar animated:NO];
+    if (self.navCtr.viewControllers.count == 1 || ![self.navCtr.viewControllers.lastObject conformsToProtocol:@protocol(JPSuspensionEntranceProtocol)]) {
+        [self.navCtr setNavigationBarHidden:isHideNavBar animated:NO];
+    }
 }
 
 - (void)setSuspensionView:(JPSuspensionView *)suspensionView {

@@ -56,6 +56,9 @@
 // 绑定了则其delegate及interactivePopGestureRecognizer.delegate都为JPSuspensionEntrance代理
 // 切换navigationController需要重新绑定最新的navigationController
 JPSEInstance.navCtr = self.navigationController;
+
+// 设置绑定的navigationController的根控制器和没有遵守<JPSuspensionEntranceProtocol>协议的子控制器是否隐藏导航栏
+JPSEInstance.isHideNavBar = NO;
 ```
 #### 配置可成为浮窗的控制器
 ```ruby
