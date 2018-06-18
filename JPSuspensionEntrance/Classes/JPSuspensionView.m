@@ -114,10 +114,10 @@
     
     BOOL isHideNavigationBar = [self.targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [self.targetVC jp_isHideNavigationBar];
     if (isHideNavigationBar) {
-        self.frame = [JPSEInstance.window convertRect:frame fromView:JPSEInstance.window];
+        self.frame = [self.superview convertRect:frame toView:JPSEInstance.window];
         [JPSEInstance insertTransitionView:self];
     } else {
-        self.frame = [JPSEInstance.navCtr.view convertRect:frame fromView:JPSEInstance.navCtr.view];
+        self.frame = [self.superview convertRect:frame toView:JPSEInstance.navCtr.view];
         [JPSEInstance.navCtr.view insertSubview:self belowSubview:JPSEInstance.navCtr.navigationBar];
     }
     

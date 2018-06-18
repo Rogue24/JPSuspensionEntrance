@@ -309,6 +309,7 @@
         kfAnim.removedOnCompletion = NO;
         [maskLayer addAnimation:kfAnim forKey:@"path"];
     } else {
+        [self.containerView addSubview:self.suspensionView];
         [self.suspensionView shrinkSuspensionViewAnimation];
     }
     

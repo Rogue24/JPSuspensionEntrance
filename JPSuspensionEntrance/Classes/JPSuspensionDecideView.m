@@ -99,7 +99,7 @@
     
     BOOL isDelete = suspensionView != nil;
     if (isDelete) {
-        suspensionView.frame = [suspensionView convertRect:suspensionView.bounds toView:self];
+        suspensionView.frame = [suspensionView.superview convertRect:suspensionView.frame toView:self];
         [self addSubview:suspensionView];
     }
     

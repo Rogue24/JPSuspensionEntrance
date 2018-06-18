@@ -229,8 +229,7 @@ static JPSuspensionEntrance *_sharedInstance;
     
     NSString *cacheMsg = nil;
     if (suspensionView) {
-        CGRect frame = [self.window convertRect:suspensionView.frame fromView:self.window];
-        suspensionView.frame = frame;
+        suspensionView.frame = [suspensionView.superview convertRect:suspensionView.frame toView:self.window];
         [self.window addSubview:suspensionView];
         
         suspensionView.tapGR.delegate = self;
