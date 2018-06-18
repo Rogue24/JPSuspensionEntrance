@@ -51,6 +51,9 @@
 /** 绑定的NavigationController 成为其及interactivePopGestureRecognizer的代理 */
 @property (nonatomic, strong) UINavigationController *navCtr;
 
+/** 绑定的NavigationController是否隐藏导航栏（默认是no） */
+@property (nonatomic, assign) BOOL isHideNavBar;
+
 /** 当前浮窗（为nil时移除） */
 @property (nonatomic, strong) JPSuspensionView *suspensionView;
 

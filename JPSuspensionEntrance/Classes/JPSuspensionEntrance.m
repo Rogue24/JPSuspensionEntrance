@@ -202,6 +202,11 @@ static JPSuspensionEntrance *_sharedInstance;
     [navCtr.view addGestureRecognizer:self.popInteraction.edgeLeftPanGR];
 }
 
+- (void)setIsHideNavBar:(BOOL)isHideNavBar {
+    _isHideNavBar = isHideNavBar;
+    if (self.navCtr.viewControllers.count == 1) [self.navCtr setNavigationBarHidden:isHideNavBar animated:NO];
+}
+
 - (void)setSuspensionView:(JPSuspensionView *)suspensionView {
     if (self.popNewSuspensionView) {
         if (self.popNewSuspensionView != suspensionView) {
@@ -363,8 +368,9 @@ static JPSuspensionEntrance *_sharedInstance;
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     BOOL isPush = operation == UINavigationControllerOperationPush;
     self.suspensionTransition = nil;
+    BOOL isToVCConformsToProtocol = [toVC conformsToProtocol:@protocol(JPSuspensionEntranceProtocol)];
     if (isPush) {
-        if (![toVC conformsToProtocol:@protocol(JPSuspensionEntranceProtocol)]) return nil;
+        if (!isToVCConformsToProtocol) return nil;
         if (self.suspensionView && self.suspensionView.targetVC == toVC) {
             self.suspensionTransition = [JPSuspensionTransition spreadTransitionWithSuspensionView:self.suspensionView];
         }
@@ -385,6 +391,10 @@ static JPSuspensionEntrance *_sharedInstance;
             self.isFromSpreadSuspensionView = fromVC == self.suspensionView.targetVC;
             self.suspensionTransition = [JPSuspensionTransition basicPopTransitionWithIsInteraction:self.popInteraction.interaction];
         }
+    }
+    if (!self.suspensionTransition) {
+        BOOL isHideNavBar = isToVCConformsToProtocol ? [(UIViewController<JPSuspensionEntranceProtocol> *)toVC jp_isHideNavigationBar] : JPSEInstance.isHideNavBar;
+        [navigationController setNavigationBarHidden:isHideNavBar animated:YES];
     }
     return self.suspensionTransition;
 }
