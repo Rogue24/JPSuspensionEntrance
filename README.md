@@ -63,7 +63,7 @@ JPSEInstance.isHideNavBar = NO;
 ```
 #### 配置可成为浮窗的控制器
 ```ruby
-// push的控制器 需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
+// push的控制器需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
 // JPSuspensionEntranceProtocol的代理方法：
 /**
  * 需要缓存的信息（必须实现，例如url）
@@ -79,11 +79,13 @@ JPSEInstance.isHideNavBar = NO;
  * 加载浮窗的logo图标的回调（可选，“jp_suspensionLogoImage”优先调用）
  * 当“jp_suspensionLogoImage”没有实现或者返回的是nil才会回调该方法，有值返回则不会执行，需要自定义加载方案，这里只提供调用时机
  * Example:
+    // 在push的控制器中实现的代理方法：
     - (UIImage *)jp_suspensionLogoImage {
         // 返回下载的图片
         return self.logoImage;
     }
     
+    // 如果jp_suspensionLogoImage没有实现或者返回的是nil则会执行该方法
     - (void)jp_requestSuspensionLogoImageWithLogoView:(UIImageView *)logoView {
         // 这里使用了sdwebimage来进行下载
         __weak typeof(self) weakSelf = self;
