@@ -21,9 +21,9 @@
 + (instancetype)sharedInstance;
 
 /**
- * 配置浮窗（用于初始化配置缓存的控制器）
+ * 配置浮窗（用于初始化配置缓存的控制器，使用xy值）
  */
-- (void)setupSuspensionViewWithTargetVC:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC suspensionFrame:(CGRect)suspensionFrame;
+- (void)setupSuspensionViewWithTargetVC:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC suspensionXY:(CGPoint)suspensionXY;
 
 /**
  * 转场时的临时视图插入

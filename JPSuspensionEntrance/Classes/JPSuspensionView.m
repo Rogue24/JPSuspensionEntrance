@@ -11,7 +11,6 @@
 
 @interface JPSuspensionView ()
 @property (nonatomic, weak) UIVisualEffectView *effectView;
-@property (nonatomic, weak) UIImageView *logoView;
 @property (nonatomic, weak) CAShapeLayer *maskLayer;
 - (CGFloat)suspensionViewWH;
 - (CGFloat)suspensionLogoMargin;
@@ -55,42 +54,21 @@
         [self addGestureRecognizer:panGR];
         self.panGR = panGR;
         
-        self.frame = isSuspensionState ? JPSEInstance.suspensionFrame : targetVC.view.bounds;
-        
-        if ([targetVC respondsToSelector:@selector(jp_suspensionLogoImage)]) {
-            UIImage *logoImage = [targetVC jp_suspensionLogoImage];
-            if (logoImage) {
-                [self createLogoView];
-                self.logoView.image = logoImage;
-            }
-        }
-
         if (isSuspensionState) {
+            self.frame = JPSEInstance.suspensionFrame;
             self.layer.cornerRadius = self.bounds.size.height * 0.5;
             self.layer.masksToBounds = YES;
             [self createEffectView];
+            [self setupLogo];
         } else {
+            self.frame = targetVC.view.bounds;
             self.layer.shadowPath = [UIBezierPath bezierPathWithRect:targetVC.view.bounds].CGPath;
             self.layer.shadowOpacity = 1.0;
             self.layer.shadowRadius = 10.0;
             self.layer.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.35].CGColor;
-            self.logoView.layer.opacity = 0;
         }
     }
     return self;
-}
-
-- (void)createLogoView {
-    if (self.logoView) return;
-    CGFloat x = self.bounds.size.width * (self.suspensionLogoMargin / self.suspensionViewWH);
-    CGFloat wh = self.bounds.size.width - 2 * x;
-    CGFloat y = (self.bounds.size.height - wh) * 0.5;
-    UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, wh, wh)];
-    logoView.contentMode = UIViewContentModeScaleAspectFill;
-    logoView.layer.cornerRadius = wh * 0.5;
-    logoView.layer.masksToBounds = YES;
-    [self addSubview:logoView];
-    self.logoView = logoView;
 }
 
 - (void)createEffectView {
@@ -99,6 +77,30 @@
     effectView.frame = CGRectInset(self.bounds, -1, -1);
     [self insertSubview:effectView atIndex:0];
     self.effectView = effectView;
+}
+
+- (void)setupLogo {
+    if (!self.logoView) {
+        CGFloat x = self.bounds.size.width * (self.suspensionLogoMargin / self.suspensionViewWH);
+        CGFloat wh = self.bounds.size.width - 2 * x;
+        CGFloat y = (self.bounds.size.height - wh) * 0.5;
+        UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, wh, wh)];
+        logoView.contentMode = UIViewContentModeScaleAspectFill;
+        logoView.layer.cornerRadius = wh * 0.5;
+        logoView.layer.masksToBounds = YES;
+        [self addSubview:logoView];
+        self.logoView = logoView;
+    }
+    if ([self.targetVC respondsToSelector:@selector(jp_suspensionLogoImage)]) {
+        UIImage *logoImage = [self.targetVC jp_suspensionLogoImage];
+        if (logoImage) {
+            self.logoView.image = logoImage;
+        } else {
+            if ([self.targetVC respondsToSelector:@selector(jp_requestSuspensionLogoImageWithLogoView:)]) [self.targetVC jp_requestSuspensionLogoImageWithLogoView:self.logoView];
+        }
+    } else {
+        if ([self.targetVC respondsToSelector:@selector(jp_requestSuspensionLogoImageWithLogoView:)]) [self.targetVC jp_requestSuspensionLogoImageWithLogoView:self.logoView];
+    }
 }
 
 - (void)shrinkSuspensionViewAnimation {
@@ -114,15 +116,17 @@
     
     BOOL isHideNavigationBar = [self.targetVC respondsToSelector:@selector(jp_isHideNavigationBar)] && [self.targetVC jp_isHideNavigationBar];
     if (isHideNavigationBar) {
-        self.frame = [self.superview convertRect:frame toView:JPSEInstance.window];
+        self.frame = (self.superview && self.superview != JPSEInstance.window) ? [self.superview convertRect:frame toView:JPSEInstance.window] : frame;
         [JPSEInstance insertTransitionView:self];
     } else {
-        self.frame = [self.superview convertRect:frame toView:JPSEInstance.navCtr.view];
+        self.frame = (self.superview && self.superview != JPSEInstance.navCtr.view) ? [self.superview convertRect:frame toView:JPSEInstance.navCtr.view] : frame;
         [JPSEInstance.navCtr.view insertSubview:self belowSubview:JPSEInstance.navCtr.navigationBar];
     }
     
     [self addSubview:self.targetVC.view];
     [self createEffectView];
+    [self setupLogo];
+    self.logoView.layer.opacity = 0;
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.fillColor = [UIColor blackColor].CGColor;

@@ -229,7 +229,7 @@ static JPSuspensionEntrance *_sharedInstance;
     
     NSString *cacheMsg = nil;
     if (suspensionView) {
-        suspensionView.frame = [suspensionView.superview convertRect:suspensionView.frame toView:self.window];
+        if (suspensionView.superview && suspensionView.superview != self.window) suspensionView.frame = [suspensionView.superview convertRect:suspensionView.frame toView:self.window];
         [self.window addSubview:suspensionView];
         
         suspensionView.tapGR.delegate = self;
@@ -312,8 +312,8 @@ static JPSuspensionEntrance *_sharedInstance;
 
 #pragma mark - public method
 
-- (void)setupSuspensionViewWithTargetVC:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC suspensionFrame:(CGRect)suspensionFrame {
-    _suspensionFrame = suspensionFrame;
+- (void)setupSuspensionViewWithTargetVC:(UIViewController<JPSuspensionEntranceProtocol> *)targetVC suspensionXY:(CGPoint)suspensionXY {
+    _suspensionFrame = CGRectMake(suspensionXY.x, suspensionXY.y, _suspensionViewWH, _suspensionViewWH);
     [self fixSuspensionFrame];
     JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:targetVC isSuspensionState:YES];
     self.suspensionView = suspensionView;

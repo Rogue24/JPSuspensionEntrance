@@ -8,13 +8,17 @@
 
 #import "ViewController.h"
 #import "JPSuspensionEntrance.h"
+#import "UIImageView+WebCache.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) UIButton *leftBtn;
 @property (nonatomic, weak) UIButton *rightBtn;
+@property (nonatomic, strong) UIImage *logoImage;
 @end
 
 @implementation ViewController
+
+static NSString *const JPTestImageURLStr = @"http://img.baizhan.net/uploads/allimg/171204/47_171204105455_3.png";
 
 - (UIButton *)leftBtn {
     if (!_leftBtn) {
@@ -126,7 +130,14 @@
 }
 
 - (UIImage *)jp_suspensionLogoImage {
-    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.title ofType:@"jpg"]];
+    return self.logoImage;
+}
+
+- (void)jp_requestSuspensionLogoImageWithLogoView:(UIImageView *)logoView {
+    __weak typeof(self) weakSelf = self;
+    [logoView sd_setImageWithURL:[NSURL URLWithString:JPTestImageURLStr] placeholderImage:nil options:SDWebImageTransformAnimatedImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (weakSelf) weakSelf.logoImage = image;
+    }];
 }
 
 

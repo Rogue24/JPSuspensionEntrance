@@ -19,6 +19,7 @@
         5.可自定义缓存（控制器信息、默认位置）方案；
         6.可自定义展开/闭合的提示音
         7.可作用于有或无导航栏的情况
+        8.可自定义浮窗logo
 
     注意：
         1.目前仅作用于NavigationController
@@ -64,15 +65,35 @@ JPSEInstance.isHideNavBar = NO;
 ```ruby
 // push的控制器 需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
 // JPSuspensionEntranceProtocol的代理方法：
-
-// 1.是否隐藏导航栏（必须实现）
-- (BOOL)jp_isHideNavigationBar;
-
-// 2.缓存信息（可选）
+/**
+ * 需要缓存的信息（必须实现，例如url）
+ */
 - (NSString *)jp_suspensionCacheMsg;
 
-// 3.浮窗logo图标（可选）
+/**
+ * 浮窗的logo图标（可选）
+ */
 - (UIImage *)jp_suspensionLogoImage;
+
+/**
+ * 加载浮窗的logo图标的回调（可选，“jp_suspensionLogoImage”优先调用）
+ * 当“jp_suspensionLogoImage”没有实现或者返回的是nil才会回调该方法，有值返回则不会执行，需要自定义加载方案，这里只提供调用时机
+ * Example:
+    - (UIImage *)jp_suspensionLogoImage {
+        // 返回下载的图片
+        return self.logoImage;
+    }
+    
+    - (void)jp_requestSuspensionLogoImageWithLogoView:(UIImageView *)logoView {
+        // 这里使用了sdwebimage来进行下载
+        __weak typeof(self) weakSelf = self;
+        [logoView sd_setImageWithURL:[NSURL URLWithString:JPTestImageURLStr] placeholderImage:nil options:SDWebImageTransformAnimatedImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            // 保存下载好的图片
+            if (weakSelf) weakSelf.logoImage = image;
+        }];
+    }
+ */
+- (void)jp_requestSuspensionLogoImageWithLogoView:(UIImageView *)logoView;
 ```
 
 #### 展开、闭合浮窗
@@ -140,14 +161,13 @@ dispatch_once(&onceToken, ^{
         vc.title = cachaMsg;
         vc.isHideNavBar = YES;
         
-        // 2.获取缓存的浮窗位置或使用默认值
-        CGFloat wh = [JPSuspensionEntrance sharedInstance].suspensionViewWH;
-        // Demo中使用了NSUserDefaults缓存x、y值
+        // 2.获取缓存的浮窗位置
+        // Demo中使用了NSUserDefaults缓存的x、y值
         CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
         CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
 
         // 创建浮窗
-        [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionFrame:CGRectMake(x, y, wh, wh)];
+        [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionXY:CGPointMake(x, y)];
     }
 });
 ```

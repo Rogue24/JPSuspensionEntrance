@@ -106,11 +106,9 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
             vc.title = cachaMsg;
             vc.isHideNavBar = YES;
             
-            CGFloat wh = JPSEInstance.suspensionViewWH;
             CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
             CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
-            
-            [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionFrame:CGRectMake(x, y, wh, wh)];
+            [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionXY:CGPointMake(x, y)];
         }
         
     });

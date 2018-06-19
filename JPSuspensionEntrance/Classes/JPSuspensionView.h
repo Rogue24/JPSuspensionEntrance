@@ -32,9 +32,13 @@ typedef BOOL (^JPSuspensionViewPanEnded)(JPSuspensionView *targetSuspensionView,
 /** 保存的控制器 */
 @property (nonatomic, strong) UIViewController<JPSuspensionEntranceProtocol> *targetVC;
 
-@property (nonatomic, weak) UITapGestureRecognizer *tapGR;
-@property (nonatomic, weak) UIPanGestureRecognizer *panGR;
+/** 浮窗的logo视图 */
+@property (nonatomic, weak) UIImageView *logoView;
 
+/** 点击手势->展开浮窗显示控制器 */
+@property (nonatomic, weak) UITapGestureRecognizer *tapGR;
+/** 拖动手势->移动浮窗，松手后自动贴边 */
+@property (nonatomic, weak) UIPanGestureRecognizer *panGR;
 /** 浮窗状态下的手势回调 */
 @property (nonatomic, copy) JPSuspensionViewPanBegan panBegan;
 @property (nonatomic, copy) JPSuspensionViewPanChanged panChanged;
