@@ -34,16 +34,20 @@
     CGPoint velocity = [edgeLeftPanGR velocityInView:referenceView];
     CGPoint transition = [edgeLeftPanGR translationInView:referenceView];
     
+    // 手势百分比
+    _persent = transition.x / referenceView.bounds.size.width;
+    if (_persent < 0) _persent = 0;
+    if (_persent > 1) _persent = 1;
+    
     if (edgeLeftPanGR.state == UIGestureRecognizerStateBegan) {
-        self.interaction = YES;
-        _persent = 0;
-        !self.panBegan ? : self.panBegan(edgeLeftPanGR);
-    } else if (edgeLeftPanGR.state == UIGestureRecognizerStateChanged) {
         
-        // 手势百分比
-        _persent = transition.x / referenceView.bounds.size.width;
-        if (_persent < 0) _persent = 0;
-        if (_persent > 1) _persent = 1;
+        self.interaction = YES;
+        !self.panBegan ? : self.panBegan(edgeLeftPanGR);
+        
+        [self updateInteractiveTransition:_persent];
+        !self.panChanged ? : self.panChanged(_persent, edgeLeftPanGR);
+        
+    } else if (edgeLeftPanGR.state == UIGestureRecognizerStateChanged) {
         
         [self updateInteractiveTransition:_persent];
         !self.panChanged ? : self.panChanged(_persent, edgeLeftPanGR);
