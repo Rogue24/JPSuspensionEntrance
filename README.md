@@ -45,7 +45,7 @@
 ## 如何使用
 
 #### 获取单例
-```ruby
+```obj
 // 使用单例的形式进行全局操作
 [JPSuspensionEntrance sharedInstance]; 
 
@@ -53,7 +53,7 @@
 // JPSEInstance
 ```
 #### 绑定 NavigationController
-```ruby
+```obj
 // 绑定了则其delegate及interactivePopGestureRecognizer.delegate都为JPSuspensionEntrance代理
 // 切换navigationController需要重新绑定最新的navigationController
 JPSEInstance.navCtr = self.navigationController;
@@ -62,7 +62,7 @@ JPSEInstance.navCtr = self.navigationController;
 JPSEInstance.isHideNavBar = NO;
 ```
 #### 配置可成为浮窗的控制器
-```ruby
+```obj
 // push的控制器需要遵守<JPSuspensionEntranceProtocol>协议才可以变为浮窗
 // JPSuspensionEntranceProtocol的代理方法：
 /**
@@ -99,7 +99,7 @@ JPSEInstance.isHideNavBar = NO;
 ```
 
 #### 展开、闭合浮窗
-```ruby
+```obj
 /**
  * 展开当前浮窗
  */
@@ -112,7 +112,7 @@ JPSEInstance.isHideNavBar = NO;
 ```
 
 #### 设置浮窗提示音
-```ruby
+```obj
 // 是否可以播放提示音 默认为no
 JPSEInstance.canPlaySound = YES;
 
@@ -130,7 +130,7 @@ JPSEInstance.playShrinkSoundBlock = ^{
 ```
 
 #### 配置缓存方案
-```ruby
+```obj
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
 
@@ -151,7 +151,7 @@ dispatch_once(&onceToken, ^{
 ```
 
 #### 初始化配置缓存浮窗
-```ruby
+```obj
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
     // 初始化缓存浮窗
@@ -178,7 +178,7 @@ dispatch_once(&onceToken, ^{
 
 JPSuspensionEntrance 可通过[CocoaPods](http://cocoapods.org)安装，只需添加下面一行到你的podfile：
 
-```ruby
+```obj
 pod 'JPSuspensionEntrance'
 ```
 
