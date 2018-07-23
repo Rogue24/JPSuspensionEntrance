@@ -29,6 +29,8 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.userInteractionEnabled = NO;
+        
         CGFloat scale = [UIScreen mainScreen].bounds.size.width / 375.0;
         _radius = 160.0 * scale;
         _diagonalLength = sqrt(pow(_radius, 2) * 0.5);
