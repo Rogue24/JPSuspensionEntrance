@@ -97,8 +97,9 @@ static JPSuspensionEntrance *_sharedInstance;
     NSString *imageScaleStr = [NSString stringWithFormat:@"%.0lf", imageScale];
     
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(self.class)];
+    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", bundle.infoDictionary[@"CFBundleName"]];
     NSString *type = @"png";
+    
     self.suspensiconIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_little@%@x", imageScaleStr] ofType:type inDirectory:bundleName];
     self.confimSuspensionIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_big@%@x", imageScaleStr] ofType:type inDirectory:bundleName];
     self.removeSuspensionIconPath = [bundle pathForResource:[NSString stringWithFormat:@"circle_delete@%@x", imageScaleStr] ofType:type inDirectory:bundleName];
