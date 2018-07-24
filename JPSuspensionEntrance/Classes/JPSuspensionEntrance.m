@@ -275,9 +275,6 @@ static JPSuspensionEntrance *_sharedInstance;
 
 - (void)setSuspensionFrame:(CGRect)suspensionFrame {
     _suspensionFrame = suspensionFrame;
-    if (suspensionFrame.size.width == 0 || suspensionFrame.size.height == 0) {
-        NSLog(@"?");
-    }
     !self.cacheSuspensionFrameBlock ? : self.cacheSuspensionFrameBlock(suspensionFrame);
 }
 
