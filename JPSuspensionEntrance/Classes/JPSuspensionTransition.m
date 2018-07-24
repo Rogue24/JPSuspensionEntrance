@@ -102,12 +102,15 @@
     self.fromVC.view.userInteractionEnabled = NO;
     self.toVC.view.userInteractionEnabled = NO;
     
-    UITabBarController *tabBarController = self.toVC.tabBarController ? self.toVC.tabBarController : self.fromVC.tabBarController;
-    UITabBar *tabBar = tabBarController.tabBar;
-    if (tabBar && tabBar.superview) {
-        self.tabBar = tabBar;
-        self.tabBarSuperView = tabBar.superview;
-        self.tabBarIndex = [tabBar.superview.subviews indexOfObject:tabBar];
+    UIViewController *targetVC = _transitionType == JPSpreadSuspensionViewTransitionType ? self.toVC : self.fromVC;
+    if (targetVC.hidesBottomBarWhenPushed) {
+        UITabBarController *tabBarController = self.toVC.tabBarController ? self.toVC.tabBarController : self.fromVC.tabBarController;
+        UITabBar *tabBar = tabBarController.tabBar;
+        if (tabBar && tabBar.superview) {
+            self.tabBar = tabBar;
+            self.tabBarSuperView = tabBar.superview;
+            self.tabBarIndex = [tabBar.superview.subviews indexOfObject:tabBar];
+        }
     }
     
     switch (_transitionType) {

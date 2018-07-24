@@ -456,7 +456,7 @@
 				ORGANIZATIONNAME = Rogue24;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = FH4WHYK8ZQ;
+						DevelopmentTeam = AH737FZCJM;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -808,7 +808,7 @@
 			baseConfigurationReference = B5479898F63CFC1985EA9137 /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FH4WHYK8ZQ;
+				DEVELOPMENT_TEAM = AH737FZCJM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPSuspensionEntrance/JPSuspensionEntrance-Prefix.pch";
 				INFOPLIST_FILE = "JPSuspensionEntrance/JPSuspensionEntrance-Info.plist";
@@ -826,7 +826,7 @@
 			baseConfigurationReference = 849775569D5A713884503B82 /* Pods-JPSuspensionEntrance_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FH4WHYK8ZQ;
+				DEVELOPMENT_TEAM = AH737FZCJM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPSuspensionEntrance/JPSuspensionEntrance-Prefix.pch";
 				INFOPLIST_FILE = "JPSuspensionEntrance/JPSuspensionEntrance-Info.plist";
