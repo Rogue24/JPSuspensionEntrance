@@ -149,6 +149,7 @@
     fromVCFrame.origin.x = 0;
     suspensionView.frame = fromVCFrame;
     fromVCFrame.origin.x = JPSEInstance.window.bounds.size.width;
+    self.fromVC.view.frame = suspensionView.bounds;
     
     [self.containerView addSubview:self.toVC.view];
     [self.containerView addSubview:self.tabBar];
