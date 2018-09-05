@@ -137,8 +137,8 @@
 - (void)basicPopAnimation {
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
-    // 当 toVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 的情况下
-    // toVC.view 的 y值 应该为导航栏最大高度，但在这里时为窗口大小
+    // 当toVC.edgesForExtendedLayout为UIRectEdgeNone的情况下
+    // toVC.view的y值应该为导航栏最大高度，但在这里时为窗口大小
     // 所以使用jp_apearFrame属性来保存了这个vc在push时vc.view的frame，pop时应该为push时的frame
     CGRect toVCFrame = CGRectIsNull(self.toVC.jp_apearFrame) ? self.toVC.view.frame : self.toVC.jp_apearFrame;
     toVCFrame.origin.x = -JPSEInstance.window.bounds.size.width * 0.3;
@@ -152,8 +152,8 @@
     suspensionView.frame = fromVCFrame;
     fromVCFrame.origin.x = JPSEInstance.window.bounds.size.width;
     
-    // 当 fromVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 且有导航栏的情况下
-    // 它的y值为导航栏的最大高度，导致在suspensionView上会往下偏移，这里调整位置
+    // 当fromVC.edgesForExtendedLayout为UIRectEdgeNone且有导航栏的情况下
+    // fromVC.view的y值为导航栏的最大高度，导致在suspensionView上会往下偏移，这里调整位置
     self.fromVC.view.frame = suspensionView.bounds;
     [suspensionView addSubview:self.fromVC.view];
     
@@ -207,8 +207,8 @@
 - (void)spreadSuspensionViewAnimation {
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
-    // 当 toVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 的情况下
-    // 它的 y值 为导航栏的最大高度，若没有导航栏的话 toVC.view 应该为窗口大小
+    // 当toVC.edgesForExtendedLayout为UIRectEdgeNone的情况下
+    // toVC.view的y值为导航栏的最大高度，若没有导航栏的话toVC.view应该为窗口大小
     if (self.isHideToVCNavBar) self.toVC.view.frame = JPSEInstance.window.bounds;
     
     CGRect suspensionFrame = [self.suspensionView.superview convertRect:self.suspensionView.frame toView:self.toVC.view];
@@ -331,14 +331,10 @@
         [self.suspensionView shrinkSuspensionViewAnimation];
     }
     
-    NSLog(@"0000 %@", NSStringFromCGRect(self.toVC.view.frame));
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         bgView.alpha = 0;
     } completion:^(BOOL finished) {
         [self transitionCompletion];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSLog(@"%@", NSStringFromCGRect(self.toVC.view.frame));
-        });
     }];
 }
 
