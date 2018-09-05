@@ -16,6 +16,7 @@
 #import "JPSuspensionEntranceProtocol.h"
 #import "JPSuspensionTransition.h"
 #import "JPSuspensionView.h"
+#import "UIViewController+JPExtension.h"
 
 FOUNDATION_EXPORT double JPSuspensionEntranceVersionNumber;
 FOUNDATION_EXPORT const unsigned char JPSuspensionEntranceVersionString[];

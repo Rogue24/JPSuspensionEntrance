@@ -145,6 +145,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
         return;
     }
     ViewController *vc = [[ViewController alloc] init];
+//    vc.edgesForExtendedLayout = UIRectEdgeNone;
     vc.title = self.imgNames[indexPath.row];
     vc.isHideNavBar = self.isHideNavBar;
     [self.navigationController pushViewController:vc animated:YES];

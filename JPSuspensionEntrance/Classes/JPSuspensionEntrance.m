@@ -372,6 +372,9 @@ static JPSuspensionEntrance *_sharedInstance;
     self.suspensionTransition = nil;
     BOOL isToVCConformsToProtocol = [toVC conformsToProtocol:@protocol(JPSuspensionEntranceProtocol)];
     if (isPush) {
+        // 当 fromVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 的情况下
+        // fromVC.view 的 y值 为导航栏的最大高度，保存此时frame
+        fromVC.jp_apearFrame = fromVC.view.frame;
         if (!isToVCConformsToProtocol) return nil;
         if (self.suspensionView && self.suspensionView.targetVC == toVC) {
             self.suspensionTransition = [JPSuspensionTransition spreadTransitionWithSuspensionView:self.suspensionView];

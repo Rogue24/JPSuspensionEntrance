@@ -137,19 +137,25 @@
 - (void)basicPopAnimation {
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
-    JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:self.fromVC];
-    [suspensionView addSubview:self.fromVC.view];
-    
-    CGRect toVCFrame = self.toVC.view.frame;
+    // 当 toVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 的情况下
+    // toVC.view 的 y值 应该为导航栏最大高度，但在这里时为窗口大小
+    // 所以使用jp_apearFrame属性来保存了这个vc在push时vc.view的frame，pop时应该为push时的frame
+    CGRect toVCFrame = CGRectIsNull(self.toVC.jp_apearFrame) ? self.toVC.view.frame : self.toVC.jp_apearFrame;
     toVCFrame.origin.x = -JPSEInstance.window.bounds.size.width * 0.3;
     self.toVC.view.frame = toVCFrame;
     toVCFrame.origin.x = 0;
+    
+    JPSuspensionView *suspensionView = [JPSuspensionView suspensionViewWithViewController:self.fromVC];
     
     CGRect fromVCFrame = self.fromVC.view.frame;
     fromVCFrame.origin.x = 0;
     suspensionView.frame = fromVCFrame;
     fromVCFrame.origin.x = JPSEInstance.window.bounds.size.width;
+    
+    // 当 fromVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 且有导航栏的情况下
+    // 它的y值为导航栏的最大高度，导致在suspensionView上会往下偏移，这里调整位置
     self.fromVC.view.frame = suspensionView.bounds;
+    [suspensionView addSubview:self.fromVC.view];
     
     [self.containerView addSubview:self.toVC.view];
     [self.containerView addSubview:self.tabBar];
@@ -201,7 +207,11 @@
 - (void)spreadSuspensionViewAnimation {
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     
-    CGRect suspensionFrame = self.suspensionView.frame;
+    // 当 toVC 的 edgesForExtendedLayout 为 UIRectEdgeNone 的情况下
+    // 它的 y值 为导航栏的最大高度，若没有导航栏的话 toVC.view 应该为窗口大小
+    if (self.isHideToVCNavBar) self.toVC.view.frame = JPSEInstance.window.bounds;
+    
+    CGRect suspensionFrame = [self.suspensionView.superview convertRect:self.suspensionView.frame toView:self.toVC.view];
     self.suspensionView.alpha = 0;
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -231,17 +241,20 @@
     }
     
     // 触发了【setNavigationBarHidden:animated:】之后tabBar也会自动添加一个系统动画，将之移除
+    CGRect tabBarFrame = CGRectZero;
     if (self.tabBar) {
         [self.tabBar.layer removeAllAnimations];
-        CGRect tabBarFrame = self.tabBar.frame;
+        tabBarFrame = self.tabBar.frame;
         tabBarFrame.origin.x = 0;
         self.tabBar.frame = tabBarFrame;
+        if (!self.isHideToVCNavBar) tabBarFrame.origin.x = JPSEInstance.window.bounds.size.width;
     }
     
     [JPSEInstance playSoundForSpread:YES delay:duration * 0.25];
     
-    UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.toVC.view.bounds.size.width, self.toVC.view.bounds.size.height) cornerRadius:suspensionFrame.size.width * 0.5];
-    UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.toVC.view.bounds.size.width, self.toVC.view.bounds.size.height) cornerRadius:0.1];
+    CGRect rect = self.toVC.view.bounds;
+    UIBezierPath *toPath1 = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:suspensionFrame.size.width * 0.5];
+    UIBezierPath *toPath2 = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:0.1];
     CAKeyframeAnimation *kfAnim = [CAKeyframeAnimation animationWithKeyPath:@"path"];
     kfAnim.values = @[(id)maskLayer.path, (id)toPath1.CGPath, (id)toPath2.CGPath];
     kfAnim.keyTimes = @[@0, @(4.0 / 5.0), @(1)];
@@ -253,6 +266,7 @@
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         bgView.alpha = 1;
+        if (self.tabBar) self.tabBar.frame = tabBarFrame;
     } completion:^(BOOL finished) {
         [self transitionCompletion];
     }];
@@ -289,7 +303,7 @@
     
     self.isCurrSuspensionView = JPSEInstance.suspensionView == self.suspensionView;
     if (self.isCurrSuspensionView) {
-        CGRect suspensionFrame = self.suspensionView.frame;
+        CGRect suspensionFrame = [self.suspensionView.superview convertRect:self.suspensionView.frame toView:self.fromVC.view];
         
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
         maskLayer.fillColor = [UIColor blackColor].CGColor;
@@ -317,10 +331,14 @@
         [self.suspensionView shrinkSuspensionViewAnimation];
     }
     
+    NSLog(@"0000 %@", NSStringFromCGRect(self.toVC.view.frame));
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         bgView.alpha = 0;
     } completion:^(BOOL finished) {
         [self transitionCompletion];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"%@", NSStringFromCGRect(self.toVC.view.frame));
+        });
     }];
 }
 

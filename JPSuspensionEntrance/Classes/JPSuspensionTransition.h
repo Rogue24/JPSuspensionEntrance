@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+JPExtension.h"
 @class JPSuspensionView;
 
 typedef NS_ENUM(NSUInteger, JPSuspensionTransitionType) {
