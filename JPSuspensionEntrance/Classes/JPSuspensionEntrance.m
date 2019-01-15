@@ -74,7 +74,7 @@ static JPSuspensionEntrance *_sharedInstance;
     BOOL isIphoneX = MAX(screenW, screenH) > 736.0;
     
     _suspensionViewWH = 64.0 * scale;
-    _suspensionLogoMargin = 8.0 * scale;
+    _suspensionLogoMargin = 7.0 * scale;
     _suspensionScreenEdgeInsets = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height, 15.0, isIphoneX ? 34.0 : 0, 15.0);
     _suspensionScreenEdgeBottomInset = _suspensionScreenEdgeInsets.bottom;
     
@@ -290,11 +290,14 @@ static JPSuspensionEntrance *_sharedInstance;
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    if (!self.suspensionView) return;
     NSDictionary *userInfo = notification.userInfo;
     CGFloat keyboardY = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
-    _suspensionScreenEdgeInsets.bottom = _suspensionScreenEdgeBottomInset + ([UIScreen mainScreen].bounds.size.height - keyboardY);
-    [self fixSuspensionFrame];
-    [self.suspensionView updateSuspensionFrame:self.suspensionFrame animated:YES];
+    CGFloat alpha = keyboardY < CGRectGetMaxY(self.suspensionFrame) ? 0 : 1;
+    NSTimeInterval duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.suspensionView.alpha = alpha;
+    }];
 }
 
 #pragma mark - private method
@@ -415,7 +418,7 @@ static JPSuspensionEntrance *_sharedInstance;
 
 #pragma mark - UIGestureRecognizerDelegate
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if (gestureRecognizer == self.navCtr.interactivePopGestureRecognizer ||
         gestureRecognizer == self.popInteraction.edgeLeftPanGR) {
         if (self.navCtr.viewControllers.count <= 1) {

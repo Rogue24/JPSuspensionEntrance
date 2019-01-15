@@ -154,7 +154,7 @@
 		1AAE091E20D8FAF500B5EAC5 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		1AD28F5F20D37CE6003E21E7 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		1AD28F6020D37CE6003E21E7 /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
-		5B1C0C594B7EB5C45CF1CFCD /* JPSuspensionEntrance.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JPSuspensionEntrance.podspec; path = ../JPSuspensionEntrance.podspec; sourceTree = "<group>"; };
+		5B1C0C594B7EB5C45CF1CFCD /* JPSuspensionEntrance.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JPSuspensionEntrance.podspec; path = ../JPSuspensionEntrance.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5C6DE1C23C42C08779D48447 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JPSuspensionEntrance_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPSuspensionEntrance_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
