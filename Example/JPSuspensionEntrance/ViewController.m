@@ -18,7 +18,7 @@
 
 @implementation ViewController
 
-static NSString *const JPTestImageURLStr = @"http://img.baizhan.net/uploads/allimg/171204/47_171204105455_3.png";
+static NSString *const JPTestImageURLStr = @"http://t2.hddhhn.com/uploads/tu/201901/58/4.jpg";
 
 - (UIButton *)leftBtn {
     if (!_leftBtn) {
@@ -114,7 +114,7 @@ static NSString *const JPTestImageURLStr = @"http://img.baizhan.net/uploads/alli
 
 - (void)pushVC {
     ViewController *vc = [[ViewController alloc] init];
-    vc.title = [NSString stringWithFormat:@"pic_0%d", arc4random() % 7 + 1];
+    vc.title = [NSString stringWithFormat:@"pic_0%d", arc4random() % 4];
     vc.isHideNavBar = !self.isHideNavBar;
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -51,8 +51,8 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     self.title = self.isHideNavBar ? @"Example-没导航栏" : @"Example-有导航栏";
     
     self.imgNames = [NSMutableArray array];
-    for (int i = 0; i < 7; i++) {
-        [self.imgNames addObject:[NSString stringWithFormat:@"pic_0%d", i + 1]];
+    for (int i = 0; i < 4; i++) {
+        [self.imgNames addObject:[NSString stringWithFormat:@"pic_0%d", i]];
     }
     [self.imgNames addObject:@"没有浮窗操作的控制器"];
 }
@@ -60,7 +60,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 - (void)setupTableView {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
-    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(isHideNavBar_ ? @"pic_08" : @"pic_09") ofType:@"jpg"]];
+    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(isHideNavBar_ ? @"pic_11" : @"pic_10") ofType:@"jpg"]];
     self.tableView.backgroundView = imageView;
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
 }
