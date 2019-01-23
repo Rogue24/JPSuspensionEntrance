@@ -103,7 +103,7 @@
     }
 }
 
-- (void)shrinkSuspensionViewAnimation {
+- (void)shrinkSuspensionViewAnimationWithComplete:(void (^)(void))complete {
     if (_isSuspensionState) return;
     _isSuspensionState = YES;
     
@@ -183,6 +183,7 @@
         }
         
         self.userInteractionEnabled = YES;
+        !complete ? : complete();
     }];
 }
 

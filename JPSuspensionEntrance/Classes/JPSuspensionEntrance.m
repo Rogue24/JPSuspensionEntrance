@@ -140,10 +140,18 @@ static JPSuspensionEntrance *_sharedInstance;
         if (!weakSelf) return;
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (strongSelf.isFromSpreadSuspensionView) {
-            if (isToFinish) [strongSelf.suspensionTransition.suspensionView shrinkSuspensionViewAnimation];
+            if (isToFinish) {
+                strongSelf.suspensionTransition.isShrinkSuspension = YES;
+                [strongSelf.suspensionTransition.suspensionView shrinkSuspensionViewAnimationWithComplete:^{
+                    [strongSelf.suspensionTransition transitionCompletion];
+                }];
+            }
         } else {
             if (strongSelf.decideView.isTouch) {
-                [strongSelf.suspensionTransition.suspensionView shrinkSuspensionViewAnimation];
+                strongSelf.suspensionTransition.isShrinkSuspension = YES;
+                [strongSelf.suspensionTransition.suspensionView shrinkSuspensionViewAnimationWithComplete:^{
+                    [strongSelf.suspensionTransition transitionCompletion];
+                }];
             }
             [strongSelf.decideView hideWithSuspensionView:nil];
         }
@@ -152,7 +160,9 @@ static JPSuspensionEntrance *_sharedInstance;
     self.popInteraction.panEnded = ^(BOOL isFinish, UIScreenEdgePanGestureRecognizer *edgeLeftPanGR) {
         if (!weakSelf) return;
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf.suspensionTransition transitionCompletion];
+        if (!strongSelf.suspensionTransition.isShrinkSuspension) {
+            [strongSelf.suspensionTransition transitionCompletion];
+        }
         if (strongSelf.isFromSpreadSuspensionView) {
             strongSelf.suspensionView.alpha = isFinish ? 1 : 0;
             strongSelf.isFromSpreadSuspensionView = NO;

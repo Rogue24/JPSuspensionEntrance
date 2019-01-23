@@ -48,7 +48,7 @@ typedef BOOL (^JPSuspensionViewPanEnded)(JPSuspensionView *targetSuspensionView,
 @property (nonatomic, copy) void (^suspensionFrameDidChanged)(CGRect suspensionFrame);
 
 /** 转成浮窗的动画 */
-- (void)shrinkSuspensionViewAnimation;
+- (void)shrinkSuspensionViewAnimationWithComplete:(void(^)(void))complete;
 
 /** 更新浮窗位置 */
 - (void)updateSuspensionFrame:(CGRect)suspensionFrame animated:(BOOL)animated;

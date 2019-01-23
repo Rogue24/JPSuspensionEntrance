@@ -60,6 +60,7 @@ static NSString *const JPTestImageURLStr = @"http://t2.hddhhn.com/uploads/tu/201
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.title ofType:@"jpg"]];
+    imageView.clipsToBounds = YES;
     [self.view addSubview:imageView];
     
     UIButton *pushBtn = [UIButton buttonWithType:UIButtonTypeSystem];

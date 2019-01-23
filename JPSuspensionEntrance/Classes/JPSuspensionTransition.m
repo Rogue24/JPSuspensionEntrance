@@ -87,6 +87,7 @@
  *  transitionContext你可以看作是一个工具，用来获取一系列动画执行相关的对象，并且通知系统动画是否完成等功能。
  */
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    self.isShrinkSuspension = NO;
     
     self.transitionContext = transitionContext;
     self.containerView = [transitionContext containerView];
@@ -200,7 +201,9 @@
         self.toVC.view.frame = toVCFrame;
         suspensionView.frame = fromVCFrame;
     } completion:^(BOOL finished) {
-        [self transitionCompletion];
+        if (!self.isShrinkSuspension) {
+            [self transitionCompletion];
+        }
     }];
 }
 
@@ -328,7 +331,7 @@
         [maskLayer addAnimation:kfAnim forKey:@"path"];
     } else {
         [self.containerView addSubview:self.suspensionView];
-        [self.suspensionView shrinkSuspensionViewAnimation];
+        [self.suspensionView shrinkSuspensionViewAnimationWithComplete:nil];
     }
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{

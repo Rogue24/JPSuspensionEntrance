@@ -22,6 +22,8 @@ typedef NS_ENUM(NSUInteger, JPSuspensionTransitionType) {
 
 @property (nonatomic, weak) JPSuspensionView *suspensionView;
 
+@property (nonatomic, assign) BOOL isShrinkSuspension; // 是否要创建浮窗
+
 - (void)transitionCompletion;
 
 // 高仿的系统pop动画 isInteraction：是否手势操控
