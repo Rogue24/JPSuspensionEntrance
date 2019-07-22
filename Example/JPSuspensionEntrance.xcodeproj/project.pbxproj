@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A41806A20D36D2800C4118D /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806720D36D2800C4118D /* ViewController2.m */; };
+		1A03100422E5F55900C5D25A /* JPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806620D36D2800C4118D /* JPTableViewController.m */; };
+		1A03100522E5F56100C5D25A /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806320D36D2800C4118D /* JPViewController.m */; };
+		1A41806A20D36D2800C4118D /* JPViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806720D36D2800C4118D /* JPViewController2.m */; };
 		1A41807520D36E2900C4118D /* pic_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806C20D36E2900C4118D /* pic_03.jpg */; };
 		1A41807620D36E2900C4118D /* pic_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806D20D36E2900C4118D /* pic_01.jpg */; };
 		1A41807720D36E2900C4118D /* pic_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806E20D36E2900C4118D /* pic_00.jpg */; };
 		1A41807820D36E2900C4118D /* pic_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806F20D36E2900C4118D /* pic_02.jpg */; };
 		1A41807B20D36E2900C4118D /* pic_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807220D36E2900C4118D /* pic_10.jpg */; };
 		1A41807C20D36E2900C4118D /* pic_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807320D36E2900C4118D /* pic_11.jpg */; };
-		1AAC5DA322E5E0710099C99B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806320D36D2800C4118D /* ViewController.m */; };
-		1AAC5DA422E5E0780099C99B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806620D36D2800C4118D /* TableViewController.m */; };
-		1AAC5E8422E5E9A90099C99B /* JPSuspensionEntrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC5E8322E5E9A90099C99B /* JPSuspensionEntrance.framework */; };
 		1AAE091F20D8FAF500B5EAC5 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08E220D8FAF500B5EAC5 /* UIImage+WebP.m */; };
 		1AAE092020D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08E320D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m */; };
 		1AAE092120D8FAF500B5EAC5 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08EA20D8FAF500B5EAC5 /* SDWebImageManager.m */; };
@@ -46,8 +45,7 @@
 		1AAE093A20D8FAF500B5EAC5 /* SDWebImageImageIOCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE091820D8FAF500B5EAC5 /* SDWebImageImageIOCoder.m */; };
 		1AAE093B20D8FAF500B5EAC5 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE091C20D8FAF500B5EAC5 /* UIButton+WebCache.m */; };
 		1AAE093C20D8FAF500B5EAC5 /* SDWebImageWebPCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE091D20D8FAF500B5EAC5 /* SDWebImageWebPCoder.m */; };
-		1AD28F6120D37CE6003E21E7 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD28F6020D37CE6003E21E7 /* NavigationController.m */; };
-		296CB828634FF4E3A2AA6784 /* Pods_JPSuspensionEntrance_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79575EB3D1894B7D84A1AAEC /* Pods_JPSuspensionEntrance_Example.framework */; };
+		1AD28F6120D37CE6003E21E7 /* JPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD28F6020D37CE6003E21E7 /* JPNavigationController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -63,6 +61,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		CFC9FB8B2C7CF2F5D9EF96CA /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F830EBFA5FF4DF858F2F910F /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework */; };
+		E50ACC7202F73AD2AC79F5E6 /* Pods_JPSuspensionEntrance_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79575EB3D1894B7D84A1AAEC /* Pods_JPSuspensionEntrance_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,32 +88,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A41806220D36D2800C4118D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		1A41806320D36D2800C4118D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1A41806420D36D2800C4118D /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
-		1A41806520D36D2800C4118D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1A41806620D36D2800C4118D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		1A41806720D36D2800C4118D /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		1A41806220D36D2800C4118D /* JPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTableViewController.h; sourceTree = "<group>"; };
+		1A41806320D36D2800C4118D /* JPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
+		1A41806420D36D2800C4118D /* JPViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPViewController2.h; sourceTree = "<group>"; };
+		1A41806520D36D2800C4118D /* JPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPViewController.h; sourceTree = "<group>"; };
+		1A41806620D36D2800C4118D /* JPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTableViewController.m; sourceTree = "<group>"; };
+		1A41806720D36D2800C4118D /* JPViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPViewController2.m; sourceTree = "<group>"; };
 		1A41806C20D36E2900C4118D /* pic_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_03.jpg; sourceTree = "<group>"; };
 		1A41806D20D36E2900C4118D /* pic_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_01.jpg; sourceTree = "<group>"; };
 		1A41806E20D36E2900C4118D /* pic_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_00.jpg; sourceTree = "<group>"; };
 		1A41806F20D36E2900C4118D /* pic_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_02.jpg; sourceTree = "<group>"; };
 		1A41807220D36E2900C4118D /* pic_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_10.jpg; sourceTree = "<group>"; };
 		1A41807320D36E2900C4118D /* pic_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_11.jpg; sourceTree = "<group>"; };
-		1AAC5E8322E5E9A90099C99B /* JPSuspensionEntrance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JPSuspensionEntrance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AAC5E8522E5E9CC0099C99B /* JPSuspensionDecideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionDecideView.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionDecideView.m; sourceTree = "<group>"; };
-		1AAC5E8622E5E9CC0099C99B /* JPSuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionView.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionView.h; sourceTree = "<group>"; };
-		1AAC5E8722E5E9CC0099C99B /* UIViewController+JPExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JPExtension.h"; path = "../../JPSuspensionEntrance/Classes/UIViewController+JPExtension.h"; sourceTree = "<group>"; };
-		1AAC5E8822E5E9CD0099C99B /* JPSuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionView.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionView.m; sourceTree = "<group>"; };
-		1AAC5E8922E5E9CD0099C99B /* JPSuspensionTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionTransition.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionTransition.h; sourceTree = "<group>"; };
-		1AAC5E8A22E5E9CD0099C99B /* JPSuspensionDecideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionDecideView.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionDecideView.h; sourceTree = "<group>"; };
-		1AAC5E8B22E5E9CD0099C99B /* JPSuspensionEntranceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionEntranceProtocol.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionEntranceProtocol.h; sourceTree = "<group>"; };
-		1AAC5E8C22E5E9CD0099C99B /* JPPopInteraction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPPopInteraction.h; path = ../../JPSuspensionEntrance/Classes/JPPopInteraction.h; sourceTree = "<group>"; };
-		1AAC5E8D22E5E9CD0099C99B /* JPSuspensionTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionTransition.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionTransition.m; sourceTree = "<group>"; };
-		1AAC5E8E22E5E9CD0099C99B /* JPSuspensionEntrance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionEntrance.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionEntrance.m; sourceTree = "<group>"; };
-		1AAC5E8F22E5E9CD0099C99B /* UIViewController+JPExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JPExtension.m"; path = "../../JPSuspensionEntrance/Classes/UIViewController+JPExtension.m"; sourceTree = "<group>"; };
-		1AAC5E9022E5E9CD0099C99B /* JPPopInteraction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPPopInteraction.m; path = ../../JPSuspensionEntrance/Classes/JPPopInteraction.m; sourceTree = "<group>"; };
-		1AAC5E9122E5E9CD0099C99B /* JPSuspensionEntrance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionEntrance.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionEntrance.h; sourceTree = "<group>"; };
 		1AAE08E120D8FAF500B5EAC5 /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAnimatedImageRep.h; sourceTree = "<group>"; };
 		1AAE08E220D8FAF500B5EAC5 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		1AAE08E320D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -174,8 +159,8 @@
 		1AAE091C20D8FAF500B5EAC5 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		1AAE091D20D8FAF500B5EAC5 /* SDWebImageWebPCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageWebPCoder.m; sourceTree = "<group>"; };
 		1AAE091E20D8FAF500B5EAC5 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		1AD28F5F20D37CE6003E21E7 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
-		1AD28F6020D37CE6003E21E7 /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		1AD28F5F20D37CE6003E21E7 /* JPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPNavigationController.h; sourceTree = "<group>"; };
+		1AD28F6020D37CE6003E21E7 /* JPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPNavigationController.m; sourceTree = "<group>"; };
 		4BEB7F61591C9C9F6AA3F1E2 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B1C0C594B7EB5C45CF1CFCD /* JPSuspensionEntrance.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JPSuspensionEntrance.podspec; path = ../JPSuspensionEntrance.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5C6DE1C23C42C08779D48447 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -213,11 +198,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AAC5E8422E5E9A90099C99B /* JPSuspensionEntrance.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				296CB828634FF4E3A2AA6784 /* Pods_JPSuspensionEntrance_Example.framework in Frameworks */,
+				E50ACC7202F73AD2AC79F5E6 /* Pods_JPSuspensionEntrance_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,26 +243,6 @@
 				1A41807320D36E2900C4118D /* pic_11.jpg */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		1AAC5E2F22E5E7EA0099C99B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1AAC5E8B22E5E9CD0099C99B /* JPSuspensionEntranceProtocol.h */,
-				1AAC5E9122E5E9CD0099C99B /* JPSuspensionEntrance.h */,
-				1AAC5E8E22E5E9CD0099C99B /* JPSuspensionEntrance.m */,
-				1AAC5E8622E5E9CC0099C99B /* JPSuspensionView.h */,
-				1AAC5E8822E5E9CD0099C99B /* JPSuspensionView.m */,
-				1AAC5E8A22E5E9CD0099C99B /* JPSuspensionDecideView.h */,
-				1AAC5E8522E5E9CC0099C99B /* JPSuspensionDecideView.m */,
-				1AAC5E8922E5E9CD0099C99B /* JPSuspensionTransition.h */,
-				1AAC5E8D22E5E9CD0099C99B /* JPSuspensionTransition.m */,
-				1AAC5E8C22E5E9CD0099C99B /* JPPopInteraction.h */,
-				1AAC5E9022E5E9CD0099C99B /* JPPopInteraction.m */,
-				1AAC5E8722E5E9CC0099C99B /* UIViewController+JPExtension.h */,
-				1AAC5E8F22E5E9CD0099C99B /* UIViewController+JPExtension.m */,
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 		1AAE08E020D8FAF500B5EAC5 /* SDWebImage */ = {
@@ -371,7 +335,6 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1AAC5E8322E5E9A90099C99B /* JPSuspensionEntrance.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -385,19 +348,18 @@
 		6003F593195388D20070C39A /* Example for JPSuspensionEntrance */ = {
 			isa = PBXGroup;
 			children = (
-				1AAC5E2F22E5E7EA0099C99B /* Classes */,
 				1AAE08E020D8FAF500B5EAC5 /* SDWebImage */,
 				1A41806B20D36E2900C4118D /* Resources */,
 				6003F59C195388D20070C39A /* JPAppDelegate.h */,
 				6003F59D195388D20070C39A /* JPAppDelegate.m */,
-				1AD28F5F20D37CE6003E21E7 /* NavigationController.h */,
-				1AD28F6020D37CE6003E21E7 /* NavigationController.m */,
-				1A41806220D36D2800C4118D /* TableViewController.h */,
-				1A41806620D36D2800C4118D /* TableViewController.m */,
-				1A41806520D36D2800C4118D /* ViewController.h */,
-				1A41806320D36D2800C4118D /* ViewController.m */,
-				1A41806420D36D2800C4118D /* ViewController2.h */,
-				1A41806720D36D2800C4118D /* ViewController2.m */,
+				1AD28F5F20D37CE6003E21E7 /* JPNavigationController.h */,
+				1AD28F6020D37CE6003E21E7 /* JPNavigationController.m */,
+				1A41806220D36D2800C4118D /* JPTableViewController.h */,
+				1A41806620D36D2800C4118D /* JPTableViewController.m */,
+				1A41806520D36D2800C4118D /* JPViewController.h */,
+				1A41806320D36D2800C4118D /* JPViewController.m */,
+				1A41806420D36D2800C4118D /* JPViewController2.h */,
+				1A41806720D36D2800C4118D /* JPViewController2.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -459,7 +421,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				1A1FEE1722E5D743007B6333 /* Embed Frameworks */,
-				6007E1064E85826F8309CE2B /* [CP] Embed Pods Frameworks */,
+				237186ACA8E4E14B2539B571 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -478,7 +440,7 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				3940058F08A35A37FA00C2DE /* [CP] Embed Pods Frameworks */,
+				E188885364BCD0709EF1B44C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -511,10 +473,9 @@
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "JPSuspensionEntrance" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -558,25 +519,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3940058F08A35A37FA00C2DE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/JPSuspensionEntrance/JPSuspensionEntrance.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPSuspensionEntrance.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6007E1064E85826F8309CE2B /* [CP] Embed Pods Frameworks */ = {
+		237186ACA8E4E14B2539B571 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -630,6 +573,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E188885364BCD0709EF1B44C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JPSuspensionEntrance/JPSuspensionEntrance.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPSuspensionEntrance.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -637,8 +598,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AAC5DA422E5E0780099C99B /* TableViewController.m in Sources */,
-				1AAC5DA322E5E0710099C99B /* ViewController.m in Sources */,
+				1A03100522E5F56100C5D25A /* JPViewController.m in Sources */,
+				1A03100422E5F55900C5D25A /* JPTableViewController.m in Sources */,
 				1AAE093620D8FAF500B5EAC5 /* SDWebImageGIFCoder.m in Sources */,
 				1AAE093520D8FAF500B5EAC5 /* NSImage+WebCache.m in Sources */,
 				1AAE092C20D8FAF500B5EAC5 /* SDWebImagePrefetcher.m in Sources */,
@@ -658,7 +619,7 @@
 				1AAE092120D8FAF500B5EAC5 /* SDWebImageManager.m in Sources */,
 				1AAE093A20D8FAF500B5EAC5 /* SDWebImageImageIOCoder.m in Sources */,
 				1AAE093220D8FAF500B5EAC5 /* SDWebImageTransition.m in Sources */,
-				1A41806A20D36D2800C4118D /* ViewController2.m in Sources */,
+				1A41806A20D36D2800C4118D /* JPViewController2.m in Sources */,
 				1AAE092920D8FAF500B5EAC5 /* UIImage+MultiFormat.m in Sources */,
 				1AAE092B20D8FAF500B5EAC5 /* SDWebImageCompat.m in Sources */,
 				1AAE093420D8FAF500B5EAC5 /* UIImageView+WebCache.m in Sources */,
@@ -671,7 +632,7 @@
 				1AAE093120D8FAF500B5EAC5 /* SDWebImageDownloaderOperation.m in Sources */,
 				1AAE093820D8FAF500B5EAC5 /* UIView+WebCacheOperation.m in Sources */,
 				1AAE092220D8FAF500B5EAC5 /* UIImageView+HighlightedWebCache.m in Sources */,
-				1AD28F6120D37CE6003E21E7 /* NavigationController.m in Sources */,
+				1AD28F6120D37CE6003E21E7 /* JPNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,7 +798,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -859,7 +820,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

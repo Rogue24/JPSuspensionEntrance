@@ -1,22 +1,22 @@
 //
-//  TableViewController.m
+//  JPTableViewController.m
 //  JPSuspensionEntrance
 //
 //  Created by 周健平 on 2018/6/14.
 //  Copyright © 2018 周健平. All rights reserved.
 //
 
-#import "TableViewController.h"
-#import "ViewController.h"
-#import "ViewController2.h"
+#import "JPTableViewController.h"
+#import "JPViewController.h"
+#import "JPViewController2.h"
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface TableViewController ()
+@interface JPTableViewController ()
 @property (nonatomic, strong) NSMutableArray *imgNames;
 @property (nonatomic, assign) BOOL isHideNavBar;
 @end
 
-@implementation TableViewController
+@implementation JPTableViewController
 
 static BOOL isHideNavBar_ = YES;
 static NSString *const JPSuspensionCacheMsgKey = @"JPSuspensionCacheMsgKey";
@@ -38,8 +38,8 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     
     __weak typeof(self) weakSelf = self;
     JPSEInstance.willSpreadSuspensionViewControllerBlock = ^(UIViewController<JPSuspensionEntranceProtocol> *targetVC) {
-        [(ViewController *)targetVC setIsHideNavBar:weakSelf.isHideNavBar];
-        [(ViewController *)targetVC setRightBtnTitle:@"取消浮窗"];
+        [(JPViewController *)targetVC setIsHideNavBar:weakSelf.isHideNavBar];
+        [(JPViewController *)targetVC setRightBtnTitle:@"取消浮窗"];
     };
 }
 
@@ -101,7 +101,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
         
         NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
         if (cachaMsg) {
-            ViewController *vc = [[ViewController alloc] init];
+            JPViewController *vc = [[JPViewController alloc] init];
             vc.title = cachaMsg;
             vc.isHideNavBar = YES;
             
@@ -138,12 +138,12 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.imgNames.count - 1) {
-        ViewController2 *vc = [[ViewController2 alloc] init];
+        JPViewController2 *vc = [[JPViewController2 alloc] init];
         vc.title = self.imgNames[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    ViewController *vc = [[ViewController alloc] init];
+    JPViewController *vc = [[JPViewController alloc] init];
 //    vc.edgesForExtendedLayout = UIRectEdgeNone;
     vc.imageName = self.imgNames[indexPath.row];
     vc.isHideNavBar = self.isHideNavBar;

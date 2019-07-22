@@ -1,5 +1,5 @@
 //
-//  NavigationController.h
+//  JPNavigationController.h
 //  JPSuspensionEntrance_Example
 //
 //  Created by 周健平 on 2018/6/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NavigationController : UINavigationController
+@interface JPNavigationController : UINavigationController
 
 @end

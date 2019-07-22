@@ -1,5 +1,5 @@
 //
-//  TableViewController.h
+//  JPViewController2.h
 //  JPSuspensionEntrance
 //
 //  Created by 周健平 on 2018/6/14.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewController : UITableViewController
+NS_ASSUME_NONNULL_BEGIN
+
+@interface JPViewController2 : UIViewController
 
 @end
+
+NS_ASSUME_NONNULL_END

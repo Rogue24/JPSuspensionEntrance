@@ -1,21 +1,21 @@
 //
-//  ViewController.m
+//  JPViewController.m
 //  JPSuspensionEntrance
 //
 //  Created by 周健平 on 2018/6/14.
 //  Copyright © 2018 周健平. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "JPViewController.h"
 #import "UIImageView+WebCache.h"
 
-@interface ViewController ()
+@interface JPViewController ()
 @property (nonatomic, weak) UIButton *leftBtn;
 @property (nonatomic, weak) UIButton *rightBtn;
 @property (nonatomic, strong) UIImage *logoImage;
 @end
 
-@implementation ViewController
+@implementation JPViewController
 
 #pragma mark - const
 
@@ -123,7 +123,7 @@ static NSString *const JPTestImageURLStr = @"http://t2.hddhhn.com/uploads/tu/201
 }
 
 - (void)pushVC {
-    ViewController *vc = [[ViewController alloc] init];
+    JPViewController *vc = [[JPViewController alloc] init];
     vc.imageName = [NSString stringWithFormat:@"pic_0%d", arc4random() % 4];
     vc.isHideNavBar = !self.isHideNavBar;
     [self.navigationController pushViewController:vc animated:YES];

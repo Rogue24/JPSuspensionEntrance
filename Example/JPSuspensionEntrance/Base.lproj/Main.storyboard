@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="OXb-yN-pUg">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="OXb-yN-pUg">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
         <scene sceneID="rKx-4b-tYs">
             <objects>
-                <tableViewController id="jMf-7N-Qcu" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController id="jMf-7N-Qcu" customClass="JPTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v8w-Yh-PHO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="sPN-lL-eFt">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sPN-lL-eFt" id="zUl-Io-bge">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -36,16 +34,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqp-sG-nMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184" y="124"/>
+            <point key="canvasLocation" x="1694" y="82"/>
         </scene>
         <!--Example-没导航栏-->
         <scene sceneID="I60-bR-UD7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L5o-re-rp6" customClass="NavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L5o-re-rp6" customClass="JPNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Example-没导航栏" id="2G3-YJ-F3X"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HM1-yQ-iMV">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -55,19 +53,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uK-1N-1t0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="680.5" y="123.5"/>
+            <point key="canvasLocation" x="986.23188405797111" y="82.700892857142847"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Q9b-ll-I8O">
             <objects>
-                <tableViewController id="5Z2-dP-8Tq" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController id="5Z2-dP-8Tq" customClass="JPTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jEW-wF-Q1s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="At4-77-xuY">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="At4-77-xuY" id="GGH-P5-tQx">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -84,7 +82,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzk-s8-OgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184" y="950"/>
+            <point key="canvasLocation" x="1694" y="752"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2yu-lf-Amt">
@@ -103,17 +101,17 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPp-Cr-uYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="527"/>
+            <point key="canvasLocation" x="60.869565217391312" y="352.90178571428572"/>
         </scene>
         <!--Example-有导航栏-->
         <scene sceneID="yYf-2f-6Ha">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dvn-Hn-wyF" customClass="NavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dvn-Hn-wyF" customClass="JPNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Example-有导航栏" id="WeZ-Tu-gpC"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="zHT-6R-omP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qpL-2E-DGM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -123,7 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOo-K0-Sv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="681" y="950"/>
+            <point key="canvasLocation" x="985" y="752"/>
         </scene>
     </scenes>
 </document>

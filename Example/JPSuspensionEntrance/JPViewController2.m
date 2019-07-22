@@ -1,18 +1,18 @@
 //
-//  ViewController2.m
+//  JPViewController2.m
 //  JPSuspensionEntrance
 //
 //  Created by 周健平 on 2018/6/14.
 //  Copyright © 2018 周健平. All rights reserved.
 //
 
-#import "ViewController2.h"
+#import "JPViewController2.h"
 
-@interface ViewController2 ()
+@interface JPViewController2 ()
 
 @end
 
-@implementation ViewController2
+@implementation JPViewController2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
