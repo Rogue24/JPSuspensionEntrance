@@ -1,5 +1,5 @@
 PODS:
-  - JPSuspensionEntrance (0.1.9)
+  - JPSuspensionEntrance (0.2.2)
 
 DEPENDENCIES:
   - JPSuspensionEntrance (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JPSuspensionEntrance: 352b80d82261ac5dd139978c691ca07effa8110f
+  JPSuspensionEntrance: 9d3c6946d88edf39479c0cbb7466102f9862aa97
 
-PODFILE CHECKSUM: 643c8ed7dab84b2015d185bafebb876510ef496d
+PODFILE CHECKSUM: 37d444d3ed0f980202b9e7d78f830bfa6567e490
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.1

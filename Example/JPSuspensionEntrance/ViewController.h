@@ -11,6 +11,7 @@
 
 @interface ViewController : UIViewController <JPSuspensionEntranceProtocol>
 @property (nonatomic, assign) BOOL isHideNavBar;
+@property (nonatomic, copy) NSString *imageName;
 @property (nonatomic, copy) NSString *rightBtnTitle;
 @end
 

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A41806820D36D2800C4118D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806320D36D2800C4118D /* ViewController.m */; };
-		1A41806920D36D2800C4118D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806620D36D2800C4118D /* TableViewController.m */; };
 		1A41806A20D36D2800C4118D /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806720D36D2800C4118D /* ViewController2.m */; };
 		1A41807520D36E2900C4118D /* pic_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806C20D36E2900C4118D /* pic_03.jpg */; };
 		1A41807620D36E2900C4118D /* pic_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806D20D36E2900C4118D /* pic_01.jpg */; };
@@ -16,6 +14,9 @@
 		1A41807820D36E2900C4118D /* pic_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41806F20D36E2900C4118D /* pic_02.jpg */; };
 		1A41807B20D36E2900C4118D /* pic_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807220D36E2900C4118D /* pic_10.jpg */; };
 		1A41807C20D36E2900C4118D /* pic_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A41807320D36E2900C4118D /* pic_11.jpg */; };
+		1AAC5DA322E5E0710099C99B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806320D36D2800C4118D /* ViewController.m */; };
+		1AAC5DA422E5E0780099C99B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806620D36D2800C4118D /* TableViewController.m */; };
+		1AAC5E8422E5E9A90099C99B /* JPSuspensionEntrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC5E8322E5E9A90099C99B /* JPSuspensionEntrance.framework */; };
 		1AAE091F20D8FAF500B5EAC5 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08E220D8FAF500B5EAC5 /* UIImage+WebP.m */; };
 		1AAE092020D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08E320D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m */; };
 		1AAE092120D8FAF500B5EAC5 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08EA20D8FAF500B5EAC5 /* SDWebImageManager.m */; };
@@ -61,7 +62,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		90A1E9458069E0E10AD9C548 /* Pods_JPSuspensionEntrance_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794844765C93D7AC8F9CFEAA /* Pods_JPSuspensionEntrance_Tests.framework */; };
+		CFC9FB8B2C7CF2F5D9EF96CA /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F830EBFA5FF4DF858F2F910F /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,19 @@
 			remoteInfo = JPSuspensionEntrance;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A1FEE1722E5D743007B6333 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A41806220D36D2800C4118D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -87,6 +101,20 @@
 		1A41806F20D36E2900C4118D /* pic_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_02.jpg; sourceTree = "<group>"; };
 		1A41807220D36E2900C4118D /* pic_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_10.jpg; sourceTree = "<group>"; };
 		1A41807320D36E2900C4118D /* pic_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_11.jpg; sourceTree = "<group>"; };
+		1AAC5E8322E5E9A90099C99B /* JPSuspensionEntrance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JPSuspensionEntrance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AAC5E8522E5E9CC0099C99B /* JPSuspensionDecideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionDecideView.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionDecideView.m; sourceTree = "<group>"; };
+		1AAC5E8622E5E9CC0099C99B /* JPSuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionView.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionView.h; sourceTree = "<group>"; };
+		1AAC5E8722E5E9CC0099C99B /* UIViewController+JPExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JPExtension.h"; path = "../../JPSuspensionEntrance/Classes/UIViewController+JPExtension.h"; sourceTree = "<group>"; };
+		1AAC5E8822E5E9CD0099C99B /* JPSuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionView.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionView.m; sourceTree = "<group>"; };
+		1AAC5E8922E5E9CD0099C99B /* JPSuspensionTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionTransition.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionTransition.h; sourceTree = "<group>"; };
+		1AAC5E8A22E5E9CD0099C99B /* JPSuspensionDecideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionDecideView.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionDecideView.h; sourceTree = "<group>"; };
+		1AAC5E8B22E5E9CD0099C99B /* JPSuspensionEntranceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionEntranceProtocol.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionEntranceProtocol.h; sourceTree = "<group>"; };
+		1AAC5E8C22E5E9CD0099C99B /* JPPopInteraction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPPopInteraction.h; path = ../../JPSuspensionEntrance/Classes/JPPopInteraction.h; sourceTree = "<group>"; };
+		1AAC5E8D22E5E9CD0099C99B /* JPSuspensionTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionTransition.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionTransition.m; sourceTree = "<group>"; };
+		1AAC5E8E22E5E9CD0099C99B /* JPSuspensionEntrance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPSuspensionEntrance.m; path = ../../JPSuspensionEntrance/Classes/JPSuspensionEntrance.m; sourceTree = "<group>"; };
+		1AAC5E8F22E5E9CD0099C99B /* UIViewController+JPExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JPExtension.m"; path = "../../JPSuspensionEntrance/Classes/UIViewController+JPExtension.m"; sourceTree = "<group>"; };
+		1AAC5E9022E5E9CD0099C99B /* JPPopInteraction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JPPopInteraction.m; path = ../../JPSuspensionEntrance/Classes/JPPopInteraction.m; sourceTree = "<group>"; };
+		1AAC5E9122E5E9CD0099C99B /* JPSuspensionEntrance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPSuspensionEntrance.h; path = ../../JPSuspensionEntrance/Classes/JPSuspensionEntrance.h; sourceTree = "<group>"; };
 		1AAE08E120D8FAF500B5EAC5 /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAnimatedImageRep.h; sourceTree = "<group>"; };
 		1AAE08E220D8FAF500B5EAC5 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		1AAE08E320D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -148,6 +176,7 @@
 		1AAE091E20D8FAF500B5EAC5 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		1AD28F5F20D37CE6003E21E7 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		1AD28F6020D37CE6003E21E7 /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		4BEB7F61591C9C9F6AA3F1E2 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B1C0C594B7EB5C45CF1CFCD /* JPSuspensionEntrance.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JPSuspensionEntrance.podspec; path = ../JPSuspensionEntrance.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5C6DE1C23C42C08779D48447 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JPSuspensionEntrance_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPSuspensionEntrance_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,13 +198,14 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76A8F50BB0233E3702FBC3A9 /* Pods-JPSuspensionEntrance_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		794844765C93D7AC8F9CFEAA /* Pods_JPSuspensionEntrance_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JPSuspensionEntrance_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79575EB3D1894B7D84A1AAEC /* Pods_JPSuspensionEntrance_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JPSuspensionEntrance_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		849775569D5A713884503B82 /* Pods-JPSuspensionEntrance_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9541E35988FC3CEA07DB0813 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B5479898F63CFC1985EA9137 /* Pods-JPSuspensionEntrance_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C44DCD6A030DD81315C15E11 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F0779B4B709D66B1ABCEA3DE /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JPSuspensionEntrance_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F830EBFA5FF4DF858F2F910F /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAC5E8422E5E9A90099C99B /* JPSuspensionEntrance.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -197,7 +228,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				90A1E9458069E0E10AD9C548 /* Pods_JPSuspensionEntrance_Tests.framework in Frameworks */,
+				CFC9FB8B2C7CF2F5D9EF96CA /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +242,8 @@
 				849775569D5A713884503B82 /* Pods-JPSuspensionEntrance_Example.release.xcconfig */,
 				F0779B4B709D66B1ABCEA3DE /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */,
 				76A8F50BB0233E3702FBC3A9 /* Pods-JPSuspensionEntrance_Tests.release.xcconfig */,
+				4BEB7F61591C9C9F6AA3F1E2 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig */,
+				C44DCD6A030DD81315C15E11 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -226,6 +259,26 @@
 				1A41807320D36E2900C4118D /* pic_11.jpg */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1AAC5E2F22E5E7EA0099C99B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1AAC5E8B22E5E9CD0099C99B /* JPSuspensionEntranceProtocol.h */,
+				1AAC5E9122E5E9CD0099C99B /* JPSuspensionEntrance.h */,
+				1AAC5E8E22E5E9CD0099C99B /* JPSuspensionEntrance.m */,
+				1AAC5E8622E5E9CC0099C99B /* JPSuspensionView.h */,
+				1AAC5E8822E5E9CD0099C99B /* JPSuspensionView.m */,
+				1AAC5E8A22E5E9CD0099C99B /* JPSuspensionDecideView.h */,
+				1AAC5E8522E5E9CC0099C99B /* JPSuspensionDecideView.m */,
+				1AAC5E8922E5E9CD0099C99B /* JPSuspensionTransition.h */,
+				1AAC5E8D22E5E9CD0099C99B /* JPSuspensionTransition.m */,
+				1AAC5E8C22E5E9CD0099C99B /* JPPopInteraction.h */,
+				1AAC5E9022E5E9CD0099C99B /* JPPopInteraction.m */,
+				1AAC5E8722E5E9CC0099C99B /* UIViewController+JPExtension.h */,
+				1AAC5E8F22E5E9CD0099C99B /* UIViewController+JPExtension.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		1AAE08E020D8FAF500B5EAC5 /* SDWebImage */ = {
@@ -318,12 +371,13 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AAC5E8322E5E9A90099C99B /* JPSuspensionEntrance.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				79575EB3D1894B7D84A1AAEC /* Pods_JPSuspensionEntrance_Example.framework */,
-				794844765C93D7AC8F9CFEAA /* Pods_JPSuspensionEntrance_Tests.framework */,
+				F830EBFA5FF4DF858F2F910F /* Pods_JPSuspensionEntrance_Example_JPSuspensionEntrance_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -331,6 +385,7 @@
 		6003F593195388D20070C39A /* Example for JPSuspensionEntrance */ = {
 			isa = PBXGroup;
 			children = (
+				1AAC5E2F22E5E7EA0099C99B /* Classes */,
 				1AAE08E020D8FAF500B5EAC5 /* SDWebImage */,
 				1A41806B20D36E2900C4118D /* Resources */,
 				6003F59C195388D20070C39A /* JPAppDelegate.h */,
@@ -403,7 +458,8 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				74045FF7B0E1BC97D4174820 /* [CP] Embed Pods Frameworks */,
+				1A1FEE1722E5D743007B6333 /* Embed Frameworks */,
+				6007E1064E85826F8309CE2B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -422,6 +478,7 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
+				3940058F08A35A37FA00C2DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -440,7 +497,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JP;
-				LastUpgradeCheck = 1000;
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Rogue24;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -456,6 +514,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -499,13 +558,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		74045FF7B0E1BC97D4174820 /* [CP] Embed Pods Frameworks */ = {
+		3940058F08A35A37FA00C2DE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JPSuspensionEntrance/JPSuspensionEntrance.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -514,7 +573,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6007E1064E85826F8309CE2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JPSuspensionEntrance/JPSuspensionEntrance.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPSuspensionEntrance.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JPSuspensionEntrance_Example/Pods-JPSuspensionEntrance_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D6FB153ADEED7E51F5B37D35 /* [CP] Check Pods Manifest.lock */ = {
@@ -546,7 +623,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JPSuspensionEntrance_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -560,8 +637,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAC5DA422E5E0780099C99B /* TableViewController.m in Sources */,
+				1AAC5DA322E5E0710099C99B /* ViewController.m in Sources */,
 				1AAE093620D8FAF500B5EAC5 /* SDWebImageGIFCoder.m in Sources */,
-				1A41806820D36D2800C4118D /* ViewController.m in Sources */,
 				1AAE093520D8FAF500B5EAC5 /* NSImage+WebCache.m in Sources */,
 				1AAE092C20D8FAF500B5EAC5 /* SDWebImagePrefetcher.m in Sources */,
 				1AAE092A20D8FAF500B5EAC5 /* SDWebImageCoderHelper.m in Sources */,
@@ -592,7 +670,6 @@
 				1AAE092520D8FAF500B5EAC5 /* SDWebImageCodersManager.m in Sources */,
 				1AAE093120D8FAF500B5EAC5 /* SDWebImageDownloaderOperation.m in Sources */,
 				1AAE093820D8FAF500B5EAC5 /* UIView+WebCacheOperation.m in Sources */,
-				1A41806920D36D2800C4118D /* TableViewController.m in Sources */,
 				1AAE092220D8FAF500B5EAC5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				1AD28F6120D37CE6003E21E7 /* NavigationController.m in Sources */,
 			);
@@ -648,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -701,6 +779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -749,11 +828,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AH737FZCJM;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPSuspensionEntrance/JPSuspensionEntrance-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "JPSuspensionEntrance/JPSuspensionEntrance-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -767,11 +851,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AH737FZCJM;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPSuspensionEntrance/JPSuspensionEntrance-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "JPSuspensionEntrance/JPSuspensionEntrance-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -781,7 +869,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0779B4B709D66B1ABCEA3DE /* Pods-JPSuspensionEntrance_Tests.debug.xcconfig */;
+			baseConfigurationReference = 4BEB7F61591C9C9F6AA3F1E2 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -805,7 +893,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76A8F50BB0233E3702FBC3A9 /* Pods-JPSuspensionEntrance_Tests.release.xcconfig */;
+			baseConfigurationReference = C44DCD6A030DD81315C15E11 /* Pods-JPSuspensionEntrance_Example-JPSuspensionEntrance_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

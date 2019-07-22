@@ -23,7 +23,6 @@ static NSString *const JPSuspensionCacheMsgKey = @"JPSuspensionCacheMsgKey";
 static NSString *const JPSuspensionDefaultXKey = @"JPSuspensionDefaultXKey";
 static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBase];
@@ -146,7 +145,7 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     }
     ViewController *vc = [[ViewController alloc] init];
 //    vc.edgesForExtendedLayout = UIRectEdgeNone;
-    vc.title = self.imgNames[indexPath.row];
+    vc.imageName = self.imgNames[indexPath.row];
     vc.isHideNavBar = self.isHideNavBar;
     [self.navigationController pushViewController:vc animated:YES];
 }

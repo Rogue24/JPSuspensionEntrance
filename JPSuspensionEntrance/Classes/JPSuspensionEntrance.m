@@ -37,6 +37,7 @@ static JPSuspensionEntrance *_sharedInstance;
 + (instancetype)sharedInstance {
     if(_sharedInstance == nil) {
         _sharedInstance = [[self alloc] init];
+        NSLog(@"你好啊");
     }
     return _sharedInstance;
 }
