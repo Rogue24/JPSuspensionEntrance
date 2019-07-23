@@ -74,8 +74,8 @@ static JPSuspensionEntrance *_sharedInstance;
     CGFloat scale = screenW / 375.0;
     BOOL isIphoneX = MAX(screenW, screenH) > 736.0;
     
-    _suspensionViewWH = 64.0 * scale;
-    _suspensionLogoMargin = 7.0 * scale;
+    _suspensionViewWH = 50.0 * scale;
+    _suspensionLogoMargin = 5.0 * scale;
     _suspensionScreenEdgeInsets = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height, 15.0, isIphoneX ? 34.0 : 0, 15.0);
     _suspensionScreenEdgeBottomInset = _suspensionScreenEdgeInsets.bottom;
     

@@ -85,7 +85,6 @@
         CGFloat wh = self.bounds.size.width - 2 * x;
         CGFloat y = (self.bounds.size.height - wh) * 0.5;
         UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, wh, wh)];
-        logoView.contentMode = UIViewContentModeScaleAspectFill;
         logoView.layer.cornerRadius = wh * 0.5;
         logoView.layer.masksToBounds = YES;
         [self addSubview:logoView];

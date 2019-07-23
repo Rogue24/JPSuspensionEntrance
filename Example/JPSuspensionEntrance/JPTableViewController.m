@@ -7,12 +7,11 @@
 //
 
 #import "JPTableViewController.h"
-#import "JPViewController.h"
-#import "JPViewController2.h"
+#import "JPWebViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface JPTableViewController ()
-@property (nonatomic, strong) NSMutableArray *imgNames;
+@property (nonatomic, copy) NSArray<NSDictionary *> *dics;
 @property (nonatomic, assign) BOOL isHideNavBar;
 @end
 
@@ -38,29 +37,23 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     
     __weak typeof(self) weakSelf = self;
     JPSEInstance.willSpreadSuspensionViewControllerBlock = ^(UIViewController<JPSuspensionEntranceProtocol> *targetVC) {
-        [(JPViewController *)targetVC setIsHideNavBar:weakSelf.isHideNavBar];
-        [(JPViewController *)targetVC setRightBtnTitle:@"取消浮窗"];
+        [(JPWebViewController *)targetVC setIsHideNavBar:weakSelf.isHideNavBar];
     };
 }
 
 - (void)setupBase {
     self.isHideNavBar = isHideNavBar_;
     isHideNavBar_ = !isHideNavBar_;
-    
     self.title = self.isHideNavBar ? @"Example-没导航栏" : @"Example-有导航栏";
-    
-    self.imgNames = [NSMutableArray array];
-    for (int i = 0; i < 4; i++) {
-        [self.imgNames addObject:[NSString stringWithFormat:@"pic_0%d", i]];
-    }
-    [self.imgNames addObject:@"没有浮窗操作的控制器"];
+    self.tableView.backgroundColor = self.isHideNavBar ? UIColor.magentaColor : UIColor.cyanColor;
+    self.dics = @[@{@"title": @"百度",    @"url": @"https://www.baidu.com"},
+                  @{@"title": @"游民星空", @"url": @"https://www.gamersky.com"},
+                  @{@"title": @"哔哩哔哩", @"url": @"https://www.bilibili.com"},
+                  @{@"title": @"简书",    @"url": @"https://www.jianshu.com"}];
 }
 
 - (void)setupTableView {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(isHideNavBar_ ? @"pic_11" : @"pic_10") ofType:@"jpg"]];
-    self.tableView.backgroundView = imageView;
+    self.navigationController.view.backgroundColor = UIColor.whiteColor;
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
 }
 
@@ -98,18 +91,13 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 - (void)setupSuspensionView {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
         NSString *cachaMsg = [[NSUserDefaults standardUserDefaults] stringForKey:JPSuspensionCacheMsgKey];
         if (cachaMsg) {
-            JPViewController *vc = [[JPViewController alloc] init];
-            vc.title = cachaMsg;
-            vc.isHideNavBar = YES;
-            
+            JPWebViewController *webVC = [[JPWebViewController alloc] initWithURLStr:cachaMsg isHideNavBar:self.isHideNavBar isSuspension:YES];
             CGFloat x = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultXKey];
             CGFloat y = [[NSUserDefaults standardUserDefaults] floatForKey:JPSuspensionDefaultYKey];
-            [JPSEInstance setupSuspensionViewWithTargetVC:vc suspensionXY:CGPointMake(x, y)];
+            [JPSEInstance setupSuspensionViewWithTargetVC:webVC suspensionXY:CGPointMake(x, y)];
         }
-        
     });
 }
 
@@ -120,34 +108,24 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.imgNames.count;
+    return self.dics.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dic = self.dics[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [UIColor yellowColor];
-    cell.textLabel.text = self.imgNames[indexPath.row];
-    
+    cell.backgroundColor = UIColor.clearColor;
+    cell.textLabel.text = dic[@"title"];
     return cell;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.imgNames.count - 1) {
-        JPViewController2 *vc = [[JPViewController2 alloc] init];
-        vc.title = self.imgNames[indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    JPViewController *vc = [[JPViewController alloc] init];
-//    vc.edgesForExtendedLayout = UIRectEdgeNone;
-    vc.imageName = self.imgNames[indexPath.row];
-    vc.isHideNavBar = self.isHideNavBar;
-    [self.navigationController pushViewController:vc animated:YES];
+    NSDictionary *dic = self.dics[indexPath.row];
+    NSString *url = dic[@"url"];
+    JPWebViewController *webVC = [[JPWebViewController alloc] initWithURLStr:url isHideNavBar:self.isHideNavBar isSuspension:NO];
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 @end

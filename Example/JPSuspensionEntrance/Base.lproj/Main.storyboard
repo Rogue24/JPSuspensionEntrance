@@ -40,7 +40,7 @@
         <scene sceneID="I60-bR-UD7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L5o-re-rp6" customClass="JPNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Example-没导航栏" id="2G3-YJ-F3X"/>
+                    <tabBarItem key="tabBarItem" title="Example-没导航栏" image="jp_icon_tabbar" selectedImage="jp_icon_tabbar" id="2G3-YJ-F3X"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HM1-yQ-iMV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -107,7 +107,7 @@
         <scene sceneID="yYf-2f-6Ha">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dvn-Hn-wyF" customClass="JPNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Example-有导航栏" id="WeZ-Tu-gpC"/>
+                    <tabBarItem key="tabBarItem" title="Example-有导航栏" image="jp_icon_tabbar" selectedImage="jp_icon_tabbar" id="WeZ-Tu-gpC"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="zHT-6R-omP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qpL-2E-DGM">
@@ -124,4 +124,7 @@
             <point key="canvasLocation" x="985" y="752"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="jp_icon_tabbar" width="24" height="24"/>
+    </resources>
 </document>
