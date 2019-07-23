@@ -218,45 +218,33 @@
 - (void)setupSubViews {
     self.view.backgroundColor = UIColor.whiteColor;
     
-    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    // 设置是否将网页内容全部加载到内存后再渲染
-    configuration.suppressesIncrementalRendering = NO;
-    // 设置HTML5视频是否允许网页播放 设置为NO则会使用本地播放器
-    configuration.allowsInlineMediaPlayback = NO;
-    
-    if (@available(iOS 9.0, *)) {
-        // 设置是否允许ariPlay播放
-        configuration.allowsAirPlayForMediaPlayback = YES;
-        // 设置视频是否需要用户手动播放  设置为NO则会允许自动播放
-        configuration.requiresUserActionForMediaPlayback = NO;
-        // 设置是否允许画中画技术 在特定设备上有效
-        configuration.allowsPictureInPictureMediaPlayback = YES;
-    }
-    
     CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
     BOOL isIphoneX = screenH > 736.0;
-    
-//    _suspensionViewWH = 64.0 * scale;
-//    _suspensionLogoMargin = 7.0 * scale;
-//    _suspensionScreenEdgeInsets = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height, 15.0, isIphoneX ? 34.0 : 0, 15.0);
-//    _suspensionScreenEdgeBottomInset = _suspensionScreenEdgeInsets.bottom;
-    
     CGFloat topInset = 44 + (isIphoneX ? 44 : 20);
     CGFloat bottomInset = isIphoneX ? 34.0 : 0;
     CGRect frame = CGRectMake(0, topInset, screenW, screenH - topInset - bottomInset);
+    
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.suppressesIncrementalRendering = NO;
+    configuration.allowsInlineMediaPlayback = NO;
+    if (@available(iOS 9.0, *)) {
+        configuration.allowsAirPlayForMediaPlayback = YES;
+        configuration.requiresUserActionForMediaPlayback = NO;
+        configuration.allowsPictureInPictureMediaPlayback = YES;
+    }
     WKWebView *webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
     webView.allowsBackForwardNavigationGestures = YES;
     webView.navigationDelegate = self;
     webView.scrollView.alwaysBounceVertical = YES;
     webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self.view addSubview:webView];
-    self.webView = webView;
     if (@available(iOS 11.0, *)) {
         webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    [self.view addSubview:webView];
+    self.webView = webView;
     
     UIProgressView *progressView = [[UIProgressView alloc] init];
     progressView.trackTintColor = [UIColor clearColor];
