@@ -138,9 +138,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupNavigationBar];
     [self setupSubViews];
     [self setupWebViewObserver:YES];
+    [self setupNavigationBar];
     [self loadRequest];
 }
 
@@ -218,12 +218,12 @@
 - (void)setupSubViews {
     self.view.backgroundColor = UIColor.whiteColor;
     
-    CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    CGFloat screenW = screenBounds.size.width;
+    CGFloat screenH = screenBounds.size.height;
     BOOL isIphoneX = screenH > 736.0;
     CGFloat topInset = 44 + (isIphoneX ? 44 : 20);
     CGFloat bottomInset = isIphoneX ? 34.0 : 0;
-    CGRect frame = CGRectMake(0, topInset, screenW, screenH - topInset - bottomInset);
     
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     configuration.suppressesIncrementalRendering = NO;
@@ -233,22 +233,23 @@
         configuration.requiresUserActionForMediaPlayback = NO;
         configuration.allowsPictureInPictureMediaPlayback = YES;
     }
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
-    webView.allowsBackForwardNavigationGestures = YES;
-    webView.navigationDelegate = self;
-    webView.scrollView.alwaysBounceVertical = YES;
-    webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:screenBounds configuration:configuration];
     if (@available(iOS 11.0, *)) {
         webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    webView.allowsBackForwardNavigationGestures = YES;
+    webView.navigationDelegate = self;
+    webView.scrollView.alwaysBounceVertical = YES;
+    webView.scrollView.contentInset = UIEdgeInsetsMake(topInset, 0, bottomInset, 0);
+    webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     [self.view addSubview:webView];
     self.webView = webView;
     
     UIProgressView *progressView = [[UIProgressView alloc] init];
     progressView.trackTintColor = [UIColor clearColor];
-    frame = progressView.frame;
+    CGRect frame = progressView.frame;
     frame.origin.y = topInset;
     frame.size.width = screenW;
     progressView.frame = frame;

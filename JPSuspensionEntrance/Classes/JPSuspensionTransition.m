@@ -299,7 +299,6 @@
     // 触发了【setNavigationBarHidden:animated:】之后tabBar也会自动添加一个系统动画，将之移除
     if (self.tabBar) {
         [self.tabBar.layer removeAllAnimations];
-        self.tabBar.transform = CGAffineTransformIdentity;
         CGRect tabBarFrame = self.tabBar.frame;
         tabBarFrame.origin.x = 0;
         self.tabBar.frame = tabBarFrame;

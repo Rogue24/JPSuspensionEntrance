@@ -10,6 +10,8 @@
 		1A03100422E5F55900C5D25A /* JPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41806620D36D2800C4118D /* JPTableViewController.m */; };
 		1A3200B922E6A6EA00669069 /* JPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3200B722E6A6E900669069 /* JPWebViewController.m */; };
 		1A3200BC22E6F7FF00669069 /* UIView+JPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3200BB22E6F7FF00669069 /* UIView+JPExtension.m */; };
+		1A3200C422E7E6E400669069 /* UIColor+JPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3200C322E7E6E400669069 /* UIColor+JPExtension.m */; };
+		1A3200C722E83E7300669069 /* UITabBar+JPExtensionn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3200C622E83E7300669069 /* UITabBar+JPExtensionn.m */; };
 		1AAE091F20D8FAF500B5EAC5 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08E220D8FAF500B5EAC5 /* UIImage+WebP.m */; };
 		1AAE092020D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08E320D8FAF500B5EAC5 /* MKAnnotationView+WebCache.m */; };
 		1AAE092120D8FAF500B5EAC5 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE08EA20D8FAF500B5EAC5 /* SDWebImageManager.m */; };
@@ -86,6 +88,10 @@
 		1A3200B822E6A6E900669069 /* JPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPWebViewController.h; sourceTree = "<group>"; };
 		1A3200BA22E6F7FF00669069 /* UIView+JPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JPExtension.h"; sourceTree = "<group>"; };
 		1A3200BB22E6F7FF00669069 /* UIView+JPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JPExtension.m"; sourceTree = "<group>"; };
+		1A3200C222E7E6E400669069 /* UIColor+JPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JPExtension.h"; sourceTree = "<group>"; };
+		1A3200C322E7E6E400669069 /* UIColor+JPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JPExtension.m"; sourceTree = "<group>"; };
+		1A3200C522E83E7300669069 /* UITabBar+JPExtensionn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBar+JPExtensionn.h"; sourceTree = "<group>"; };
+		1A3200C622E83E7300669069 /* UITabBar+JPExtensionn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+JPExtensionn.m"; sourceTree = "<group>"; };
 		1A41806220D36D2800C4118D /* JPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTableViewController.h; sourceTree = "<group>"; };
 		1A41806620D36D2800C4118D /* JPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTableViewController.m; sourceTree = "<group>"; };
 		1AAE08E120D8FAF500B5EAC5 /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAnimatedImageRep.h; sourceTree = "<group>"; };
@@ -334,6 +340,10 @@
 				1A3200B722E6A6E900669069 /* JPWebViewController.m */,
 				1A3200BA22E6F7FF00669069 /* UIView+JPExtension.h */,
 				1A3200BB22E6F7FF00669069 /* UIView+JPExtension.m */,
+				1A3200C222E7E6E400669069 /* UIColor+JPExtension.h */,
+				1A3200C322E7E6E400669069 /* UIColor+JPExtension.m */,
+				1A3200C522E83E7300669069 /* UITabBar+JPExtensionn.h */,
+				1A3200C622E83E7300669069 /* UITabBar+JPExtensionn.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -585,9 +595,11 @@
 				1AAE092720D8FAF500B5EAC5 /* SDWebImageDownloader.m in Sources */,
 				1AAE092E20D8FAF500B5EAC5 /* NSButton+WebCache.m in Sources */,
 				1AAE092120D8FAF500B5EAC5 /* SDWebImageManager.m in Sources */,
+				1A3200C422E7E6E400669069 /* UIColor+JPExtension.m in Sources */,
 				1AAE093A20D8FAF500B5EAC5 /* SDWebImageImageIOCoder.m in Sources */,
 				1AAE093220D8FAF500B5EAC5 /* SDWebImageTransition.m in Sources */,
 				1AAE092920D8FAF500B5EAC5 /* UIImage+MultiFormat.m in Sources */,
+				1A3200C722E83E7300669069 /* UITabBar+JPExtensionn.m in Sources */,
 				1AAE092B20D8FAF500B5EAC5 /* SDWebImageCompat.m in Sources */,
 				1AAE093420D8FAF500B5EAC5 /* UIImageView+WebCache.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
