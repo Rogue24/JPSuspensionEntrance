@@ -23,10 +23,11 @@ OverrideImplementation(Class targetClass, SEL targetSelector, id (^implementatio
 }
 
 + (void)load {
-    // 参考：https://github.com/ChenYilong/CYLTabBarController/issues/312
-    /* 这个问题是 iOS 12.1 Beta 2 的问题，只要 UITabBar 是磨砂的，并且 push viewController 时 hidesBottomBarWhenPushed = YES 则手势返回的时候就会触发。
-     
-     出现这个现象的直接原因是 tabBar 内的按钮 UITabBarButton 被设置了错误的 frame，frame.size 变为 (0, 0) 导致的。如果12.1正式版Apple修复了这个bug可以移除调这段代码(来源于QMUIKit的处理方式)*/
+    /**
+     * 参考：https://github.com/ChenYilong/CYLTabBarController/issues/312
+     * 这个问题是 iOS 12.1 Beta 2 的问题，只要 UITabBar 是磨砂的，并且 push viewController 时 hidesBottomBarWhenPushed = YES 则手势返回的时候就会触发。
+     * 出现这个现象的直接原因是 tabBar 内的按钮 UITabBarButton 被设置了错误的 frame，frame.size 变为 (0, 0) 导致的。如果12.1正式版Apple修复了这个bug可以移除调这段代码（来源于QMUIKit的处理方式）
+     */
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (@available(iOS 12.1, *)) {
