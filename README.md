@@ -178,7 +178,7 @@ dispatch_once(&onceToken, ^{
 
 JPSuspensionEntrance 可通过[CocoaPods](http://cocoapods.org)安装，只需添加下面一行到你的podfile：
 
-```obj
+```ruby
 pod 'JPSuspensionEntrance'
 ```
 
