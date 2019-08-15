@@ -10,18 +10,6 @@
 
 @interface UIView (JPExtension)
 
-@property (nonatomic, assign) CGRect jp_baseFrame;
-
-@property (nonatomic, strong) CAShapeLayer *jp_maskLayer;
-@property (nonatomic, strong) CAShapeLayer *jp_lineLayer;
-
-/** 添加圆角（无边线） */
-- (void)jp_addRoundedCornerWithSize:(CGSize)size radius:(CGFloat)radius maskColor:(UIColor *)maskColor;
-/** 添加圆角 */
-- (void)jp_addRoundedCornerWithSize:(CGSize)size radius:(CGFloat)radius maskColor:(UIColor *)maskColor lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor;
-
-- (void)jp_drawBorderLayerWithBounds:(CGRect)bounds borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor cornerRadius:(CGFloat)cornerRadius;
-
 + (instancetype)jp_viewLoadFromNib;
 
 - (BOOL)jp_isShowingOnKeyWindow;

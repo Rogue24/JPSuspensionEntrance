@@ -10,15 +10,12 @@
 
 @implementation UIViewController (JPExtension)
 
-static const char JP_ApearFrame = '\0';
+static const char JPApearFrameKey = '\0';
 - (void)setJp_apearFrame:(CGRect)jp_apearFrame {
-    [self willChangeValueForKey:@"jp_apearFrame"]; // KVO
-    objc_setAssociatedObject(self, &JP_ApearFrame, @(jp_apearFrame), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self didChangeValueForKey:@"jp_apearFrame"];
+    objc_setAssociatedObject(self, &JPApearFrameKey, @(jp_apearFrame), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 - (CGRect)jp_apearFrame {
-    return [objc_getAssociatedObject(self, &JP_ApearFrame) CGRectValue];
+    return [objc_getAssociatedObject(self, &JPApearFrameKey) CGRectValue];
 }
 
 @end
