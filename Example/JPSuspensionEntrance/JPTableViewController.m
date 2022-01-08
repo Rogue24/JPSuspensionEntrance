@@ -44,8 +44,9 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 - (void)setupBase {
     self.isHideNavBar = isHideNavBar_;
     isHideNavBar_ = !isHideNavBar_;
-    self.title = self.isHideNavBar ? @"Example-没导航栏" : @"Example-有导航栏";
-    self.tableView.backgroundColor = self.isHideNavBar ? UIColor.magentaColor : UIColor.cyanColor;
+    
+    self.title = self.isHideNavBar ? @"Example【没】导航栏" : @"Example【有】导航栏";
+    
     self.dics = @[@{@"title": @"百度",    @"url": @"https://www.baidu.com"},
                   @{@"title": @"游民星空", @"url": @"https://www.gamersky.com"},
                   @{@"title": @"哔哩哔哩", @"url": @"https://www.bilibili.com"},

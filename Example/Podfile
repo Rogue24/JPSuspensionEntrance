@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'JPSuspensionEntrance_Example' do
   pod 'JPSuspensionEntrance', :path => '../'
+  pod 'JPBasic/JPConst'
 
   target 'JPSuspensionEntrance_Tests' do
     

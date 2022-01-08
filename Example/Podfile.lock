@@ -1,16 +1,23 @@
 PODS:
-  - JPSuspensionEntrance (0.2.2)
+  - JPBasic/JPConst (0.1.8)
+  - JPSuspensionEntrance (1.0.1)
 
 DEPENDENCIES:
+  - JPBasic/JPConst
   - JPSuspensionEntrance (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - JPBasic
 
 EXTERNAL SOURCES:
   JPSuspensionEntrance:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JPSuspensionEntrance: 9d3c6946d88edf39479c0cbb7466102f9862aa97
+  JPBasic: 5a0459823fd51d7a02aea924227e971a0d8778b3
+  JPSuspensionEntrance: 4df667eadc37a4b6da254db4e6d2d7b51356be17
 
-PODFILE CHECKSUM: 37d444d3ed0f980202b9e7d78f830bfa6567e490
+PODFILE CHECKSUM: 8e579b642c6cb157ec276a7ace78ea12ad6925df
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.11.2
