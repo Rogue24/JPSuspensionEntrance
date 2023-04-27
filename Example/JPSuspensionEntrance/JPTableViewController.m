@@ -17,7 +17,6 @@
 
 @implementation JPTableViewController
 
-static BOOL isHideNavBar_ = YES;
 static NSString *const JPSuspensionCacheMsgKey = @"JPSuspensionCacheMsgKey";
 static NSString *const JPSuspensionDefaultXKey = @"JPSuspensionDefaultXKey";
 static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
@@ -42,26 +41,22 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
 }
 
 - (void)setupBase {
-    self.isHideNavBar = isHideNavBar_;
-    isHideNavBar_ = !isHideNavBar_;
-    
-    self.title = self.isHideNavBar ? @"Example【没】导航栏" : @"Example【有】导航栏";
-    
+    self.title = @"Example";
+    self.isHideNavBar = YES;
     self.dics = @[@{@"title": @"百度",    @"url": @"https://www.baidu.com"},
                   @{@"title": @"游民星空", @"url": @"https://www.gamersky.com"},
                   @{@"title": @"哔哩哔哩", @"url": @"https://www.bilibili.com"},
-                  @{@"title": @"简书",    @"url": @"https://www.jianshu.com"}];
+                  @{@"title": @"掘金",    @"url": @"https://juejin.cn"}];
 }
 
 - (void)setupTableView {
-    self.navigationController.view.backgroundColor = UIColor.whiteColor;
+    self.navigationController.view.backgroundColor = UIColor.systemBackgroundColor;
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
 }
 
 - (void)setupJPSEInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
         // 是否可以播放提示音
         JPSEInstance.canPlaySound = YES;
         
@@ -85,7 +80,6 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
             [[NSUserDefaults standardUserDefaults] setFloat:suspensionFrame.origin.y forKey:JPSuspensionDefaultYKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         };
-        
     });
 }
 
@@ -102,27 +96,44 @@ static NSString *const JPSuspensionDefaultYKey = @"JPSuspensionDefaultYKey";
     });
 }
 
+- (void)switchIsHideNavBar:(UISwitch *)sw {
+    self.isHideNavBar = sw.isOn;
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    if (!cell) return;
+    cell.textLabel.text = self.isHideNavBar ? @"使用自定义导航栏" : @"使用系统导航栏";
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dics.count;
+    return section == 0 ? self.dics.count : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dic = self.dics[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = UIColor.clearColor;
-    cell.textLabel.text = dic[@"title"];
-    return cell;
+    if (indexPath.section == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+        NSDictionary *dic = self.dics[indexPath.row];
+        cell.textLabel.text = dic[@"title"];
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2" forIndexPath:indexPath];
+        cell.textLabel.text = self.isHideNavBar ? @"使用自定义导航栏" : @"使用系统导航栏";
+        UISwitch *sw = (UISwitch *)[cell.contentView viewWithTag:66];
+        [sw addTarget:self action:@selector(switchIsHideNavBar:) forControlEvents:UIControlEventValueChanged];
+        return cell;
+    }
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section != 0) return;
+    
     NSDictionary *dic = self.dics[indexPath.row];
     NSString *url = dic[@"url"];
     JPWebViewController *webVC = [[JPWebViewController alloc] initWithURLStr:url isHideNavBar:self.isHideNavBar isSuspension:NO];

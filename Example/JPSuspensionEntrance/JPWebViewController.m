@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong) NSURLRequest *request;
 @property (nonatomic, strong) UIImage *logoImage;
+
+@property (nonatomic, assign) BOOL isProgressing;
 @end
 
 @implementation JPWebViewController
@@ -41,13 +43,25 @@
     [self setupNavigationBar];
 }
 
+- (void)setIsProgressing:(BOOL)isProgressing {
+    if (_isProgressing == isProgressing) return;
+    _isProgressing = isProgressing;
+    [UIView animateWithDuration:0.15 animations:^{
+        self.progressView.alpha = isProgressing ? 1 : 0;
+    }];
+}
+
 #pragma mark - getter
 
 - (UIView *)naviBar {
     if (!_naviBar) {
         BOOL isIphoneX = [UIScreen mainScreen].bounds.size.height > 736.0;
         _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, isIphoneX ? 88 : 64)];
-        _naviBar.backgroundColor = UIColor.whiteColor;
+        if (@available(iOS 13.0, *)) {
+            _naviBar.backgroundColor = UIColor.systemBackgroundColor;
+        } else {
+            _naviBar.backgroundColor = UIColor.whiteColor;
+        }
         _naviBar.layer.zPosition = 99;
         CALayer *line = [CALayer layer];
         line.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3].CGColor;
@@ -61,7 +75,11 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.textColor = UIColor.blackColor;
+        if (@available(iOS 13.0, *)) {
+            _titleLabel.textColor = UIColor.labelColor;
+        } else {
+            _titleLabel.textColor = UIColor.blackColor;
+        }
         _titleLabel.font = [UIFont boldSystemFontOfSize:17];
         _titleLabel.text = @"加载中...";
         _titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -142,6 +160,20 @@
     [self setupWebViewObserver:YES];
     [self setupNavigationBar];
     [self loadRequest];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [UIView animateWithDuration:0.15 animations:^{
+        self.progressView.alpha = self.isProgressing ? 1 : 0;
+    }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [UIView animateWithDuration:0.15 animations:^{
+        self.progressView.alpha = 0;
+    }];
 }
 
 - (void)dealloc {
@@ -230,15 +262,11 @@
     configuration.allowsInlineMediaPlayback = NO;
     if (@available(iOS 9.0, *)) {
         configuration.allowsAirPlayForMediaPlayback = YES;
-        configuration.requiresUserActionForMediaPlayback = NO;
+        configuration.mediaTypesRequiringUserActionForPlayback = NO;
         configuration.allowsPictureInPictureMediaPlayback = YES;
     }
     WKWebView *webView = [[WKWebView alloc] initWithFrame:screenBounds configuration:configuration];
-    if (@available(iOS 11.0, *)) {
-        webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     webView.allowsBackForwardNavigationGestures = YES;
     webView.navigationDelegate = self;
     webView.scrollView.alwaysBounceVertical = YES;
@@ -282,8 +310,8 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     self.titleLabel.text = self.webView.title.length ? self.webView.title : @"加载中...";
     self.closeBtn.hidden = !self.webView.canGoBack;
-    self.progressView.progress = self.webView.estimatedProgress;
-    self.progressView.hidden = self.webView.estimatedProgress >= 1;
+    [self.progressView setProgress:self.webView.estimatedProgress animated:YES];
+    self.isProgressing = self.webView.estimatedProgress < 1;
 }
 
 #pragma mark - 事件监听
